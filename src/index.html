@@ -15,51 +15,97 @@
 
     <body>
         
-        <header role='banner'>
+        <header role='banner' id='header'>
             <div class='zone-left-header'>
                 <a href='./' class='home-link'>myForum</a>
             </div>
             <nav role='navigation' id='nav-header'>
                 <button id='btn-close-nav-header' class='btn-close icon-cross'></button>
                 <div class='wrapper-content-nav'>
-                    <div class='content-nav-header'>
-                        <ul class='menu-header'>
-                            <li>
-                                <a href='#'>Qui sommes nous ?</a>
-                            </li><!--
-                            --><li>
-                                <a href='#'>Achat</a>
-                            </li><!--
-                            --><li>
-                                <a href='#'>Partenaires</a>
-                            </li><!--
-                            --><li>
-                                <a href='#'>Matériel</a>
-                            </li><!--
-                            --><li>
-                                <a href='#'>Personnel</a>
-                            </li><!--
-                            --><li>
-                                <a href='#'>Vente</a>
-                            </li>
-                        </ul><ul class='nav-header'>
-                            <li>
-                                <a href='#'><span class='icon-mail'></span><span class='txt-nav'>Contact</span></a>
-                            </li><!--
-                            --><li>
-                                <button id='btn-tools'><span class='icon-bulb'></span><span class='txt-nav'>Paramètres</span></button>
-                            </li><!--
-                            --><li>
-                                <button id='btn-account'><span class='icon-user'></span><span class='txt-nav'>S'identifier</span></button>
-                            </li>
-                        </ul>
-                    </div>
+                    <ul class='menu-header'>
+                        <li>
+                            <a href='#'>Partenaires</a>
+                        </li>
+                        <li>
+                            <a href='#'>Qui sommes nous ?</a>
+                        </li>
+                    </ul><ul class='nav-header'>
+                        <li>
+                            <a href='#'><span class='icon-mail'></span><span class='txt-nav'>Contact</span></a>
+                        </li><!--
+                        --><li>
+                            <button id='btn-tools'><span class='icon-bulb'></span><span class='txt-nav'>Paramètres</span></button>
+                        </li><!--
+                        --><li>
+                            <button id='btn-account'><span class='icon-user'></span><span class='txt-nav'>S'identifier</span></button>
+                        </li>
+                    </ul>
                 </div>
             </nav>
         </header>
 
-        <main role='main'>
+        <a href="#" id="logo">
+            <span id="burger"><span></span><span></span><span></span></span>
+        </a>
+        <button id="btn-close-header-responsive" class="btn-close icon-cross"></button>
 
+        <main role='main'>
+            <header class='container'>
+                <div class='header-home'>
+                    <p class='above-title'>Créateurs, repreneurs, franchisés...</p>
+                    <h1>Nous transformons le parcours du combattant en parcours de santé</h1>
+                    <p>Avoir la bonne idée, le bon emplacement, le financement… <br>
+                    Avant ces questions, <strong>le critère le plus important : c’est vous !</strong> <br>
+                    <strong>Alors : êtes-vous la bonne personne pour votre projet ?</strong></p>
+                    <a href='#' class='btn'>Commencer le quizz</a>
+                </div>
+            </header>
+                
+            <div class='banner-advice'>
+                <div class='container'>
+                    <div class='banner-nb'>
+                        <strong><span>8447</span> annonces</strong>
+                        <a href='#'>Acheter</a>
+                        <a href='#'>Vendre</a>
+                    </div>
+
+                    <div class='banner-nb'>
+                        <strong><span>653</span> professionnels</strong>
+                        <a href='#'>Rechercher</a>
+                        <a href='#'>Rejoindre</a>
+                    </div>
+
+                    <div class='advice'>
+                        <b>Le conseil de Céline</b>
+                        <p>Nous vous invitons à répondre aux questions du Quizz pour mener à bien votre projet. 
+                        Vous retrouverez votre fiche de synthèse projet dans votre <a href='#'>espace myforum</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class='container content-home'>
+                <div>
+                    <h2>Témoignages</h2>
+                    <blockquote class='card'>
+                        <cite>Cécile G., Gérante</cite>
+                        Je voulais une dernière fois vous remercier pour votre écoute et votre efficacité dans ce dossier. Je ne manquerai pas de diffuser des retours plus que positifs vous concernant. 
+                    </blockquote>
+                    <blockquote class='card'>
+                        <cite>David B., Boulanger</cite>
+                        J’ai trouvé mon expert comptable et mon fond de commerce grâce à my-forum. J'ai été très satisfait de votre intervention. Aussi je ne manquerai pas de dire du bien de vous. 
+                    </blockquote>
+                </div>
+
+                <div>
+                    <h2>Partenaire</h2>
+                    <div class='card'>
+                        <span class='card-title'>Focus partenaire</span>
+                        <h3>Strego</h3>
+                        <p>STREGO, entreprise de conseil, apporte des solutions comptables, sociales, fiscales, de gestion et d’audit mais aussi des services étendus, adaptés aux différentes problématiques de l’entreprise et de son dirigeant.</p>
+                        <p>Avec un réseau de 50 bureaux présents sur le Grand Ouest et Paris, et fort de 1000 collaborateurs comptables, experts comptables et commissaires aux comptes, STREGO crée de la valeur avec ses équipes, ses partenaires et ses 20000 clients.</p>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <footer id='footer' role='contentinfo'>
@@ -86,7 +132,7 @@
                                     </address>
                                 </div><!--
                                 --><div class='content-align-middle wrapper-contact center-align'>
-                                    <a href='#' class='btn-block big'><span class='border'></span><span class='txt-btn'>Contactez nous</span></a>
+                                    <a href='#' class='btn-small'>Contactez nous</a>
                                 </div>
                             </div>
                         </li><!--
@@ -127,7 +173,7 @@
                                             <div class='wrapper-input'>
                                                 <input type='text' id='name' name='name' placeholder='Nom' required>
                                             </div>
-                                            <button type='submit' class='btn-block'><span class='border'></span><span class='txt-btn'>Ok</span></button>
+                                            <button type='submit' class='btn-small'>Ok</button>
                                         </fieldset>
                                     </form>
                                 </li>

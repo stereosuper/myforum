@@ -1,1 +1,21 @@
 /* Buttons */
+
+.btn, .btn-small{
+    display: inline-block;
+    font-family: $roboto-cd;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn{
+    padding: 19px 25px 17px;
+    background: $bleu-link;
+}
+
+.btn-small{
+    padding: 17px 25px;
+    font-size: 0.75em;
+    background: $theme-btn;
+}

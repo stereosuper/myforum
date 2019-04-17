@@ -13,7 +13,7 @@
 
 html{
     font-size: 62.5%; /* sets the base font to 10px for easier math */
-    background-color: $gris-bg;
+    background: $gris-bg;
     color: $txt;
     min-height: 100%;
     position: relative;
@@ -27,97 +27,24 @@ body{
     font-family: $roboto;
     font-size: 1.6em;
     line-height: 1;
-    height:100%;
+    height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6{
     font-family: $roboto-cd-bold;
     font-size: 2.5em;
-    &.no-margin{
-        margin: 0;
-    }
-    &.padding-grid{
-        padding: 0 118px;
-    }
+    font-weight: 400;
 }
 
 h1{
-  margin: 0.13em 0 0.85em;
-  padding: 0 $gutter;
-  .cercle &{
-      margin-bottom: 0.3em;
-      color: $blanc;
-      +p{
-        margin-top: 0;
-        color: $blanc;
-        .home-cercle &{
-            margin-top: 1.55em;
-        }
-      }
-      .home-cercle &{
-        margin-bottom: 0.85em;
-      }
-  }
-  &.big{
-      font-size: 4.063em;
-      text-align: center;
-      padding: 0;
-  }
-}
-
-.h1{
-    font-family: $roboto-cd-bold;
-    font-size: 2.5em;
-    color: $txt;
-    line-height: 1;
+    font-size: 4.3rem;
+    margin: 0 0 0.65em;
+    color: $theme-rouge-txt;
 }
 
 h2{
-    line-height: 1.5;
-    margin: 1.55em 0;
-    padding: 0;
-    font-family: $roboto;
-    font-size: 1em;
-    &.h1{
-        font-family: $roboto-cd-bold;
-        font-size: 2.5em;
-        color: $txt;
-        line-height: 1;
-        .content-tabs &{
-            font-family: $roboto-cd-bold;
-            font-size: 2.5em;
-            color: $txt;
-            line-height: 1;
-        }
-    }
-    &.inline-b{
-        padding-right: 10px;
-    }
-    &.title-simple-big{
-        padding: 0;
-        color: $txt;
-    }
-    #main:not(.seo-style) .content-default &, .content-tabs &{
-        font-family: $roboto-cd-bold;;
-        font-size: 1.25em;
-        padding: 2em 0 0.5em;
-        margin: 0 0 1em;
-        color: $theme-rouge-title;
-    }
-}
-
-.title-zone{
-    font-family: $roboto-cd-bold;
-    font-size: 2.5em;
-    &.padding-grid{
-        padding: 0 118px;
-    }
-    &.inline-b{
-        padding-right: 10px;
-    }
-    &.small{
-        font-size: 1.25em;
-    }
+    margin: 2em 0 1em;
+    font-size: 4rem;
 }
 
 h3{
@@ -125,40 +52,19 @@ h3{
     padding: 2em 0 0.5em;
     margin: 0 0 1em;
     color: $theme-rouge-title;
-    &.h3{
-        padding: 0;
-    }
-    &.h2{
-        font-size: 1.25em;
-        margin: 0;
-    }
-    &.small{
-        font-family: $roboto;
-        font-size: 1em;
-        color: $txt;
-    }
-    #main:not(.seo-style) .content-default &{
-        font-size: 1em;
-        padding: 1.5em 0 0.5em;
-    }
 }
 
-h4, .h4{
+h4{
     font-size: 1.1em;
     margin: 0 0 7px 0;
     text-transform: uppercase;
     letter-spacing: 1px;
-    &.small{
-        font-size: 0.875em;
-        margin: 0;
-    }
 }
 
 h5{
     font-size: 1.25em;
     line-height: 1em;
     margin: 5px 0 2px 0;
-    padding: 0;
 }
 
 h6{
@@ -169,46 +75,20 @@ h6{
 p{
     margin: 1.55em 0;
     line-height: 1.5;
-    &.small{
-        font-size: 0.875em;
-    }
-    &:first-of-type{
-        #main:not(.seo-style) .content-default &{
-            font-family: $roboto-medium-it;
-        }
-    }
-}
-
-h2, h3, h4{
-    #main:not(.seo-style) .content-default &{
-        & + p{
-            &:first-of-type{
-                font-family: $roboto;
-            }
-        }
-    }
 }
 
 b, strong{
     font-family: $roboto-bold;
-    font-size: 1em;
-    &.block{
-        display: block;
-        margin: 0 0 10px 0;
-    }
 }
 
 i, em{
     font-family: $roboto-it;
-    font-size: 1em;
     font-style: normal;
     strong{
         font-family: $roboto-medium-it;
-        font-size: 1em;
     }
-    b, strong{
+    b{
         font-family: $roboto-cd-bold-it;
-        font-size: 1em;
     }
 }
 
@@ -224,6 +104,16 @@ blockquote{
         left: -20px;
         font-size: 35px;
         color: #ef792d;
+    }
+    cite{
+        display: block;
+        margin: 0 0 5px;
+        text-transform: uppercase;
+        font-family: $roboto-cd-bold;
+        font-size: 1.2rem;
+        letter-spacing: 1.2px;
+        font-style: normal;
+        color: $orange;
     }
 }
 
@@ -266,22 +156,16 @@ ol{
 img{
     max-width: 100%;
     height: auto;
-    .content-default &:not(.no-float) {
-        float: left;
-        padding: 30px 32px 20px 0;
-    }
 }
 
 address{
     font-style: normal;
     margin: 25px 0 0;
     ul{
-        display: block;
         margin: 0;
         padding: 0;
         line-height: normal;
         > li{
-            display: block;
             margin: 6px 0;
             padding: 0;
             font-size: 0.875em;
@@ -296,14 +180,7 @@ address{
     }
 }
 
-.mega-huge{
-    font-size: 141px;
-    font-family: $roboto-cd-bold;
-}
-.super-huge{
-    font-size: 100px;
-    font-family: $roboto-cd-bold;
-}
+
 /******* LIENS / BOUTONS *******/
 
 a, button{
@@ -385,40 +262,6 @@ a, button{
     overflow: hidden;
 }
 
-.content-footer{
-    position: relative;
-    margin: 50px 0 0;
-    overflow: hidden;
-    background: #eaecf1;
-    clear: both;
-    p{
-        padding: 20px 0;
-        margin: 0;
-        font-size: 0.88em;
-        .btn-arrow{
-            margin: 0 0 0 2px;
-        }
-    }
-    .social-right{
-        p{
-            width: auto;
-        }
-        li{
-            width: 61px;
-            height: 61px;
-        }
-        a{
-            line-height: 61px;
-        }
-    }
-    &.has-social{
-        p{
-            display: inline-block;
-            max-width: 460px;
-        }
-    }
-}
-
 .img-fit{
     &.compat-object-fit {
         background-size: cover;
@@ -429,81 +272,6 @@ a, button{
     }
 }
 
-.condensed-text{
-    font-size: 0.88em;
-    p{
-        margin-bottom: 0;
-        + ul{
-            margin-top: 0;
-        }
-    }
-    // ul{
-    //     @extend %list-small;
-    // }
-}
-
-.uppercase{
-    font-family: $roboto-cd-bold;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #e5600f;
-}
-
-.notif{
-    padding: 3px 4px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 1.2rem;
-    line-height: 0.8;
-    background: $theme-btn;
-    color: #fff;
-    &.orange{
-        background: #f18832;
-    }
-}
-
-.title-grey, .title-grey-small{
-    font-family: $roboto-cd-bold;
-    font-size: 1.5em;
-    color: #566282;
-}
-.title-grey-small{
-    display: inline-block;
-    padding: 0;
-    margin: 5px 10px 5px 0;
-    font-size: 1.25em;
-}
-
-.title-simple, .title-simple-big{
-    margin: 0;
-    font-family: $roboto-cd-bold;
-    font-size: 1.25em;
-    line-height: 1.2;
-}
-.title-simple-big{
-    font-size: 1.75em;
-}
-
-.title-simple-med {
-    font-size: 1.5em;
-    letter-spacing: 0;
-}
-.text-grey{
-    color: #a1a3a7;
-}
-
-.table {
-    display: table;
-}
-
-.content-tab-layout {
-    display:table-cell;
-    vertical-align: top;
-}
-
-.red-dot {
-    margin:auto 5px;
-    display:inline-block;
-    color: $theme-rouge-title;
+.above-title{
+    margin-bottom: 0;
 }

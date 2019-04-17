@@ -1,1 +1,49 @@
 /* Home specific style */
+
+.header-home{
+    width: 39%;
+    padding: 60px 0 120px;
+}
+
+.banner-advice{
+    padding: 25px 0;
+    background: #fff;
+    > .container{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.banner-nb{
+    min-width: 18%;
+    a, span, strong{
+        display: block;
+    }
+    strong{
+        margin: 0 0 30px;
+        font-family: $roboto-cd-bold;
+        font-size: 2rem;
+    }
+    span{
+        font-size: 4rem;
+        color: $theme-rouge-txt;
+    }
+}
+
+.advice{
+    padding: 35px 45px;
+    background: #FCF9EB;
+    p{
+        margin: 10px 0 0;
+    }
+    b{
+        font-family: $roboto-cd-bold;
+        font-size: 2rem;
+    }
+}
+
+.content-home{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 150px;
+}

@@ -1,0 +1,16 @@
+.card{
+    padding: 30px 45px 50px 85px;
+    border: 1px solid #E4E4E4;
+    background: #fff;
+}
+
+.card-title{
+    display: block;
+    margin: 0 0 5px;
+    text-transform: uppercase;
+    font-family: $roboto-cd-bold;
+    font-size: 1.2rem;
+    letter-spacing: 1.2px;
+    font-style: normal;
+    color: $orange;
+}
