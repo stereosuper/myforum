@@ -1,0 +1,72 @@
+// Variables //
+
+// Colors
+
+$blanc: rgb(255, 255, 255);
+$noir: rgb(0, 0, 0);
+$gris-bg: rgb(245, 245, 246);
+$gris: rgb(218, 218, 218);
+$theme-rouge-txt: rgb(181, 45, 54);
+$theme-rouge-title: rgb(223, 84, 65);
+$txt: rgb(40, 44, 52);
+$bleu-link: rgb(115, 146, 218);
+$theme-btn: rgb(198, 51, 62);
+$theme-btn-light: rgb(222, 83, 64);
+$orange: rgb(255, 137, 37);
+$orange-btn: rgb(241, 136, 50);
+$yellow: #f18832;
+$deep-blue: rgb(94, 98, 110);
+
+$theme-gradient-1: rgb(197, 45, 56);
+$theme-gradient-2: rgb(214, 63, 57);
+$theme-gradient-3: rgb(222, 83, 64);
+$theme-gradient-4: rgb(232, 93, 31);
+$theme-gradient-5: rgb(232, 116, 31);
+$theme-gradient-6: rgb(232, 145, 31);
+
+$theme2-gradient-1: rgb(211, 46, 30);
+$theme2-gradient-2: rgb(226, 67, 24);
+$theme2-gradient-3: rgb(235, 92, 30);
+$theme2-gradient-4: rgb(241, 104, 30);
+$theme2-gradient-5: rgb(242, 130, 30);
+$theme2-grey: rgb(82, 87, 103);
+
+$error: #ff0000;
+$valid: #76a626;
+
+$black-less-masking: rgba(0,0,0,0.3);
+$black-masking: rgba(0,0,0,0.7);
+$black-more-masking: rgba(0,0,0,0.8);
+
+// Transition delay list
+$tps-transition-delay: 0.3s;
+
+
+// Grid
+
+$gutter: 60px;
+
+
+// Transitions
+
+$transition: 0.3s ease-in-out;
+
+
+// Fonts
+
+$roboto: 'robotoregular', sans-serif;
+$roboto-it: 'robotoitalic', $roboto;
+$roboto-medium: 'robotomedium', $roboto;
+$roboto-medium-it: 'robotomedium_italic', $roboto-it;
+$roboto-bold: 'robotobold', $roboto-medium;
+$roboto-cd-bold: 'roboto_condensedbold', $roboto-bold;
+$roboto-cd-bold-it: 'roboto_condensedbold_italic', $roboto-it;
+$roboto-cd: 'roboto_condensedregular', $roboto;
+$roboto-cd-it: 'roboto_condensedregular_italic', $roboto-it;
+
+// Background Cercle My Forum
+
+$backgroundCercle: #b2232e url('../layoutImg/bgCercle.png') fixed no-repeat 55% 0;
+$backgroundCercleHome: #b2232e url('../layoutImg/bgCercleHome.jpg') fixed no-repeat 95% 63%;
+
+
