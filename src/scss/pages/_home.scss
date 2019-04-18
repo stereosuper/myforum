@@ -4,13 +4,14 @@
     position: relative;
     > img{
         position: absolute;
-        top: 0;
+        bottom: -5%;
         right: -100px;
     }
 }
 
 .header-home{
     width: 39%;
+    min-width: 450px;
     padding: 60px 0 120px;
     position: relative;
     z-index: 1;
@@ -109,5 +110,66 @@
     margin-bottom: 150px;
     > div{
         width: 45%;
+    }
+}
+
+
+@media (max-width: $desktop-big){
+    .header-home-container{
+        > img{
+            bottom: -10%;
+        }
+    }
+
+    .content-home{
+        display: block;
+        > div{
+            width: 100%;
+        }
+        .card{
+            margin-left: 40px;
+            &.padding-big{
+                padding-bottom: 35px;
+            }
+        }
+    }
+}
+
+@media (max-width: $desktop){
+    .header-home-container{
+        > img{
+            right: -20%;
+        }
+    }
+
+    .banner-advice{
+        > .container{
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+    }
+
+    .banner-nb{
+        min-width: 0;
+    }
+
+    .advice{
+        width: 100%;
+        margin: 50px 0 0;
+    }
+}
+
+@media (max-width: $tablet){
+    .header-home-container{
+        > img{
+            position: static;
+        }
+    }
+
+    .header-home{
+        width: 100%;
+        min-width: 0;
+        padding-top: 30px;
+        padding-bottom: 0;
     }
 }

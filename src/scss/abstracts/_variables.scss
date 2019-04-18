@@ -34,10 +34,6 @@ $theme2-grey: rgb(82, 87, 103);
 $error: #ff0000;
 $valid: #76a626;
 
-$black-less-masking: rgba(0,0,0,0.3);
-$black-masking: rgba(0,0,0,0.7);
-$black-more-masking: rgba(0,0,0,0.8);
-
 // Transition delay list
 $tps-transition-delay: 0.3s;
 
@@ -64,9 +60,9 @@ $roboto-cd-bold-it: 'roboto_condensedbold_italic', $roboto-it;
 $roboto-cd: 'roboto_condensedregular', $roboto;
 $roboto-cd-it: 'roboto_condensedregular_italic', $roboto-it;
 
-// Background Cercle My Forum
 
-$backgroundCercle: #b2232e url('../layoutImg/bgCercle.png') fixed no-repeat 55% 0;
-$backgroundCercleHome: #b2232e url('../layoutImg/bgCercleHome.jpg') fixed no-repeat 95% 63%;
+// Mediaqueries
 
-
+$desktop-big: 1260px;
+$desktop: 960px;
+$tablet: 780px;
