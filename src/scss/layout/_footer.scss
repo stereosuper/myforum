@@ -152,7 +152,7 @@
 }
 .menu-footer{
 	margin: 0;
-	padding: 0;
+	padding: 0 160px 0 18px;
 	line-height: 1.1em;
 	> li{
 		display: inline-block;
@@ -161,11 +161,6 @@
 		padding: 0;
 		&:before{
 			display: none;
-		}
-		&:first-child{
-			a{
-				padding-left: 0;
-			}
 		}
 	}
 	a{

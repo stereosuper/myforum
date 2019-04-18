@@ -2,11 +2,40 @@
 
 .btn, .btn-small{
     display: inline-block;
+    position: relative;
+    z-index: 1;
     font-family: $roboto-cd;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #fff;
     text-decoration: none;
+    &:after, &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        transition: $transition;
+    }
+    &:before{
+        background: #fff;
+        transform: scaleX(0);
+        transform-origin: 0 0;
+    }
+    &:after{
+        border: 2px solid;
+        opacity: 0;
+    }
+    &:hover, &:focus{
+        &:before{
+            transform: scaleX(1);
+        }
+        &:after{
+            opacity: 1;
+        }
+    }
 }
 
 .btn{
@@ -14,6 +43,12 @@
     align-items: center;
     padding: 19px 25px 17px;
     background: $bleu-link;
+    &:after{
+        border-color: $bleu-link;
+    }
+    &:hover, &:focus{
+        color: $bleu-link;
+    }
     .icon{
         margin: 0 0 0 5px;
     }
@@ -31,6 +66,12 @@
     padding: 17px 25px;
     font-size: 0.75em;
     background: $theme-btn;
+    &:after{
+        border-color: $theme-btn;
+    }
+    &:hover, &:focus{
+        color: $theme-btn;
+    }
 }
 
 .link{

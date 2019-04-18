@@ -65,9 +65,6 @@ fieldset{
             float: left;
             margin-right: 0;
         }
-        /*.select{
-            width: 275px;
-        }*/
         .form-half &{
             .label-select{
                 width: 36.99%;
@@ -255,6 +252,32 @@ input, textarea, select{
 }
 
 input, textarea{
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #ebebeb;
+    font-size: 16px;
+    line-height: 1;
+    outline: 1px solid #dadada;
+    background: none;
+    color: inherit;
+    &:not([disabled]):hover{
+        border-color: mix(white, #ebebeb, 20%);
+        outline: 1px solid mix(white, #ebebeb, 20%);
+        &:focus{
+            border-color: $bleu-link;
+            outline: 1px solid $bleu-link;
+            outline-offset: 0;
+        }
+    }
+    &:focus{
+        border-color: $bleu-link;
+        outline: 1px solid $bleu-link;
+        outline-offset: 0;
+    }
+    .error &{
+        border-color: $error;
+        outline: 1px solid $error;
+    }
     transition: $transition;
   	&:-webkit-autofill{
       	box-shadow: 0 0 0 1000px rgb(255, 255, 255) inset;
@@ -275,8 +298,6 @@ input{
         max-width: 180px;
     }
 	&[type=text], &[type=email], &[type=tel], &[type=password], &[type=number]{
-		//@extend %input;
-
 		vertical-align: middle;
 	}
     &[type=text]{
@@ -551,8 +572,6 @@ input{
 }
 
 textarea{
-    //@extend %input;
-
     max-width: 370px;
     height: 125px;
     line-height: 1.5;
@@ -656,7 +675,7 @@ button{
 /* Newsletter */
 
 .form-newsletter{
-    fieldset{
+    div{
         margin: 10px 0;
     }
     input{
@@ -674,19 +693,12 @@ button{
 }
 
 .wrapper-input-btn{
-	position: relative;
-	.wrapper-input{
-		padding: 0 53px 0 0;
-        &.big{
-            padding: 0 60px 0 0;
-        }
-        input[type=password]{
-            max-width: none;
-        }
-        button{
-            margin-top: -1px;
-        }
-	}
+    display: flex;
+    justify-content: space-between;
+    .btn-small{
+        padding: 9px 13px;
+        margin: 0 0 0 10px;
+    }
 }
 
 
@@ -724,274 +736,4 @@ button{
         font-size: 0.85em;
         padding: 10px;
     }
-}
-
-
-/* Map form */
-
-.map-container{
-    display: inline-block;
-    width: 40%;
-    padding: 0 0 43%;
-    position: relative;
-    margin: 0 0 0 8%;
-    .btn-metropole{
-        position: relative;
-        opacity: 0;
-        z-index: 0;
-        &.active{
-            z-index: 2;
-            opacity: 1;
-        }
-    }
-    .no-js &{
-        display: none;
-    }
-}
-.map-form{
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    .department, .country{
-        stroke-linecap: round;
-        stroke-linejoin: round;
-    }
-    .country{
-        fill: none;
-        stroke: #93939a;
-        stroke-width: 0.12px;
-    }
-    .department, .country-select{
-        fill: #fff;
-        cursor: pointer;
-        transition: $transition;
-        &:hover{
-            fill: $bleu-link;
-        }
-        &.active{
-            fill: $theme-btn;
-        }
-    }
-    .department{
-        stroke: $bleu-link;
-        stroke-width: 0.05px;
-        &.adjacent{
-            fill: #ef8630;
-            &:hover{
-                fill: $bleu-link;
-            }
-        }
-    }
-    &-extra{
-        top: 50px;
-        font-size: 0.88em;
-        transform: translateX(100%);
-        opacity: 0;
-        .department{
-            stroke: #93939a;
-            stroke-width: 0.12px;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            margin: auto;
-        }
-        > div{
-            display: inline-block;
-            width: 50%;
-            padding: 0 0 0 23%;
-            position: relative;
-            margin: 2.2em 0;
-            &.small{
-                width: 42%;
-                padding: 0 0 0 17%;
-                margin: 0 0 0 8%;
-            }
-            &.tiny{
-                .department{
-                    left: 6%;
-                }
-            }
-        }
-        b{
-            font-family: $roboto-cd-bold;
-        }
-    }
-    &-dom{
-        > div{
-            padding: 2.2em 0 2.2em 21%;
-            margin: 0;
-            &.small{
-                width: 43%;
-                margin: 0 0 0 7%;
-                padding: 2.2em 0 2.2em 19%;
-            }
-        }
-    }
-}
-
-.map-btn{
-    max-width: 65px;
-    position: absolute;
-    top: 220px;
-    left: 0;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 0;
-    transition: $transition;
-    a{
-        display: inline-block;
-        margin-bottom: 5px;
-    }
-    &.active{
-        z-index: 2;
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
-.searchform{
-    .tab-content-title{
-        width: 45%;
-        padding-top: 0;
-        float: left;
-    }
-    .form-half{
-        width: 45%;
-        float: left;
-        clear: left;
-        .label-select{
-            width: 25%;
-            &.small{
-                width: 9%;
-            }
-        }
-        fieldset.block-right {
-            margin-left: 24.93%;
-        }
-        .select{
-            width: 70%;
-            &.small{
-                width: 31%;
-            }
-        }
-        button{
-            margin-left: 0;
-        }
-        .btn-arrow{
-            position: relative;
-            bottom: auto;
-            float: right;
-            margin: 40px 0 0 0;
-            transform: translateX(20px);
-        }
-    }
-    .map-container{
-        margin: 0 0 0 15%;
-    }
-}
-
-#map-canvas{
-    height: 200px;
-    width: calc(100% - 195px);
-    margin-left: 195px;
-    border: 1px solid $gris-bg;
-    outline: 1px solid $gris;
- }
-.geolocalisation-container{
-    position: relative;
-    width: calc(100% - 195px);
-    display: inline-block;
-    input[type="text"]{
-        max-width: 100%;
-        padding-right: 34px;
-    }
-    i{
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: $gris;
-    }
-}
-
- /* form inscription */
-
- #message {
-    resize: none;
- }
- .objet {
-    margin-left: -4px;
-    width: 24%;
- }
-
-.gutter-left{
-    padding-left: $gutter;
-}
-
-/* form log vente */
-
-.content-tabs-sale {
-    .content-sale-log, .content-sale-paiement {
-        padding: 20px 60px 50px;
-        overflow: hidden;
-        background: #fff;
-        position: relative;
-        margin: 0 1px 1px 1px;
-        border-bottom: 1px solid #dadada;
-        .align-top {
-            vertical-align: top;
-        }
-    }
-}
-.sale-form {
-    fieldset{
-        .block-right{
-            margin-top: 35px;
-        }
-        .block-pwd{
-            margin-top: 18px;
-        }
-        input{
-            &.bigger{
-                max-width: 400px;
-            }
-        }
-    }
-}
-
-/* form annonce vente */
-
-.sale-announce-form {
-    .select{
-        width: 250px;
-    }
-
-    fieldset{
-        select{
-            max-width: 250px;
-        }
-        textarea{
-            resize: none;
-            max-width: 595px;
-            height: 170px;
-        }
-    }
-    .btn-block {
-        background: #ef6a2b;
-        margin: 23px 0 20px 195px;
-    }
-}
-
-.orange-txt{
-    font-family: $roboto-cd-bold;
-    color: #ee5f20;
-}
-.has-border{
-    border: 1px solid #ef6a2b;
-    margin: 0 5px;
-    padding: 1px 2px;
-    background-color: #fff;
 }
