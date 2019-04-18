@@ -43,6 +43,7 @@ h1{
 }
 
 h2{
+    padding: 0 65px;
     margin: 2em 0 1em;
     font-size: 4rem;
 }
@@ -97,6 +98,7 @@ blockquote{
     margin: 1em 40px;
     font-family: $roboto-it;
     font-size: 1.2em;
+    line-height: 1.25;
     &:before{
         content: '"';
         position: absolute;
@@ -197,14 +199,14 @@ a, button{
     }
 }
 
-.link{
-    color: $bleu-link;
-    text-decoration: underline;
-    transition: $transition;
-}
-
 
 /******* CLASSES GENERALES  *******/
+
+.icon{
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+}
 
 .hidden{
     display: none !important;

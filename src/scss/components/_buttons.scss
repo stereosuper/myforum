@@ -10,12 +10,40 @@
 }
 
 .btn{
+    display: inline-flex;
+    align-items: center;
     padding: 19px 25px 17px;
     background: $bleu-link;
+    .icon{
+        margin: 0 0 0 5px;
+    }
+    .icon-quizz{
+        width: 4em;
+        height: 1.5em;
+    }
+    .icon-arrow{
+        width: 0.6em;
+        height: 0.6em;
+    }
 }
 
 .btn-small{
     padding: 17px 25px;
     font-size: 0.75em;
     background: $theme-btn;
+}
+
+.link{
+    display: inline-flex;
+    align-items: center;
+    font-family: $roboto-cd-bold;
+    font-size: 1.3rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    .icon{
+        width: 0.6em;
+        height: 0.6em;
+        margin: 0 0 0 5px;
+    }
 }

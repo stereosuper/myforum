@@ -2,7 +2,7 @@
 
 #header{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 	height: 58px;
 	background: $blanc;
 	.btn-close{
@@ -79,16 +79,6 @@
   		   transform: translateX(0);
   		}
   	}
-  	&:after{
-  		content: '';
-  		display: block;
-  		width: 100%;
-  		height: 100%;
-  		position: absolute;
-  		top: 0;
-  		left: 0;
-  		//background: url('../img/logo.png') no-repeat 16px 9px;
-  	}
   	.rect-logo{
   		position: absolute;
   		&:nth-child(1){
@@ -119,33 +109,26 @@
   	}
   	.sidebar-links-open &, .nav-header-open &{
 		transform: translateX(12px);
-  	}
+    }
+    img{
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+    }
 }
-.home-link{
-	display: inline-block;
-	vertical-align: middle;
-	padding: 21px 0 0 165px;
-	font-family: $roboto-cd-bold;
-	font-size: 1em;
-	text-transform: uppercase;
-	text-decoration: none;
-	color: rgb(198, 54, 67);
-	// &:after{
-	// 	@include font-icon;
-	// 	content: '\e911';
-	// 	font-size: 14px;
-	// 	display: inline-block;
-	// 	vertical-align: top;
-	// 	padding: 0 0 0 3px;
-	// 	opacity: 0;
-  //       transition: opacity $transition;
-	// }
-	// &:hover{
-	// 	&:after{
-	// 		opacity: 1;
-	// 	}
-	// }
-}
+// .home-link{
+// 	display: inline-block;
+// 	vertical-align: middle;
+// 	padding: 21px 0 0 165px;
+// 	font-family: $roboto-cd-bold;
+// 	font-size: 1em;
+// 	text-transform: uppercase;
+// 	text-decoration: none;
+// 	color: rgb(198, 54, 67);
+// }
 
 .wrapper-content-nav{
     display: flex;
@@ -274,7 +257,7 @@
 	margin: 0;
 	padding: 0;
 	> li{
-		width: 58px;
+		width: 60px;
 		height: 58px;
 		margin: 0;
 		padding: 0;
@@ -311,39 +294,30 @@
 		font-size: 0.875em;
 		position: relative;
 		z-index: 1;
-		&:after{
-			content: '';
-			//@include shadow-button;
-		}
-		span{
+		.icon{
 			transform: translate3d(0, 0, 0);
 			transition: transform $transition;
-		}
-		.icon-mail, .icon-bulb, .icon-user{
-			display: inline-block;
-			vertical-align: middle;
-			line-height: 58px;
-		}
-		.icon-mail{
-			font-size: 15px;
-		}
-		.icon-bulb{
-			font-size: 21px;
-		}
-		.icon-user{
-			font-size: 17px;
-		}
+        }
+        .icon-quizz{
+            width: 45px;
+            height: 19px;
+        }
+        .icon-mail{
+            width: 25px;
+            height: 19px;
+        }
+        .icon-user{
+            width: 24px;
+            height: 21px;
+        }
 		.txt-nav{
 			display: block;
 			text-indent: -9999px;
 			height: 0;
 		}
 		&:hover, &:focus{
-			span{
-				transform: translate3d(0, 0, 0) scale(1.2);
-			}
-			&:after{
-				opacity: 1;
+			.icon{
+				transform: translate3d(0, 0, 0) scale(1.1);
 			}
 		}
 	}
