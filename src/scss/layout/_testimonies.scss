@@ -1,0 +1,24 @@
+.content-testimonies{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 150px;
+    > div{
+        width: 45%;
+    }
+}
+
+
+@media (max-width: $desktop-big){
+    .content-testimonies{
+        display: block;
+        > div{
+            width: 100%;
+        }
+        .card{
+            margin-left: 40px;
+            &.padding-big{
+                padding-bottom: 35px;
+            }
+        }
+    }
+}
