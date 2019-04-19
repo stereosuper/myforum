@@ -1,21 +1,5 @@
 /* Forms */
 
-.form-half{
-    display: inline-block;
-    width: 52%;
-    position: relative;
-    vertical-align: top;
-    margin: 25px 0 0;
-    z-index: 1;
-    background: #fff;
-    .btn-arrow{
-        position: absolute;
-        bottom: 25px;
-        right: 0;
-        transform: translateX(35%);
-    }
-}
-
 ::-webkit-input-placeholder{
 	font-family: $roboto-it;
     font-size: 0.88em;
@@ -32,135 +16,92 @@
     color: rgb(139, 139, 139);
 }
 
-fieldset{
-	margin: 0 0 17px;
-    &.footer{
-        margin: 35px 18px;
-    }
-    &.inline-b{
-        vertical-align: baseline;
-        max-width: calc(100% - 195px);
-        &.align-middle{
-            vertical-align: middle;
-            transform: none;
+.form-container{
+    display: flex;
+    width: 75%;
+    margin: 40px 0 35px;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    border-radius: 10px;
+    background: #fff;
+    > div{
+        width: 50%;
+        padding: 35px 30px;
+        &:nth-of-type(1){
+            padding-left: 75px;
         }
-        .has-margin-around{
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-    }
-    &.block-pwd{
-        margin: 35px 0 25px;
-        input{
-            margin-right: 25px;
+        &:nth-of-type(2){
+            padding-top: 72px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            background: #F8F8F8;
         }
     }
-    &.block-grey{
-        padding: 25px;
-        margin: 40px 0 35px;
-        background: #f4f5f8;
-        legend{
-            width: 100%;
-            /* float pour ff + safari qui sinon laisse le legend déborder au-dessus du fieldset */
-            float: left;
-            margin-right: 0;
-        }
-        .form-half &{
-            .label-select{
-                width: 36.99%;
-            }
-            .select{
-                width: 59.91%;
-            }
-        }
+    .btn-form{
+        margin: 25px 0 0 ;
     }
-    &.block-right{
-        margin: 10px 0 10px 195px;
-        &:not(.block-sub-fields){
-            input[type=checkbox]{
-                + label{
-                    margin-left: 12px;
-                }
-            }
-        }
-        .form-half &{
-            margin-left: 37.93%;
-        }
-    }
-    &.block-sub-fields{
-        margin-top: 45px;
-        > div{
-            padding: 15px 0 0 15px;
-            border-left: 4px solid #ebebeb;
-            margin: 10px 0 0 5px;
-            label{
-                width: 130px;
-            }
-            input{
-                &[type=checkbox]{
-                    + label{
-                        width: auto;
-                        margin-left: 70px;
-                    }
-                }
-            }
-        }
-        .form-disabled &{
-            fieldset{
-                margin-bottom: 0;
-            }
-            > div{
-                display: inline-block;
-                width: 100%;
-                padding: 0;
-                border: 0;
-                vertical-align: top;
-                margin: 0 0 0 10px;
-            }
-            input{
-                &[type=checkbox]{
-                    + label{
-                        margin-left: 0;
-                    }
-                }
-                &[type=text]{
-                    padding: 0;
-                }
-            }
-            > input[type=checkbox]{
-                + label{
-                    display: none;
-                }
-            }
-        }
-    }
-    &.block-optionnal-border{
-        margin-top: 35px;
-        &:after{
+}
+.form-title{
+    position: relative;
+    margin: 0 0 1em;
+    font-size: 2.7rem;
+    color: $txt;
+    > span{
+        padding: 6px 2px;
+        position: absolute;
+        top: 0;
+        left: -40px;
+        z-index: 1;
+        font-family: $roboto-cd;
+        font-size: 1.2rem;
+        letter-spacing: -0.11em;
+        color: #fff;
+        &:before{
             content: '';
-            display: block;
-            max-width: 650px;
-            border-bottom: 1px dashed;
-            margin: 3px 0 0;
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: $theme-btn;
+            transform-origin: 50% 50%;
+            transform: rotate(-5deg);
+        }
+        span{
+            font-size: 2rem;
         }
     }
-    .form-half &{
-        margin-bottom: 25px;
-        fieldset{
-            margin-bottom: 0;
-        }
-    }
-    .form-disabled &{
-        margin-bottom: 7px;
+}
+.form-icon{
+    display: inline-block;
+    padding: 4px 8px 5px;
+    background: $bleu-link;
+    color: #fff;
+    > .icon{
+        width: 36px;
+        height: 15px;
     }
 }
 
-legend, label{
+fieldset{
+	margin: 0 0 17px;
+}
+
+legend{
+    font-family: $roboto-bold;
+    margin: 0 0 2em;
+    > span{
+        display: block;
+        font-family: $roboto-it;
+    }
+}
+
+label{
     display: inline-block;
     width: 180px;
     margin: 0 15px 0 0;
     vertical-align: middle;
-    font-size: 0.88em;
     line-height: 1.5;
     letter-spacing: -0.02em;
     &.medium{
@@ -190,15 +131,6 @@ legend, label{
     }
     .error &{
         color: $error;
-    }
-}
-
-legend{
-    margin-bottom: 15px;
-    .block-sub-fields &{
-        /* float pour ff + safari qui sinon laisse le legend déborder au-dessus du fieldset */
-        float: left;
-        margin-left: -195px; /* = margin-left .block-sub-fields */
     }
 }
 
@@ -322,10 +254,6 @@ input{
     &[type=number]{
         max-width: 85px;
         -moz-appearance: textfield; /* to hide the persistent indicator on FF */
-        /*&::-webkit-inner-spin-button, &::-webkit-outer-spin-button{
-            -webkit-appearance: none;
-            margin: 0;
-        }*/
         &.price{
             max-width: 160px;
             + b{
@@ -342,13 +270,6 @@ input{
         vertical-align: top;
         + label{
             width: auto;
-            font-family: $roboto;
-            &:after{
-                display: none;
-            }
-            &:not(.has-margin):not(.has-margin-around){
-                margin-right: 0;
-            }
         }
     }
     &[type=radio]{
@@ -358,117 +279,6 @@ input{
         }
         &:hover{
             opacity: 0.8;
-        }
-        &.invisible{
-            position: absolute;
-            left: -99em;
-            + label{
-                position: relative;
-                padding-left: 60px;
-                padding-right: 110px;
-                margin: 0;
-                border: 2px #dadada solid;
-                border-radius: 5px;
-                cursor:pointer;
-                &:before, &:after{
-                    content: '';
-                    position: absolute;
-                    bottom: 0;
-                    margin: auto;
-                }
-                &:before{
-                    width: 20px;
-                    height: 20px;
-                    border-radius: 50%;
-                    border: 2px #dadada solid;
-                    left: 20px;
-                    top: -1px;
-                    background: #fff;
-                    transition: $transition;
-                }
-                &:after{
-                    display: block;
-                    width: 10px;
-                    height: 10px;
-                    border-radius: 50%;
-                    background: #ee5f20;
-                    top: 0;
-                    left: 25px;
-                    opacity: 0;
-                    transition: $transition;
-                }
-                .visu-type{
-                    width: 96px;
-                    position: absolute;
-                    top: 0;
-                    bottom: 0;
-                    right: 0;
-                    z-index: 1;
-                    &.icon-cb{
-                        &:before{
-                            font-size: 23px;
-                            margin: -11px 0 0 -18px;
-                        }
-                    }
-                    &.icon-chq{
-                        &:before{
-                            font-size: 26px;
-                            margin: -13px 0 0 -25px;
-                        }
-                    }
-                    &:before{
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        color: #fff;
-                    }
-                    &:after{
-                        content: '';
-                        display: block;
-                        width: 100%;
-                        height: 100%;
-                        position: relative;
-                        background: #dadada;
-                        z-index: -1;
-                    }
-                }
-                &:hover{
-                    &:before{
-                        border-color: mix(white, #ebebeb, 20%);
-                        outline: none;
-                    }
-                }
-            }
-            &:checked{
-                + label{
-                    border-color: #ee5f20;
-                    &:after{
-                        opacity: 1;
-                    }
-                    .visu-type{
-                        &:after{
-                            background: #ee5f20;
-                        }
-                    }
-                }
-            }
-        }
-        &.red{
-            &:checked{
-                +label{
-                border-color: #c6333e;
-                    &:after{
-                        opacity: 1;
-                        background: #c6333e;
-                        top: -1px;
-                    }
-                    .visu-type{
-                        &:after{
-                            background: #c6333e;
-                        }
-                    }
-                }
-            }
         }
         &[disabled]{
             display: none;
@@ -501,8 +311,8 @@ input{
                 margin: 5px auto;
             }
             &:before{
-                width: 15px;
-                height: 16px;
+                width: 14px;
+                height: 14px;
                 border: 1px solid #ebebeb;
                 left: 0;
                 top: -2px;
@@ -510,21 +320,14 @@ input{
                 outline: 1px solid #dadada;
                 transition: $transition;
             }
-            // &:after{
-            //     @include font-icon;
-            //     text-align: center;
-            //     content: '\e907'; // icon-check
-            //     display: block;
-            //     height: 15px;
-            //     width:12px;
-            //     top: -1px;
-            //     left: 2px;
-            //     font-size: 0;
-            //     line-height: 15px;
-            //     color: $theme-rouge-title;
-            //     opacity: 0;
-            //     transition: $transition;
-            // }
+            &:after{
+                width: 10px;
+                height: 10px;
+                top: 0;
+                left: 2px;
+                background: $bleu-link;
+                opacity: 0;
+            }
             &:hover{
                 &:before{
                     border-color: mix(white, #ebebeb, 20%);
@@ -536,7 +339,6 @@ input{
             + label{
                 &:after{
                     opacity: 1;
-                    font-size: 11px;
                 }
             }
         }
@@ -646,12 +448,6 @@ select{
 button{
     border: 0;
     transition: $transition;
-    &[type=submit]{
-        margin: 0 0 0 195px;
-        .form-half &{
-            margin-left: 37.93%;
-        }
-    }
     &:focus{
         outline: 0;
     }
@@ -711,18 +507,6 @@ button{
     font-size: 0.88em;
     background: #f3f4e1;
     color: $error;
-    // &:before{
-    //     @include font-icon;
-
-    //     content: '\e908';
-    //     height: 40px;
-    //     position: absolute;
-    //     top: 0;
-    //     bottom: 0;
-    //     left: 15px;
-    //     margin: auto;
-    //     font-size: 40px;
-    // }
 }
 
 .p-valid, #footer .p-valid{

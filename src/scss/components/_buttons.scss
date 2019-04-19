@@ -1,6 +1,6 @@
 /* Buttons */
 
-.btn, .btn-small{
+.btn, .btn-small, .btn-form{
     display: inline-block;
     position: relative;
     z-index: 1;
@@ -36,6 +36,10 @@
             opacity: 1;
         }
     }
+    .icon-arrow{
+        width: 0.6em;
+        height: 0.6em;
+    }
 }
 
 .btn{
@@ -56,15 +60,9 @@
         width: 4em;
         height: 1.5em;
     }
-    .icon-arrow{
-        width: 0.6em;
-        height: 0.6em;
-    }
 }
 
-.btn-small{
-    padding: 17px 25px;
-    font-size: 0.75em;
+.btn-small, .btn-form{
     background: $theme-btn;
     &:after{
         border-color: $theme-btn;
@@ -72,6 +70,15 @@
     &:hover, &:focus{
         color: $theme-btn;
     }
+}
+
+.btn-small{
+    padding: 17px 25px;
+    font-size: 0.75em;
+}
+
+.btn-form{
+    padding: 10px 25px;
 }
 
 .link{
