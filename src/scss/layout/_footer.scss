@@ -212,3 +212,107 @@
 		transform: translateX(75%);
 	}
 }
+
+
+@media (max-width: $desktop){
+	.content-footer{
+        .social-right{
+            float: none;
+            p{
+                padding-top: 7px;
+                padding-bottom: 10px;
+            }
+            li{
+                @include size(39px);
+            }
+            a{
+                line-height: 39px;
+            }
+        }
+        .social{
+            float: none;
+            margin-bottom: 20px;
+        }
+        .has-social &{
+            p{
+                max-width: none;
+            }
+        }
+	}
+	
+	#footer{
+        &:before{
+            width: 100%;
+        }
+        .container{
+            padding: 45px 0 0;
+            &:before{
+                display: none;
+            }
+		}
+		.wrapper-overflow-hidden{
+			.container{
+				padding-bottom: 0;
+			}
+		}
+    }
+    .cols-footer{
+        > li{
+            display: block;
+            width: 100%;
+            &:nth-child(1){
+                padding: 0 26px 26px;
+            }
+        }
+    }
+    .cols-right-footer{
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        background-color: rgb(57, 61, 71);
+        padding: 0;
+        > li{
+            display: table-cell;
+            vertical-align: top;
+            padding: 26px;
+            &:nth-child(1){
+                background-color: rgb(49, 53, 62);
+            }
+            &:nth-child(2){
+                width: 230px;
+            }
+        }
+    }
+
+    .wrapper-menu-footer{
+        background: none;
+        bottom: 0;
+        position: relative;
+    }
+    .social-footer{
+        position: relative;
+        bottom: inherit;
+        right: inherit;
+        background-color: $blanc;
+        text-align: center;
+        padding: 5px 0 20px 0;
+        &.social{
+            display: block;
+        }
+        &.closed{
+            transform: translateX(0);
+        }
+    }
+    .menu-footer{
+        background-color: $blanc;
+        padding: 10px 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: $phone){
+	.cols-right-footer > li{
+		display: block;
+		width: 100% !important;
+	}
+}
