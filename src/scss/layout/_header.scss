@@ -387,3 +387,14 @@
 		padding-left: 40px;
 	}
 }
+
+.header-page-container{
+    padding-bottom: 120px;
+    position: relative;
+    > img{
+        max-width: 50%;
+        position: absolute;
+        right: -$gutter/2;
+        bottom: 15px;
+    }
+}

@@ -51,52 +51,88 @@
         <button id="btn-close-header-responsive" class="btn-close icon-cross"></button>
 
         <main role='main' class='main'>
-            <div class='container'>
-                <div class='form-container'>
-                    <div>
-                        <h1 class='form-title'><span><span>01</span>/20</span> Evaluez-vous</h1>
+            <div class='header-page-container'>
+                <div class='container'>
+                    <div class='form-container'>
+                        <div>
+                            <h1 class='form-title'><span><span>01</span>/20</span> Evaluez-vous</h1>
 
-                        <p><strong>Evaluer vos motivations d’entreprendre !</strong></p>
+                            <p><strong>Evaluer vos motivations d’entreprendre !</strong></p>
 
-                        <p>Attention à la volonté d'entreprendre sur un coup de
-                        tête ! Toutes les motivations sont à prendre en
-                        considération : il n'y a pas de mauvaise intention.</p>
+                            <p>Attention à la volonté d'entreprendre sur un coup de
+                            tête ! Toutes les motivations sont à prendre en
+                            considération : il n'y a pas de mauvaise intention.</p>
 
-                        <p><strong>Mais la vôtre est-elle la bonne pour vous ?</strong></p>
-                    </div>
-                    <div>
-                        <div class='form-icon'>
-                            <svg class="icon icon-quizz"><use xlink:href="#icon-quizz"></use></svg>
+                            <p><strong>Mais la vôtre est-elle la bonne pour vous ?</strong></p>
+
+                            <ul>
+                                <li>Existe-t-il un réel marché ?</li>
+                                <li>Quels sont son évolution et son ppotentiel ?</li>
+                            </ul>
                         </div>
-                        <form>
-                            <fieldset>
-                                <legend>Qu'est ce qui motive votre projet ? <span>(plusieurs choix possibles)</span></legend>
+                        <div>
+                            <div class='form-icon'>
+                                <svg class="icon icon-quizz"><use xlink:href="#icon-quizz"></use></svg>
+                            </div>
+                            <form>
+                                <fieldset>
+                                    <legend>Qu'est ce qui motive votre projet ? <span>(plusieurs choix possibles)</span></legend>
 
-                                <div>
-                                    <input type='checkbox' name='1' value='1' id='step1-1'/>
-                                    <label for='step1-1'>Votre envie d’entreprendre</label>
-                                </div>
-                                <div>
-                                    <input type='checkbox' name='1' value='2' id='step1-2'/>
-                                    <label for='step1-2'>Votre volonté d’indépendance et d’autonomie</label>
-                                </div>
-                                <div>
-                                    <input type='checkbox' name='1' value='3' id='step1-3'/>
-                                    <label for='step1-3'>Votre sens des responsabilités</label>
-                                </div>
-                                <div>
-                                    <input type='checkbox' name='1' value='4' id='step1-4'/>
-                                    <label for='step1-4'>Votre besoin de prendre des risques</label>
-                                </div>
-                                <div>
-                                    <input type='checkbox' name='1' value='5' id='step1-5'/>
-                                    <label for='step1-5'>Votre envie de créer de la valeur, de la richesse</label>
-                                </div>
-                            </fieldset>
-                            <button type='submit' class='btn-form'>Valider <svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></use></svg></button>
-                        </form>
+                                    <div>
+                                        <input type='checkbox' name='1' value='1' id='step1-1'/>
+                                        <label for='step1-1'>Votre envie d’entreprendre</label>
+                                    </div>
+                                    <div>
+                                        <input type='checkbox' name='1' value='2' id='step1-2'/>
+                                        <label for='step1-2'>Votre volonté d’indépendance et d’autonomie</label>
+                                    </div>
+                                    <div>
+                                        <input type='checkbox' name='1' value='3' id='step1-3'/>
+                                        <label for='step1-3'>Votre sens des responsabilités</label>
+                                    </div>
+                                    <div>
+                                        <input type='checkbox' name='1' value='4' id='step1-4'/>
+                                        <label for='step1-4'>Votre besoin de prendre des risques</label>
+                                    </div>
+                                    <div>
+                                        <input type='checkbox' name='1' value='5' id='step1-5'/>
+                                        <label for='step1-5'>Votre envie de créer de la valeur, de la richesse</label>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset>
+                                    <div>
+                                        <input type='radio' name='2' value='1' id='step2-1'/>
+                                        <label for='step2-1'>Non</label>
+                                    </div>
+                                    <div>
+                                        <input type='radio' name='2' value='2' id='step2-2'/>
+                                        <label for='step2-2'>Oui. Précisez qui et quoi :</label>
+                                        <div class='form-subfield'>
+                                            <textarea></textarea>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <button type='submit' class='btn-form'>Valider <svg class="icon icon-arrow"><use xlink:href="#icon-arrow"></use></svg></button>
+                            </form>
+                        </div>
                     </div>
                 </div>
+                <img src='img/glaces.png' alt='Glaces'>
+                <nav class='form-nav'>
+                    <ul class='form-nav-buttons'>
+                        <li><button class='active'></button></li>
+                        <li><button></button></li>
+                        <li><button></button></li>
+                        <li><button></button></li>
+                    </ul>
+                    <ul class='form-nav-steps'>
+                        <li><span>1.</span> Faisabilité</li>
+                        <li><span>2.</span> Appropriation</li>
+                        <li><span>3.</span> Diagnostique</li>
+                    </ul>
+                </nav>
             </div>
                 
             <div class='banner-advice'>
