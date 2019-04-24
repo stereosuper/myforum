@@ -16,6 +16,25 @@
     color: rgb(139, 139, 139);
 }
 
+
+.form-steps{
+    display: inline-flex;
+}
+
+.form-step{
+    position: relative;
+    width: 100%;
+    min-width: 100%;
+    padding: 0 0 60px;
+    overflow: hidden;
+    > img{
+        max-width: 50%;
+        position: absolute;
+        right: -$gutter/2;
+        bottom: -60px;
+    }
+}
+
 .form-container{
     display: flex;
     width: 75%;
@@ -501,6 +520,12 @@ button{
 
 
 @media (max-width: $desktop-big){
+    .form-step{
+        > img{
+            display: none;
+        }
+    }
+
     .form-container{
         width: 100%;
     }
