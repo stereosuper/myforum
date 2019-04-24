@@ -63,6 +63,7 @@
         margin: 25px 0 0 ;
     }
 }
+
 .form-title{
     position: relative;
     margin: 0 0 1em;
@@ -95,6 +96,7 @@
         }
     }
 }
+
 .form-icon{
     display: inline-block;
     padding: 4px 8px 5px;
@@ -105,12 +107,22 @@
         height: 15px;
     }
 }
+
 .form-subfield{
     margin: 10px 0 0 18px;
 }
 
+.form-step-next{
+    display: flex;
+    justify-content: flex-end;
+    margin: 35px 0;
+}
+
 fieldset{
-	margin: 0 0 17px;
+    margin: 0 0 17px;
+    p{
+        margin: 0;
+    }
 }
 
 legend{
