@@ -498,3 +498,10 @@ button{
         padding: 10px;
     }
 }
+
+
+@media (max-width: $desktop-big){
+    .form-container{
+        width: 100%;
+    }
+}

@@ -16,13 +16,12 @@
     <body>
         
         <header role='banner' id='header'>
-            <a href='./' id="logo">
-                <img src='img/myforum.svg' alt='myForum'>
-                <span id="burger"><span></span><span></span><span></span></span>
-            </a>
+            <div id="logo">
+                <a href='./'><img src='img/myforum.svg' alt='myForum'></a>
+                <button id="burger"><span></span><span></span><span></span></button>
+            </div>
             <button id="btn-close-header-responsive" class="btn-close icon-cross"></button>
             <nav role='navigation' id='nav-header'>
-                <button id='btn-close-nav-header' class='btn-close icon-cross'></button>
                 <div class='wrapper-content-nav'>
                     <ul class='menu-header'>
                         <li>
@@ -45,6 +44,7 @@
                 </div>
             </nav>
         </header>
+        <div id='mask'></div>
 
         <main role='main' class='main'>
             <div class='header-page-container'>

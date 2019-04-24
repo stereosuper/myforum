@@ -203,14 +203,14 @@
 	}
 }
 .social-footer{
-	position: fixed;
-	bottom: 25px;
+	position: absolute;
+	bottom: 0;
 	right: 0;
 	transition: transform 0.4s ease-in-out;
-	backface-visibility: hidden;
-	&.closed{
-		transform: translateX(75%);
-	}
+	// backface-visibility: hidden;
+	// &.closed{
+	// 	transform: translateX(75%);
+	// }
 }
 
 

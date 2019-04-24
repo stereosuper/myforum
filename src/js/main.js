@@ -19,6 +19,10 @@ const loadHandler = () => {
     win.init();
     io.init();
     fallback(body, html);
+
+    $('#burger').on('click', function(){
+        $('body').toggleClass('nav-header-open');
+    });
 }
 
 if (document.readyState === 'complete') {

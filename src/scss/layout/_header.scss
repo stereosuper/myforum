@@ -5,13 +5,6 @@
     justify-content: space-between;
 	height: 58px;
 	background: $blanc;
-	.btn-close{
-        display: none;
-        position: absolute;
-        top: -58px;
-        z-index: 2;
-        right: -50px;
-    }
 }
 
 #burger{
@@ -58,9 +51,10 @@
   	width: 145px;
   	height: 58px;
   	position: relative;
-  	z-index: 4;
+  	z-index: 5;
   	background: rgb(192, 47, 60);
-  	transform: translate 0.3s ease-in-out;
+	transform: translate 0.3s ease-in-out;
+	transition: $transition;
   	.nav-header-open &{
 		transform: translateX(12px);
     }
@@ -181,10 +175,6 @@
 			transform: translateY(-100%);
 			transition: .2s ease-in-out;
 		}
-		&:after{
-			content: '';
-			//@include shadow-button;
-		}
 		&:hover, &:focus{
 			color: #fff;
 			&:before{
@@ -267,70 +257,55 @@
 	}
 }
 
-#btn-close-header-responsive{
-	position: absolute;
-	top: 0;
-	right: 0;
-	transform: translateX(100%);
-	z-index: 5;
-	display: none;
-	transition: transform 0.3s ease-in-out;
-	transition-delay: 0.3s;
-	.sidebar-links-open &, .nav-header-open &, .sidebar-account-open &, .sidebar-tools-open &{
-	    transform: translateX(0);
-	}
-}
-
 #mask{
 	display: none;
 	width: 100%;
 	height: 100%;
 	position: absolute;
-	top: 58px;
+	top: 0;
 	left: 0;
 	background: rgb(40, 44, 52);
 	opacity: 0;
-	//z-index: 1;
 	z-index: 3;
 	transition: transform 0.3s ease-in-out;
 	cursor: pointer;
-	.sidebar-links-open &, .nav-header-open &, .sidebar-account-open &, .sidebar-tools-open &{
+	.nav-header-open &,, .sidebar-tools-open &{
 		display: block;
 		opacity: 0.3;
 	}
 }
 
-.alert-cookies{
-	background: #c6333e;
-	color: $blanc;
-	padding: 10px 0;
-	text-align: left;
-	p{
-		margin: 0;
-		font-size: 0.875em;
-	}
-	ul{
-		display: inline-block;
-		margin: 0;
-		padding: 0;
-		> li{
-			display: inline-block;
-			vertical-align: middle;
-			margin: 0 0 0 20px;
-			&:before{
-				display: none;
-			}
-			&:first-child{
-				margin-left: 0;
-			}
-		}
-	}
-	.btn-cookies{
-		width: 240px;
-		text-align: right;
-		padding-left: 40px;
-	}
-}
+// .alert-cookies{
+// 	background: #c6333e;
+// 	color: $blanc;
+// 	padding: 10px 0;
+// 	text-align: left;
+// 	p{
+// 		margin: 0;
+// 		font-size: 0.875em;
+// 	}
+// 	ul{
+// 		display: inline-block;
+// 		margin: 0;
+// 		padding: 0;
+// 		> li{
+// 			display: inline-block;
+// 			vertical-align: middle;
+// 			margin: 0 0 0 20px;
+// 			&:before{
+// 				display: none;
+// 			}
+// 			&:first-child{
+// 				margin-left: 0;
+// 			}
+// 		}
+// 	}
+// 	.btn-cookies{
+// 		width: 240px;
+// 		text-align: right;
+// 		padding-left: 40px;
+// 	}
+// }
 
 .header-page-container{
     padding-bottom: 120px;
@@ -344,7 +319,15 @@
 }
 
 
-@media (max-width: 1280px){
+@media (max-width: $desktop-big){
+	.header-page-container{
+		> img{
+			display: none;
+		}
+	}
+}
+
+@media (max-width: $desktop){
 	#nav-header{
 		width: 283px;
 		height: 100%;
@@ -354,7 +337,7 @@
         top: -1px;
 		left: 0;
 		margin: 0;
-		z-index: 3;
+		z-index: 4;
 		background: #ffff;
 		transform: translateX(-100%);
 		transition: transform $transition;
@@ -374,11 +357,6 @@
             background: rgb(234, 236, 241);
         }
 	}
-    #header{
-		.btn-close{
-			display: block;
-		}
-    }
     .menu-header{
         display: block;
         padding: 1px 0 0;
@@ -482,7 +460,7 @@
     #logo{
         width: 210px;
         padding: 0 0 0 12px;
-        margin: 0 0 0 -12px;
+		margin: 0 0 0 -12px;
         .nav-header-open &, .sidebar-tools-open &{
             transform: translateX(12px);
         }
@@ -544,19 +522,11 @@
             transform: translateX(calc(100% - 8px));
         }
     }
-    #btn-close-sidebar-links, #btn-close-sidebar-account, #btn-close-sidebar-tools{
-        display: none;
-    }
-    #header nav .btn-close{
-        display: none;
-    }
-    #btn-close-header-responsive{
-        display: block;
-    }
+
     #logo{
         &:before{
             width: 480px;
-            border: none;
+            border: 0;
         }
     }
 }
