@@ -17,14 +17,20 @@
 }
 
 
+.form-wrapper{
+    display: inline-flex;
+    width: 100%;
+}
+
 .form-steps{
     display: inline-flex;
+    min-width: 100%;
 }
 
 .form-step{
     position: relative;
     width: 100%;
-    min-width: 100%;
+    //min-width: 100%;
     padding: 0 0 60px;
     overflow: hidden;
     > img{
@@ -116,6 +122,16 @@
     display: flex;
     justify-content: flex-end;
     margin: 35px 0;
+}
+
+.form-step-title{
+    display: none;
+    padding: 20px $gutter/2;
+    margin: 0;
+    font-family: $roboto-cd;
+    font-size: 2.6rem;
+    background: $theme-btn;
+    color: #fff;
 }
 
 fieldset{
@@ -539,6 +555,129 @@ button{
     }
 
     .form-container{
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: $desktop){
+    .form-container{
+        display: block;
+        > div{
+            width: 100%;
+            &:nth-of-type(2){
+                padding-top: 40px;
+            }
+        }
+    }
+}
+
+@media (max-width: $phone){
+    .form-btn, .form-nav{
+        display: none;
+    }
+
+    .form-wrapper{
+        display: block;
+        padding: 62% 0 0;
+        position: relative;
+    }
+
+    .form-steps{
+        display: block;
+        min-width: 0 !important;
+    }
+
+    .form-container{
         width: 100%;
+        margin: 0;
+        background: none;
+        box-shadow: none;
+        > div{
+            padding: 0;
+            &:nth-of-type(1){
+                padding-left: 0;
+            }
+            &:nth-of-type(2){
+                padding-bottom: 50px;
+                background: none;
+            }
+        }
+    }
+
+    .form-title, .form-step-title{
+        &:after{
+            content: '›';
+            float: right;
+            font-size: 2.6rem;
+            transform-origin: 50% 50%;
+        }
+    }
+
+    .form-step-title{
+        display: block;
+        cursor: pointer;
+        &:after{
+            .open &{
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    .form-title{
+        margin: 24px 0;
+        font-size: 1.8rem;
+        cursor: pointer;
+        &:after{
+            line-height: 1;
+            .active &{
+                transform: rotate(90deg);
+            }
+        }
+        > span{
+            position: static;
+            color: $txt;
+            &:before{
+                content: none;
+            }
+        }
+    }
+
+    .form-text{
+        padding: 5px 0 0;
+    }
+
+    .form-text, .form-container > div:nth-of-type(2){
+        display: none;
+        .accordion-active &{
+            display: block;
+        }
+    }
+
+    .form-step{
+        display: none;
+        padding: 0;
+        border-bottom: 2px solid rgba(#282C34, 0.1);
+        position: static;
+        background: #fff;
+        > img{
+            max-width: 95%;
+            top: 0;
+            bottom: auto;
+            right: 0;
+            left: 0;
+            margin: auto;
+            z-index: -1;
+        }
+        &.accordion-active{
+            background: none;
+            > img{
+                display: block;
+            }
+        }
+        .open &{
+            display: block;
+        }
     }
 }

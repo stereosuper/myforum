@@ -498,6 +498,12 @@
 	}
 }
 
+@media (max-width: $phone){
+	.header-page-container{
+		padding-bottom: 0;
+	}
+}
+
 @media (max-width: 480px){
 	#header nav{
         width: 100%;
