@@ -36,7 +36,7 @@
             opacity: 1;
         }
     }
-    .icon-arrow{
+    > .icon-arrow{
         width: 0.6em;
         height: 0.6em;
     }
@@ -53,10 +53,10 @@
     &:hover, &:focus{
         color: $bleu-link;
     }
-    .icon{
+    > .icon{
         margin: 0 0 0 5px;
     }
-    .icon-quizz{
+    > .icon-quizz{
         width: 4em;
         height: 1.5em;
     }
@@ -81,6 +81,24 @@
     padding: 10px 25px;
 }
 
+.btn-close{
+    width: 45px;
+    height: 45px;
+    background: $theme-btn;
+    color: #fff;
+    > .icon{
+        width: 18px;
+        height: 18px;
+        transition: $transition;
+    }
+    &:hover, &:focus{
+        color: #fff;
+        > .icon{
+            transform: rotate(90deg);
+        }
+    }
+}
+
 .link{
     display: inline-flex;
     align-items: center;
@@ -89,7 +107,7 @@
     letter-spacing: 1.2px;
     text-transform: uppercase;
     text-decoration: none;
-    .icon{
+    > .icon{
         width: 0.6em;
         height: 0.6em;
         margin: 0 0 0 5px;

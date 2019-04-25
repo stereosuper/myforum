@@ -1,0 +1,48 @@
+.popin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background: rgba($txt, 0.4);
+    cursor: pointer;
+    transition: opacity 0.2s $transition, z-index 0s linear 0.5s;
+    &.off{
+        opacity: 0;
+        z-index: -1;
+        .popin-content{
+            opacity: 0;
+        }
+    }
+}
+
+.popin-content{
+    max-width: 590px;
+    padding: 50px;
+    position: relative;
+    font-size: 1.4rem;
+    background: #fff;
+    box-shadow: 0 19px 35px rgba(#000, 0.25);
+    cursor: auto;
+    transition: $transition;
+    .btn-form{
+        margin-top: 10px;
+        line-height: 1.6;
+    }
+    .btn-close{
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+.popin-title{
+    margin: 0;
+    font-family: $roboto-cd-bold;
+    font-size: 2.7rem;
+    letter-spacing: 0.01em;
+}

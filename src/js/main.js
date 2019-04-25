@@ -67,6 +67,13 @@ const loadHandler = () => {
         if( !$(this).hasClass('open') )
             $(this).parent().addClass('open').siblings().removeClass('open');
     });
+
+    $('#popin').on('click', function(e){
+        if( $(e.target).hasClass('popin') )
+            $('#popin').addClass('off');
+    }).on('click', '.btn-close', function(){
+        $('#popin').addClass('off');
+    });
 }
 
 if (document.readyState === 'complete') {
