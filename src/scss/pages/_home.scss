@@ -2,10 +2,20 @@
 
 .header-home-container{
     position: relative;
-    > img{
+    .img{
+        display: flex;
+        border-left: 4px solid transparent;
+        justify-content: flex-end;
         position: absolute;
         bottom: -5%;
         right: -100px;
+        overflow: hidden;
+        &.on{
+            border-color: #fff;
+        }
+        img{
+            max-width: 950px;
+        }
     }
 }
 
@@ -20,24 +30,36 @@
 
 @media (max-width: $desktop-big){
     .header-home-container{
-        > img{
+        .img{
             bottom: -10%;
+            img{
+                max-width: 900px;
+            }
         }
     }
 }
 
 @media (max-width: $desktop){
     .header-home-container{
-        > img{
+        .img{
             right: -20%;
+            img{
+                max-width: 750px;
+            }
         }
     }
 }
 
 @media (max-width: $tablet){
     .header-home-container{
-        > img{
+        .img{
             position: static;
+            img{
+                max-width: 100%;
+            }
+            + .img{
+                display: none;
+            }
         }
     }
 
