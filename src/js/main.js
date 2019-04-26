@@ -1,6 +1,6 @@
 import '../scss/main.scss';
 
-import { TweenLite, TimelineLite } from 'gsap';
+import { TweenMax } from 'gsap';
 
 import win from './Window.js';
 import io from './io.js';
@@ -29,11 +29,13 @@ const loadHandler = () => {
         $('body').toggleClass('nav-header-open');
     });
 
-    $('#popin').on('click', function(e){
+    const popin = $('#popin');
+
+    popin.on('click', function(e){
         if( $(e.target).hasClass('popin') )
-            $('#popin').addClass('off');
+            popin.addClass('off');
     }).on('click', '.btn-close', function(){
-        $('#popin').addClass('off');
+        popin.addClass('off');
     });
 }
 

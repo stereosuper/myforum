@@ -1,4 +1,5 @@
 const $ = require('jquery-slim');
+import { TweenMax } from 'gsap';
 
 const initForm = () => {
     const form = $('#form');
@@ -9,25 +10,38 @@ const initForm = () => {
     const steps = form.find('.form-step');
     const nbSteps = steps.length;
     const formNav = $('#form-nav');
-    let active, activeIndex = 0;
+    let active, activeIndex = 0, btnIndex;
 
-    const moveForm = (nbStep, dir) => {
-        if( steps.eq(nbStep).hasClass('active') ) return;
-
+    const setActive = () => {
         active = form.find('.active');
         activeIndex = steps.index(active);
+    };
+
+    const moveForm = (max, dir, index) => {
+        if( TweenMax.isTweening(form) || steps.eq(max).hasClass('active') ) return;
+
+        let newIndex = index;
+
+        setActive();
         active.removeClass('active');
 
         if( dir === 'next' ){
-            TweenLite.to(form, 0.3, {x: '-=100%'});
-            steps.eq(activeIndex + 1).addClass('active');
+            newIndex = newIndex !== undefined ? newIndex : activeIndex + 1;
+            TweenMax.to(form, 0.3, {x: (newIndex*-100) + '%'});
+            steps.eq(newIndex).addClass('active');
         }else if( dir === 'prev'){
-            TweenLite.to(form, 0.3, {x: '+=100%'});
-            steps.eq(activeIndex - 1).addClass('active');
+            newIndex = newIndex !== undefined ? newIndex : activeIndex - 1;
+            TweenMax.to(form, 0.3, {x: (newIndex*-100) + '%'});
+            steps.eq(newIndex).addClass('active');
         }
+
+        setActive();
         
-        formNav.find('button').removeClass('active').eq(form.find('.active').index()).addClass('active');
+        if( !index )
+            formNav.find('button').removeClass('active').eq(activeIndex).addClass('active');
     };
+
+    setActive();
 
     stepsWrappers.each(i => {
         stepsWrappers.eq(i).css('min-width', (stepsWrappers.eq(i).find('.form-step').length * 100) + '%');
@@ -38,6 +52,19 @@ const initForm = () => {
     });
     $('#form-prev').on('click', function(){
         moveForm(0, 'prev');
+    });
+
+    formNav.on('click', 'button', function(){
+        btnIndex = $(this).parent().index();
+
+        formNav.find('button').removeClass('active').blur();
+        $(this).addClass('active');
+
+        if( btnIndex > activeIndex ){
+            moveForm(nbSteps - 1, 'next', btnIndex);
+        }else if( btnIndex < activeIndex ){
+            moveForm(0, 'prev', btnIndex);
+        }
     });
 
     steps.on('click', function(){
