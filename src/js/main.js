@@ -8,6 +8,9 @@ import scroll from './Scroll.js';
 import fallback from './fallback.js';
 import $ from 'jquery-slim';
 
+import initForm from './form';
+import animHome from './animHome';
+
 
 const html = $('html');
 const body = $('body');
@@ -19,53 +22,11 @@ const loadHandler = () => {
     io.init();
     fallback(body, html);
 
+    initForm();
+    animHome();
+
     $('#burger').on('click', function(){
         $('body').toggleClass('nav-header-open');
-    });
-
-    const form = $('#form');
-    const stepsWrappers = form.find('.form-steps');
-    const steps = form.find('.form-step');
-    const nbSteps = steps.length;
-    const formNav = $('#form-nav');
-    let active, activeIndex = 0;
-
-    const moveForm = (nbStep, dir) => {
-        if( steps.eq(nbStep).hasClass('active') ) return;
-
-        active = form.find('.active');
-        activeIndex = steps.index(active);
-        active.removeClass('active');
-
-        if( dir === 'next' ){
-            TweenLite.to(form, 0.3, {x: '-=100%'});
-            steps.eq(activeIndex + 1).addClass('active');
-        }else if( dir === 'prev'){
-            TweenLite.to(form, 0.3, {x: '+=100%'});
-            steps.eq(activeIndex - 1).addClass('active');
-        }
-        
-        formNav.find('button').removeClass('active').eq(form.find('.active').index()).addClass('active');
-    };
-
-    stepsWrappers.each(i => {
-        stepsWrappers.eq(i).css('min-width', (stepsWrappers.eq(i).find('.form-step').length * 100) + '%');
-    });
-
-    $('#form-next').on('click', function(){
-        moveForm(nbSteps - 1, 'next');
-    });
-    $('#form-prev').on('click', function(){
-        moveForm(0, 'prev');
-    });
-
-    steps.on('click', function(){
-        if( !$(this).hasClass('accordion-active') )
-            $(this).toggleClass('accordion-active').siblings().removeClass('accordion-active');
-    });
-    stepsWrappers.on('click', '.form-step-title', function(){
-        if( !$(this).hasClass('open') )
-            $(this).parent().addClass('open').siblings().removeClass('open');
     });
 
     $('#popin').on('click', function(e){
@@ -73,26 +34,6 @@ const loadHandler = () => {
             $('#popin').addClass('off');
     }).on('click', '.btn-close', function(){
         $('#popin').addClass('off');
-    });
-
-
-    // HOME //
-    const imgX = $('#img-home').offset().left;
-    const imgWidth = parseInt($('#img-home').css('width'));
-    let cursorX = 0;
-    $('#header-home').on('mousemove', function(e){
-        if( !$('#img-home').is(':visible') ) return;
-
-        cursorX = e.pageX - imgX;
-
-        if( cursorX > 0 ){
-            $('#img-home').addClass('on');
-        }else{
-            $('#img-home').removeClass('on');
-            cursorX = 0;
-        }
-
-        $('#img-home').css('width', (imgWidth - cursorX) + 'px');
     });
 }
 
