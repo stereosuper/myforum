@@ -1,15 +1,17 @@
 import '../scss/main.scss';
-
 import { TweenMax } from 'gsap';
-
 import win from './Window.js';
 import io from './io.js';
 import scroll from './Scroll.js';
 import fallback from './fallback.js';
 import $ from 'jquery-slim';
 
+
 import initForm from './form';
 import animHome from './animHome';
+import accordion from './accordion';
+import accordion2 from './accordion2';
+import rotate from './rotate';
 
 
 const html = $('html');
@@ -24,6 +26,9 @@ const loadHandler = () => {
 
     initForm();
     animHome();
+    accordion();
+    accordion2();
+    rotate();
 
     $('#burger').on('click', function(){
         $('body').toggleClass('nav-header-open');

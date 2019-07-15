@@ -7,7 +7,7 @@
     font-family: $roboto-cd;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #fff;
+    color: white;
     text-decoration: none;
     &:after, &:before{
         content: '';
@@ -31,6 +31,7 @@
     &:hover, &:focus{
         &:before{
             transform: scaleX(1);
+            color: #D63E2F;
         }
         &:after{
             opacity: 1;
@@ -66,15 +67,20 @@
     background: $theme-btn;
     &:after{
         border-color: $theme-btn;
+        color: #D63E2F;
     }
     &:hover, &:focus{
-        color: $theme-btn;
+        color: #D63E2F;
     }
 }
 
 .btn-small{
     padding: 17px 25px;
     font-size: 0.75em;
+    &:hover {
+        fill: #D63E2F;
+        color: #D63E2F;
+    }
 }
 
 .btn-form{
@@ -92,7 +98,7 @@
         transition: $transition;
     }
     &:hover, &:focus{
-        color: #fff;
+        color: #D63E2F;
         > .icon{
             transform: rotate(90deg);
         }
@@ -111,5 +117,17 @@
         width: 0.6em;
         height: 0.6em;
         margin: 0 0 0 5px;
+    }
+}
+
+.btn-download{
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    .icon{
+        margin: 0 5px 0 0;
     }
 }
