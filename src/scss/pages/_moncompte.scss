@@ -164,11 +164,12 @@
 }
 
 .accordion {
-    background-color: #b2232e;
+    @extend %stereorepo-accordion;
     .accordion-title {
         position: relative;
         margin: 0;
         padding: 40px;
+        background-color: #b2232e;
         > h3 {
             margin: 0;
             padding: 0;
@@ -177,13 +178,15 @@
             color: $white;
             cursor: pointer;
         }
+        > .icon {
+            position: absolute;
+            top: 50%;
+            right: 40px;
+            color: $white;
+            transform: translateY(-50%);
+        }
     }
-    .icon {
-        position: absolute;
-        top: 50%;
-        right: 40px;
-        color: $white;
-        transform: translateY(-50%);
+    .content {
     }
 }
 
@@ -196,14 +199,6 @@
     }
     .dion4 {
         background-color: #c93740;
-    }
-
-    .accordion-content {
-        // height: 70px;
-        display: none;
-        &.active {
-            display: block;
-        }
     }
 
     .sub-accordion {
