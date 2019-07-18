@@ -5,7 +5,9 @@ const accordionHandler = () => {
         containerSelector: '.js-accordion',
         clickedSelector: '.js-accordion-title',
         contentWrapperSelector: '.js-content-wrapper',
-        contentSelector: '.js-content'
+        contentSelector: '.js-content',
+        offsetY: 100,
+        scrollDelay: 200
     });
 
     accordions.initializeAccordions();

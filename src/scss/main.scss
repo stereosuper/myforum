@@ -2,11 +2,12 @@
 
 // @import 'previous-style/main.css', 'previous-style/Site.css';
 
-@import 'abstracts/variables', 'abstracts/functions', 'abstracts/mixins';
-
-@import 'base/reset', 'base/fonts', 'base/base';
+@import 'abstracts/variables', 'abstracts/functions', 'abstracts/mixins',
+    'abstracts/animations';
 
 @import 'abstracts/placeholders';
+
+@import 'base/reset', 'base/fonts', 'base/base';
 
 @import 'layout/grid', 'layout/forms', 'layout/header', 'layout/footer',
     'layout/advice', 'layout/testimonies';
