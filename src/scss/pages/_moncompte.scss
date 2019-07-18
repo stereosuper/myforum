@@ -164,32 +164,30 @@
 }
 
 .accordion {
-    position: relative;
     background-color: #b2232e;
-    h3 {
-        padding: 0;
+    .accordion-title {
+        position: relative;
         margin: 0;
-        font-size: 26px;
-        font-family: $roboto-cd;
-        color: white;
+        padding: 40px;
+        > h3 {
+            margin: 0;
+            padding: 0;
+            font-size: 2.6rem;
+            font-family: $roboto-cd;
+            color: $white;
+            cursor: pointer;
+        }
     }
-    .icon-arrow-right {
+    .icon {
         position: absolute;
-        top: 0;
+        top: 50%;
         right: 40px;
-        fill: $white;
+        color: $white;
+        transform: translateY(-50%);
     }
 }
 
 .accordion-wrapper {
-    .accordion-title {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 80px;
-        margin-left: 20px;
-    }
-
     .dion2 {
         background-color: #ba2733;
     }

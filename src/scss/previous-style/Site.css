@@ -233,7 +233,7 @@ hr {
     overflow: visible;
 }
 
-/* @font-face {
+@font-face {
     font-family: 'robotoregular';
     src: url("../fonts/Roboto-Regular-webfont.woff") format("woff"), url("../fonts/Roboto-Regular-webfont.ttf") format("truetype"), url("../fonts/Roboto-Regular-webfont.svg#robotoregular") format("svg");
     font-weight: 400;
@@ -301,7 +301,7 @@ hr {
     src: url("../fonts/fdc.woff2?a49uhg") format("woff2"), url("../fonts/fdc.woff?a49uhg") format("woff"), url("../fonts/fdc.ttf?a49uhg") format("truetype"), url("../fonts/fdc.svg?a49uhg#fdc") format("svg");
     font-weight: 400;
     font-style: normal;
-} */
+}
 
 [class^='icon-'], [class*=' icon-'] {
     /* use !important to prevent issues with browser extensions that change fonts */
@@ -6122,7 +6122,7 @@ a.btn-block:hover, a.btn-block:focus, button.btn-block:hover, button.btn-block:f
 	font-size: 1.2em;
 	text-align: center;
 	background: $theme-btn;
-	color: $white;
+	color: $blanc;
 	box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.4);
 	&:after{
 		margin-left: 15px;
