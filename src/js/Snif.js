@@ -8,8 +8,8 @@ function Snif() {
                 typeof document.body.style.webkitFilter !== 'undefined' &&
                 !window.chrome) ||
             /a/.__proto__ == '//',
-        isBlackberry : /blackberry/i.test(uA),
-        isMobileIE : /iemobile/i.test(uA),
+        isBlackberry: /blackberry/i.test(uA),
+        isMobileIE: /iemobile/i.test(uA),
         isFF: 'MozAppearance' in document.documentElement.style,
         isMS:
             '-ms-scroll-limit' in document.documentElement.style &&
@@ -19,8 +19,7 @@ function Snif() {
             'supports' in window.CSS &&
             window.CSS.supports('mix-blend-mode', 'multiply'),
         isMobileAndroid: /android.*mobile/.test(uA),
-        safari: uA.match(/version\/[\d\.]+.*safari/),
-        
+        safari: uA.match(/version\/[\d\.]+.*safari/)
     };
     snifTests.isAndroid =
         snifTests.isMobileAndroid ||
@@ -35,22 +34,25 @@ Snif.prototype.isIOS = function isIOS() {
     return this.getSnifTests().isIOS;
 };
 
-Snif.prototype.isAndroid= function isAndroid () {
+Snif.prototype.isAndroid = function isAndroid() {
     return this.getSnifTests().isIOS;
 };
 
-Snif.prototype.isChrome= function isChrome () {
+Snif.prototype.isChrome = function isChrome() {
     return !!window.chrome && !!window.chrome.webstore;
 };
 
-Snif.prototype.isMobile = function isMobile() {
-    return this.getSnifTests().isMobileAndroid || this.getSnifTests().isBlackberry || this.getSnifTests().isIOS || this.getSnifTests().isMobileIE
-},
-
-
-Snif.prototype.isChromeAndroid= function isChromeAndroid () {
-    return this.getSnifTests().isMobileAndroid && this.isChrome();
-};
+(Snif.prototype.isMobile = function isMobile() {
+    return (
+        this.getSnifTests().isMobileAndroid ||
+        this.getSnifTests().isBlackberry ||
+        this.getSnifTests().isIOS ||
+        this.getSnifTests().isMobileIE
+    );
+}),
+    (Snif.prototype.isChromeAndroid = function isChromeAndroid() {
+        return this.getSnifTests().isMobileAndroid && this.isChrome();
+    });
 
 Snif.prototype.isSafari = function isSafari() {
     return this.getSnifTests().isSafari;
@@ -69,9 +71,7 @@ Snif.prototype.mixBlendModeSupport = function mixBlendModeSupport() {
 };
 
 Snif.prototype.isIe11 = function isIe11() {
-    
     return document.body.style.msTouchAction !== undefined;
-}
-
+};
 
 module.exports = new Snif();

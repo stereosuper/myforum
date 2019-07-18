@@ -2,8 +2,8 @@
 
 // Colors
 
-$blanc: rgb(255, 255, 255);
-$noir: rgb(0, 0, 0);
+$white: rgb(255, 255, 255);
+$black: rgb(0, 0, 0);
 $gris-bg: rgb(245, 245, 246);
 $gris: rgb(218, 218, 218);
 $theme-rouge-txt: rgb(181, 45, 54);
@@ -37,16 +37,13 @@ $valid: #76a626;
 // Transition delay list
 $tps-transition-delay: 0.3s;
 
-
 // Grid
 
 $gutter: 60px;
 
-
 // Transitions
 
 $transition: 0.3s ease-in-out;
-
 
 // Fonts
 
@@ -59,7 +56,6 @@ $roboto-cd-bold: 'roboto_condensedbold', $roboto-bold;
 $roboto-cd-bold-it: 'roboto_condensedbold_italic', $roboto-it;
 $roboto-cd: 'roboto_condensedregular', $roboto;
 $roboto-cd-it: 'roboto_condensedregular_italic', $roboto-it;
-
 
 // Mediaqueries
 

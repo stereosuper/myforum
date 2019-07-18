@@ -1,39 +1,22 @@
 @charset 'utf-8';
 
-@import
-    'abstracts/variables',
-    'abstracts/functions',
-    'abstracts/mixins';
+// @import "previous-style/main.css", "previous-style/Site.css";
 
-@import
-    'base/reset',
-    'base/fonts',
-    'base/base';
+@import "abstracts/variables", "abstracts/functions", "abstracts/mixins";
+
+@import "base/reset", "base/fonts", "base/base";
 
 //@import
 //  'vendors/';
 
-@import
-    'abstracts/placeholders';
+@import "abstracts/placeholders";
 
-@import
-    'layout/grid',
-    'layout/forms',
-    'layout/header',
-    'layout/footer',
-    'layout/advice',
-    'layout/testimonies';
+@import "layout/grid", "layout/forms", "layout/header", "layout/footer", "layout/advice",
+    "layout/testimonies";
 
-@import
-    'components/buttons',
-    'components/card',
-    'components/social',
-    'components/form-nav',
-    'components/popin';
+@import "components/buttons", "components/card", "components/social", "components/form-nav",
+    "components/popin";
 
-@import
-    'pages/home',
-    'pages/moncompte';
+@import "pages/home", "pages/moncompte";
 
-@import
-    'base/print';
+@import "base/print";

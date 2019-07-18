@@ -1,72 +1,69 @@
-const webpack = require("webpack");
-const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const webpack = require('webpack');
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-
-let config = (env, options) => {
-    const MODE = options.mode;    
+const config = (env, options) => {
+    const devMode = options.mode !== 'production';
     return {
-        entry: "./src/js/main.js",
+        entry: './src/js/main.js',
         output: {
-            path: path.resolve(__dirname) + '/dest',
-            filename: "main.js",
+            path: `${path.resolve(__dirname)}/dest`,
+            filename: 'main.js'
         },
-
-
-        devtool: MODE === 'development' ? 'source-map' : '',
+        devtool: devMode ? 'source-map' : '',
         module: {
-            rules: [{
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: "babel-loader"
-            },{
-                test: /\.(css|sass|scss)$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            importLoaders: 1,
-                            sourceMap: true,
-                            //minimize: true
-                        }
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: (loader) => [
-                                require('autoprefixer')({
-                                    browsers: ['last 2 versions']
-                                })
-                            ]
-                        }
-                    },
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            sourceMap: true
-                        }
+            rules: [
+                {
+                    test: /\.js$/,
+                    enforce: 'pre',
+                    loader: 'eslint-loader',
+                    exclude: /(node_modules)/,
+                    options: {
+                        sourceMap: devMode
                     }
-                ]
-            },
-            {
-                test: /\.(png|jpg|gif|svg|woff|woff2)$/,
-                use: [
-                    {
-                        loader: 'file-loader'
-                    }
-                ]
-            }],
+                },
+                {
+                    test: /\.(css|sass|scss)$/,
+                    use: [
+                        MiniCssExtractPlugin.loader,
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                importLoaders: 1,
+                                sourceMap: true
+                            }
+                        },
+                        'postcss-loader',
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        }
+                    ]
+                },
+                {
+                    test: /\.(png|jpg|gif|svg|woff|woff2)$/,
+                    use: [
+                        {
+                            loader: 'file-loader'
+                        }
+                    ]
+                }
+            ]
         },
         node: {
-            fs: "empty" // avoids error messages
+            fs: 'empty' // avoids error messages
         },
         plugins: [
-            new CopyWebpackPlugin([{ from: 'src/*.html', flatten: true }, { from: 'src/img/', to: 'img/' }] ),
+            new CopyWebpackPlugin([
+                { from: 'src/*.html', flatten: true },
+                { from: 'src/img/', to: 'img/' }
+            ]),
             new MiniCssExtractPlugin({
-                filename: "main.css",
+                filename: 'main.css'
             }),
             new BrowserSyncPlugin(
                 // BrowserSync options
@@ -80,15 +77,13 @@ let config = (env, options) => {
                     proxy: 'http://localhost:8080/',
                     files: [
                         {
-                            match: [
-                                '**/*.html'
-                            ]
+                            match: ['**/*.html']
                         }
                     ]
                 }
             )
         ]
-    }
-} 
+    };
+};
 
 module.exports = config;

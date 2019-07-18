@@ -6,13 +6,11 @@ import scroll from './Scroll.js';
 import fallback from './fallback.js';
 import $ from 'jquery-slim';
 
-
 import initForm from './form';
 import animHome from './animHome';
 import accordion from './accordion';
 import accordion2 from './accordion2';
 import rotate from './rotate';
-
 
 const html = $('html');
 const body = $('body');
@@ -30,22 +28,23 @@ const loadHandler = () => {
     accordion2();
     rotate();
 
-    $('#burger').on('click', function(){
+    $('#burger').on('click', function() {
         $('body').toggleClass('nav-header-open');
     });
 
     const popin = $('#popin');
 
-    popin.on('click', function(e){
-        if( $(e.target).hasClass('popin') )
+    popin
+        .on('click', function(e) {
+            if ($(e.target).hasClass('popin')) popin.addClass('off');
+        })
+        .on('click', '.btn-close', function() {
             popin.addClass('off');
-    }).on('click', '.btn-close', function(){
-        popin.addClass('off');
-    });
-}
+        });
+};
 
 if (document.readyState === 'complete') {
-   loadHandler();
+    loadHandler();
 } else {
-   $(window).on('load', loadHandler);
+    $(window).on('load', loadHandler);
 }

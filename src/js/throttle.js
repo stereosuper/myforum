@@ -1,26 +1,23 @@
-module.exports = function( callback, delay ){
-
+module.exports = function(callback, delay) {
     let last, timer;
 
-    
-    return function(){
-        const context = this, now = +new Date(), args = arguments;
+    return function() {
+        const context = this,
+            now = +new Date(),
+            args = arguments;
 
-
-        function reset(){
+        function reset() {
             last = now;
-            callback.apply( context, args );
+            callback.apply(context, args);
         }
 
-        
-        if( last && now < last + delay ){
+        if (last && now < last + delay) {
             // le délai n'est pas écoulé on reset le timer
-            clearTimeout( timer );
+            clearTimeout(timer);
 
             timer = setTimeout(reset, delay);
-        }else{
+        } else {
             reset();
         }
     };
-    
-}
+};

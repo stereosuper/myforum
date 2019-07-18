@@ -13,32 +13,31 @@ const Scroll = function ScrollClass() {
 
     this.scrollHandler = () => {
         this.scrollTop = $(window).scrollTop() || window.scrollY;
-        clearTimeout( this.timeout );
+        clearTimeout(this.timeout);
 
         this.timeout = setTimeout(() => {
             this.onScrollEnd();
         }, 66);
 
-        this.scrollFunctions.forEach((f) => {
+        this.scrollFunctions.forEach(f => {
             f();
         });
     };
 
     this.addScrollFunction = (f, onEnd = false) => {
         this.scrollFunctions.push(f);
-        if(onEnd) this.endFunctions.push(f);
+        if (onEnd) this.endFunctions.push(f);
     };
 
-    this.addEndFunction = (f) => {
+    this.addEndFunction = f => {
         this.endFunctions.push(f);
     };
-
 
     this.init = () => {
         this.scrollHandler();
         $(window).on(
             'scroll',
-            throttle((e) => {
+            throttle(e => {
                 this.event = e;
                 requestAnimFrame(this.scrollHandler);
             })
@@ -46,10 +45,10 @@ const Scroll = function ScrollClass() {
     };
 
     this.onScrollEnd = () => {
-        this.endFunctions.forEach((f) => {
+        this.endFunctions.forEach(f => {
             f();
         });
-    }
+    };
 };
 
 module.exports = new Scroll();

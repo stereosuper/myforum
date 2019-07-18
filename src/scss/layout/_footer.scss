@@ -4,7 +4,7 @@
 	position: relative;
 	z-index: 2;
 	background: rgb(57, 61, 71);
-	color: $blanc;
+	color: $white;
 	&:before{
 		content: '';
 		width: 50%;
@@ -20,7 +20,7 @@
 		font-family: $roboto;
 		margin: 0 0 0.8em;
 		padding: 0;
-		color: $blanc;
+		color: $white;
 	}
 	h2, p{
 		font-size: 0.875em;
@@ -145,7 +145,7 @@
 .wrapper-menu-footer{
 	width: 100%;
 	min-height: 39px;
-	background: $blanc;
+	background: $white;
 	position: absolute;
 	bottom: 25px;
 	left: 0;
@@ -293,7 +293,7 @@
         position: relative;
         bottom: inherit;
         right: inherit;
-        background-color: $blanc;
+        background-color: $white;
         text-align: center;
         padding: 5px 0 20px 0;
         &.social{
@@ -304,7 +304,7 @@
         }
     }
     .menu-footer{
-        background-color: $blanc;
+        background-color: $white;
         padding: 10px 0;
         text-align: center;
     }
