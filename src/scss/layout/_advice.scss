@@ -1,50 +1,52 @@
-.banner-advice{
+.banner-advice {
     padding: 25px 0;
     position: relative;
     background: #fff;
-    > .container{
+    > .container {
         display: flex;
         justify-content: space-between;
     }
 }
 
-.banner-nb{
+.banner-nb {
     min-width: 18%;
-    &:nth-child(2){
-        span{
+    &:nth-child(2) {
+        span {
             color: $orange;
         }
     }
-    span, strong{
+    span,
+    strong {
         display: block;
     }
-    strong{
+    strong {
         margin: 0 0 30px;
         font-family: $roboto-cd-bold;
         font-size: 2rem;
     }
-    span{
+    span {
         font-size: 4rem;
         color: $theme-rouge-txt;
     }
-    ul{
+    ul {
         padding: 0;
         margin: 0;
     }
-    li{
+    li {
         margin: 0;
-        &:before{
+        &:before {
             content: none;
         }
     }
 }
 
-.advice{
+.advice {
     padding: 40px 45px 35px 130px;
     position: relative;
     font-size: 1.4rem;
-    background: #FCF9EB url(../img/celine.svg) no-repeat 35px 30px;
-    &:before, &:after{
+    background: #fcf9eb url(../img/celine.svg) no-repeat 35px 30px;
+    &:before,
+    &:after {
         content: '';
         position: absolute;
         top: 0;
@@ -53,22 +55,22 @@
         height: 0;
         border-style: solid;
     }
-    &:before{
+    &:before {
         border-width: 22px 0 0 22px;
-        border-color: transparent transparent transparent #F2EDD7;
+        border-color: transparent transparent transparent #f2edd7;
     }
-    &:after{
+    &:after {
         border-width: 0 22px 22px 0;
         border-color: transparent #fff transparent transparent;
     }
-    p{
+    p {
         margin: 3px 0 0;
     }
-    b{
+    b {
         font-family: $roboto-cd-bold;
         font-size: 2rem;
     }
-    .check{
+    .check {
         display: flex;
         justify-content: center;
         width: 33px;
@@ -79,18 +81,17 @@
         background: url(../img/bubble.svg);
         background-size: cover;
         color: #fff;
-        .icon{
+        .icon {
             margin: 9px 0 0;
         }
     }
 }
 
-
 .advice-account {
-    background-image: url(../img/jeanfrançois.svg);
+    background-image: url(../img/jeanfrancois.svg);
 }
 
-.advice-content{
+.advice-content {
     background: linear-gradient(
         to bottom,
         rgba($bleu-link, 0.3),
@@ -102,20 +103,19 @@
     background-position: 0 17px;
 }
 
-
-@media (max-width: $desktop){
-    .banner-advice{
-        > .container{
+@media (max-width: $desktop) {
+    .banner-advice {
+        > .container {
             flex-wrap: wrap;
             justify-content: space-around;
         }
     }
 
-    .banner-nb{
+    .banner-nb {
         min-width: 0;
     }
 
-    .advice{
+    .advice {
         width: 100%;
         margin: 50px 0 0;
     }
