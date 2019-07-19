@@ -9,8 +9,9 @@ const config = (env, options) => {
     return {
         entry: './src/js/main.js',
         output: {
-            path: `${path.resolve(__dirname)}/dest`,
-            filename: 'main.js'
+            path: path.resolve(__dirname, 'dest'),
+            filename: 'main.js',
+            publicPath: '/'
         },
         devtool: devMode ? 'source-map' : '',
         module: {
@@ -60,7 +61,8 @@ const config = (env, options) => {
         plugins: [
             new CopyWebpackPlugin([
                 { from: 'src/*.html', flatten: true },
-                { from: 'src/img/', to: 'img/' }
+                { from: 'src/img/', to: 'img/' },
+                { from: 'src/old-assets/', to: 'old-assets/' }
             ]),
             new MiniCssExtractPlugin({
                 filename: 'main.css'

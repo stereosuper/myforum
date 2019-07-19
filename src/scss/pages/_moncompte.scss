@@ -1,14 +1,16 @@
-.main-container-title-page {
-    max-width: 945px;
-    width: 100%;
-    padding: 0px 35px;
-    margin-top: 100px;
+.breadcrumb {
+    margin: 0;
+}
 
-    // border: 1px red solid;
+.account-title {
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
-    flex-direction: column;
+    width: 100%;
+    max-width: 945px;
+    margin-top: 50px;
+    padding: 0px 35px;
     .little-container-accueil {
         color: #c2c0c0;
         font-family: $roboto-cd-bold;
@@ -23,36 +25,19 @@
             margin-left: 5px;
         }
     }
-    h1 {
+    > h1 {
         color: #282c34;
-        margin: 0px;
         font-size: 34px;
-        margin-left: 60px;
     }
 }
 
-.navigation-account-main-container {
-    max-width: 945px;
-    margin-top: 30px;
-    margin-bottom: 50px;
-    width: 100%;
-    list-style: none;
-
-    nav {
-        overflow-x: scroll;
-        -webkit-overflow-scrolling: touch;
-    }
-    .selection-button {
-        border-right: 1px solid #e4e4e4;
-    }
-    ul {
+.navigation-account {
+    background: $white;
+    > ul {
         display: flex;
         list-style-type: none;
         justify-content: flex-start;
         margin: 0px;
-        overflow-x: scroll;
-        -webkit-overflow-scrolling: touch;
-
         li {
             font-size: 11px;
             margin: 0px;
@@ -96,6 +81,17 @@
                 padding: 15px 20px;
             }
         }
+    }
+}
+
+.account-main-container {
+    max-width: 945px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    width: 100%;
+    list-style: none;
+    .selection-button {
+        border-right: 1px solid #e4e4e4;
     }
 }
 
@@ -217,8 +213,7 @@
 }
 
 .sub-accordion {
-    // height: 70px;
-    background-color: white;
+    background-color: $white;
 }
 
 .sub-accordion-title {
@@ -293,7 +288,7 @@
     }
 }
 
-.navigation-account-main-container {
+.account-main-container {
     .sub-container-content-accordion-list {
         display: flex;
         flex-direction: column;
