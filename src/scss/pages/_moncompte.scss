@@ -214,6 +214,13 @@
 
 .sub-accordion {
     background-color: $white;
+    &.activated {
+        .sub-accordion-title {
+            > .icon-arrow-right {
+                transform: translateY(-50%) rotate3d(0, 0, 1, 90deg);
+            }
+        }
+    }
 }
 
 .sub-accordion-title {
@@ -242,6 +249,14 @@
     > .icon-arrow-right {
         right: 40px;
         color: $black;
+        transition: transition(
+            (
+                transform: (
+                    '0.23s'
+                )
+            ),
+            ease-in-out
+        );
     }
 }
 
