@@ -20,7 +20,8 @@ const accordionHandler = () => {
         contentWrapperSelector: '.js-content-wrapper',
         contentSelector: '.js-content',
         offsetY: 100,
-        scrollDelay: 200
+        scrollDelay: 200,
+        noScroll: false
     });
 
     accordions.initializeAccordions();

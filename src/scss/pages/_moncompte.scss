@@ -270,6 +270,9 @@
 }
 
 .sub-accordion-content-second {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     padding: 20px;
     background: #f8f8f8;
     &.center-content {
@@ -277,20 +280,27 @@
         justify-content: center;
         align-items: center;
     }
-    button {
-        background-color: #c6333e;
-        display: flex;
+    button,
+    a {
+        display: inline-flex;
+    }
+    > p {
+        margin-bottom: 0;
+    }
+    .btn-small,
+    .btn-arrow {
+        margin-top: 1.55em;
+        cursor: pointer;
+    }
+    .btn-small {
+        display: inline-flex;
         justify-content: center;
         align-items: center;
+        margin-top: 1.55em;
         padding: 15px 30px;
-        color: white;
-        text-transform: uppercase;
-        font-size: 13px;
-        letter-spacing: 0.1em;
+        font-size: 1.3rem;
         font-family: $roboto-cd-bold;
-        &:hover {
-            color: #c93740;
-        }
+        letter-spacing: 0.1em;
         .arrow-button {
             margin: 0;
             width: 7px;
@@ -298,6 +308,11 @@
             fill: white;
             margin-left: 10px;
         }
+    }
+    .btn-arrow {
+        align-self: flex-end;
+        margin-top: 3em;
+        color: #c12b38;
     }
 }
 
