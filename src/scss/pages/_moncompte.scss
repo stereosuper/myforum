@@ -95,54 +95,46 @@
     }
 }
 
-.tab-header {
+.account-tab-header {
     background-color: #d2394b;
     margin: 0;
-
-    p {
-        margin: 0;
-    }
-
-    a {
-        color: white;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 30px;
-        text-transform: uppercase;
-        font-family: $roboto-cd-bold;
-        font-size: 13px;
-        letter-spacing: 0.1em;
-    }
 }
 
-.tab-header-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    // border: solid 1px yellow;
-    p {
-        // border: green 1px solid;
-    }
-}
-.tab-header-title-container {
+.account-tab-header-title {
     display: flex;
     justify-content: space-between;
-    border-bottom: solid 1px white;
+    align-items: flex-end;
+    width: 90%;
     padding-top: 50px;
     padding-bottom: 20px;
-    width: 90%;
-    h2 {
-        margin-top: 0px;
-        color: white;
-        margin: 0px;
-        font-family: $roboto-cd;
-        font-size: 34px;
+    margin: 0 auto;
+    border-bottom: solid 1px white;
+    > h2 {
         padding: 0;
+        margin: 0;
+        font-family: $roboto-cd;
+        font-size: 3.4rem;
+        line-height: 1;
+        color: white;
     }
+}
 
-    svg {
+.account-tab-header-export {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: $roboto-cd-bold;
+    font-size: 1.3rem;
+    letter-spacing: 0.1em;
+    color: white;
+    > p {
+        margin: 0;
+        line-height: 1;
+    }
+    > svg {
         margin: 0;
         padding: 0;
         width: 14px;
@@ -153,10 +145,11 @@
 
 .tab-header-paragraph {
     width: 90%;
-    color: white;
-    font-size: 14px;
     padding-top: 20px;
     padding-bottom: 30px;
+    margin: 0 auto;
+    font-size: 14px;
+    color: white;
 }
 
 .accordion-wrapper {
@@ -260,81 +253,72 @@
     }
 }
 
-.container-content-accordion {
+.sub-accordion-content {
     display: flex;
-    justify-content: center;
-    align-items: stretch;
-    margin-top: 50px;
-    padding-bottom: 50px;
+    padding: 35px 50px;
+    border-bottom: solid 1px #eaeaeb;
+    font-size: 1.4rem;
+}
 
-    .sub-container-content-accordion {
-        width: 45%;
-    }
-    .container-content-button {
+.sub-accordion-content-first,
+.sub-accordion-content-second {
+    flex: 0 1 50%;
+}
+
+.sub-accordion-content-first {
+    margin-right: 35px;
+}
+
+.sub-accordion-content-second {
+    padding: 20px;
+    background: #f8f8f8;
+    &.center-content {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 45%;
-        padding: 20px;
+    }
+    button {
+        background-color: #c6333e;
+        display: flex;
         justify-content: center;
         align-items: center;
-        background: #f8f8f8;
-
-        button {
-            background-color: #c6333e;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 15px 30px;
-            color: white;
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 0.1em;
-            font-family: $roboto-cd-bold;
-
-            .arrow-button {
-                margin: 0;
-                width: 7px;
-                height: 7px;
-                fill: white;
-                margin-left: 10px;
-            }
+        padding: 15px 30px;
+        color: white;
+        text-transform: uppercase;
+        font-size: 13px;
+        letter-spacing: 0.1em;
+        font-family: $roboto-cd-bold;
+        &:hover {
+            color: #c93740;
+        }
+        .arrow-button {
+            margin: 0;
+            width: 7px;
+            height: 7px;
+            fill: white;
+            margin-left: 10px;
         }
     }
 }
 
-.account-main-container {
-    .sub-container-content-accordion-list {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        overflow-x: visible;
-        li {
-            position: relative;
-            font-size: 14px;
-            border: none;
-            &::before {
-                content: '';
-                position: absolute;
-                top: 5px;
-                left: -15px;
-            }
-        }
+.advice-account-container {
+    padding: 40px;
+    background: $white;
+    .advice {
+        padding-top: 20px;
+        background: #fcf9eb url('/img/jeanfrancois.svg') no-repeat 35px 30px;
     }
-}
-
-.advice-account {
-    margin: 40px;
-    margin-bottom: 0px;
+    .advice-title {
+        display: block;
+        margin-bottom: 1.25em;
+    }
 }
 
 .tab-footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
-
+    background: $white;
     h4 {
         font-size: 40px;
     }
@@ -378,14 +362,5 @@
         h4 {
             color: #d63e2f;
         }
-    }
-}
-.white_space {
-    height: 60px;
-}
-
-.container-content-accordion .container-content-button button {
-    &:hover {
-        color: #c93740;
     }
 }

@@ -118,19 +118,16 @@
                 </nav>
 
                 <div class="account-tab-content mesbesoins-content">
-                    <div class="tab-header">
-                        <div class="tab-header-container">
-                            <div class="tab-header-title-container">
+                    <div class="account-tab-header">
+                        <div class="account-tab-header-container">
+                            <div class="account-tab-header-title">
                                 <h2>Mes besoins</h2>
-                                <div>
-                                    <a href="">
-                                        <svg class="icon">
-                                            <use xlink:href="#icon-download" />
-                                        </svg>
-
-                                        <p>Exporter ma fiche synthèse</p>
-                                    </a>
-                                </div>
+                                <a class="account-tab-header-export" href="">
+                                    <svg class="icon">
+                                        <use xlink:href="#icon-download" />
+                                    </svg>
+                                    <p>Exporter ma fiche synthèse</p>
+                                </a>
                             </div>
                             <p class="tab-header-paragraph">
                                 Nihil morati post haec militares avidi saepe
@@ -213,10 +210,10 @@
                                         <div
                                             class="sub-accordion-title js-accordion-title"
                                         >
-                                            <h3>5. Taille patron !</h3>
                                             <svg class="icon icon-check">
                                                 <use xlink:href="#icon-check" />
                                             </svg>
+                                            <h3>5. Taille patron !</h3>
                                             <svg class="icon icon-arrow-right">
                                                 <use
                                                     xlink:href="#icon-arrow-right"
@@ -227,10 +224,10 @@
                                             class="ph-content-wrapper js-content-wrapper"
                                         >
                                             <div
-                                                class="container-content-accordion js-content"
+                                                class="sub-accordion-content js-content"
                                             >
                                                 <div
-                                                    class="sub-container-content-accordion"
+                                                    class="sub-accordion-content-first"
                                                 >
                                                     <p>
                                                         L’étude de marché vise à
@@ -272,7 +269,106 @@
                                                     </p>
                                                 </div>
                                                 <div
-                                                    class="container-content-button "
+                                                    class="sub-accordion-content-second"
+                                                >
+                                                    <p>
+                                                        Avez-vous réalisé une
+                                                        étude de marché ?
+                                                    </p>
+                                                    <p>
+                                                        Non ? La réussite de
+                                                        votre projet de
+                                                        création/reprise en
+                                                        dépend ! Pour lever les
+                                                        doutes, n’hésitez pas à
+                                                        prendre contact avec
+                                                        l’un de nos partenaires
+                                                        spécialisé en étude de
+                                                        marché dans votre
+                                                        région.
+                                                    </p>
+                                                    <button
+                                                        class="btn-small"
+                                                        type="button"
+                                                    >
+                                                        Reprendre le quizz
+                                                        <svg
+                                                            class="arrow-button"
+                                                            class="icon"
+                                                        >
+                                                            <use
+                                                                xlink:href="#icon-arrow-right"
+                                                            />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sub-accordion js-accordion">
+                                        <div
+                                            class="sub-accordion-title js-accordion-title"
+                                        >
+                                            <h3>6. Jamais sans les miens</h3>
+                                            <svg class="icon icon-check">
+                                                <use xlink:href="#icon-check" />
+                                            </svg>
+                                            <svg class="icon icon-arrow-right">
+                                                <use
+                                                    xlink:href="#icon-arrow-right"
+                                                />
+                                            </svg>
+                                        </div>
+                                        <div
+                                            class="ph-content-wrapper js-content-wrapper"
+                                        >
+                                            <div
+                                                class="sub-accordion-content js-content"
+                                            >
+                                                <div
+                                                    class="sub-accordion-content-first"
+                                                >
+                                                    <p>
+                                                        L’étude de marché vise à
+                                                        répondre aux questions :
+                                                    </p>
+                                                    <ul>
+                                                        <li>
+                                                            Existe-t-il un réel
+                                                            marché ?
+                                                        </li>
+                                                        <li>
+                                                            Quels sont son
+                                                            évolution et son
+                                                            potentiel?
+                                                        </li>
+                                                        <li>
+                                                            Comment évaluer le
+                                                            futur CA de
+                                                            l’entreprise?
+                                                        </li>
+                                                        <li>
+                                                            Qui sont les
+                                                            concurrents directs
+                                                            et indirects ?
+                                                        </li>
+                                                        <li>
+                                                            Comment se
+                                                            différencier d'eux ?
+                                                        </li>
+                                                    </ul>
+                                                    <p>
+                                                        Il est également
+                                                        indispensable de définir
+                                                        précisément son produit
+                                                        ou service, sa clientèle
+                                                        cible ainsi que la zone
+                                                        d’implantation de
+                                                        l’entreprise.
+                                                    </p>
+                                                </div>
+                                                <div
+                                                    class="sub-accordion-content-second center-content"
                                                 >
                                                     <button
                                                         class="btn-small"
@@ -292,41 +388,28 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="sub-accordion">
-                                        <div class="sub-accordion-title">
-                                            <svg class="icon icon-check">
-                                                <use xlink:href="#icon-check" />
-                                            </svg>
-                                            <h3>
-                                                6. Jamais sans les miens
-                                            </h3>
-                                            <svg class="icon icon-arrow-right">
-                                                <use
-                                                    xlink:href="#icon-arrow-right"
-                                                />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="advice advice-account">
-                                        <div class="advice-content">
-                                            <b>Le conseil de Jean-François</b>
-                                            <p>
-                                                Besoin d'un conseil pour
-                                                réaliser votre étude de marché ?
-                                                De contacts pour la mener à bien
-                                                ? N'hésitez pas à
-                                                <a href="#" class="link"
-                                                    >CONTACTER UN EXPERT
-                                                    MYFORUM</a
-                                                >
-                                            </p>
-                                        </div>
-                                        <div class="check">
-                                            <svg class="icon">
-                                                <use
-                                                    xlink:href="#icon-check"
-                                                ></use>
-                                            </svg>
+                                    <div class="advice-account-container">
+                                        <div class="advice">
+                                            <b class="advice-title">Le conseil de Jean-François</b>
+                                            <div class="advice-content">
+                                                <p>
+                                                    Besoin d'un conseil pour
+                                                    réaliser votre étude de marché ?
+                                                    De contacts pour la mener à bien
+                                                    ? N'hésitez pas à
+                                                    <a href="#" class="link"
+                                                        >CONTACTER UN EXPERT
+                                                        MYFORUM</a
+                                                    >
+                                                </p>
+                                            </div>
+                                            <div class="check">
+                                                <svg class="icon">
+                                                    <use
+                                                        xlink:href="#icon-check"
+                                                    ></use>
+                                                </svg>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
