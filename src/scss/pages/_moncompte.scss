@@ -316,12 +316,10 @@
     }
 }
 
+.account-tab-footer,
 .advice-account-container {
-    padding: 40px;
-    background: $white;
     .advice {
         padding-top: 20px;
-        background: #fcf9eb url('/img/jeanfrancois.svg') no-repeat 35px 30px;
     }
     .advice-title {
         display: block;
@@ -329,53 +327,47 @@
     }
 }
 
-.tab-footer {
+.advice-account-container {
+    padding: 40px;
+    background: $white;
+    .advice {
+        background-image: url('/img/jeanfrancois.svg');
+    }
+}
+
+.account-tab-footer {
     display: flex;
     justify-content: center;
     align-items: center;
     background: $white;
-    h4 {
-        font-size: 40px;
-    }
-    h5 {
-        font-size: 20px;
-        margin-bottom: 30px;
-    }
-
-    .icon-arrow {
-        width: 10px;
-        height: 15px;
-    }
-
-    .tab-footer-news,
-    .tab-footer-pro {
-        margin-top: 130px;
-        padding-bottom: 100px;
-
-        a {
-            display: flex;
-            align-items: center;
-            text-transform: uppercase;
-            font-size: 12px;
-            letter-spacing: 1.2px;
-            text-decoration: none;
-            font-family: $roboto-cd-bold;
-            margin-bottom: 5px;
-        }
-        p {
-            margin: 0;
-            margin-right: 15px;
-        }
+    padding: 40px 50px 50px;
+    .tab-footer {
+        display: flex;
+        margin-right: 50px;
         h4 {
+            font-size: 40px;
+        }
+        h5 {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        .btn-arrow {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+    }
+    .tab-footer-news {
+        margin-right: 75px;
+        > h4 {
+            color: #d63e2f;
+        }
+    }
+    .tab-footer-pro {
+        > h4 {
             color: #ee7e31;
         }
     }
-
-    .tab-footer-news {
-        margin-right: 50px;
-        margin-left: 50px;
-        h4 {
-            color: #d63e2f;
-        }
+    .advice {
+        background-image: url('/img/carole.svg');
     }
 }

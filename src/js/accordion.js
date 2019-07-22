@@ -28,8 +28,8 @@ const accordionHandler = () => {
 
     // HACK: Testing accordion insides
     const [click1, click2] = query({ selector: '.js-accordion-title' });
-    simulateClick(click1);
-    simulateClick(click2);
+    // simulateClick(click1);
+    // simulateClick(click2);
 };
 
 export default accordionHandler;
