@@ -17,7 +17,6 @@ const animHome = () => {
             if (!isDisplayed(imgHome)) return;
 
             cursorX = e.pageX - imgX;
-            console.log('TCL: animHome -> cursorX', imgX);
 
             if (cursorX > 0) {
                 imgHome.classList.add('on');
