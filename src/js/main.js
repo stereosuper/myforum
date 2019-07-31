@@ -4,7 +4,6 @@ import { superLoad, query } from '@stereorepo/sac';
 import io from './io.js';
 
 import Form from './form';
-import initOldForm from './old-form';
 import animHome from './animHome';
 import accordion from './accordion';
 
@@ -13,7 +12,6 @@ const preloadHandler = () => {
 
     const form = new Form();
     form.initialize();
-    // initOldForm();
     animHome();
     accordion();
 

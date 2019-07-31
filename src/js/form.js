@@ -1,8 +1,6 @@
 import { query, forEach } from '@stereorepo/sac';
 import { TweenMax } from 'gsap';
 
-import $ from 'jquery-slim';
-
 class Form {
     constructor() {
         this.form = null;
@@ -136,32 +134,14 @@ class Form {
             step.addEventListener(
                 'click',
                 function() {
-                    if (!$(this).hasClass('accordion-active'))
-                        $(this)
-                            .toggleClass('accordion-active')
-                            .siblings()
-                            .removeClass('accordion-active');
-                },
-                false
-            );
-        });
-    }
-    setupTitleClick() {
-        forEach(this.stepsWrappers, stepsWrapper => {
-            const [formStepTitle] = query({
-                selector: '.form-step-title',
-                ctx: stepsWrapper
-            });
-
-            formStepTitle.addEventListener(
-                'click',
-                function() {
-                    if (!$(this).hasClass('open'))
-                        $(this)
-                            .parent()
-                            .addClass('open')
-                            .siblings()
-                            .removeClass('open');
+                    if (!step.classList.contains('accordion-active')) {
+                        forEach(this.steps, stepToDeactivate => {
+                            stepToDeactivate.classList.remove(
+                                'accordion-active'
+                            );
+                        });
+                        step.classList.add('accordion-active');
+                    }
                 },
                 false
             );
@@ -195,7 +175,6 @@ class Form {
         this.setupArrowNavigation();
         this.setupButtonNavigation();
         this.setupInternalStepActivation();
-        this.setupTitleClick();
     }
 }
 
