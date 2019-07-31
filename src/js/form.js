@@ -1,148 +1,190 @@
-import { query, nodeIndex, forEach } from '@stereorepo/sac';
+import { query, forEach } from '@stereorepo/sac';
 import { TweenMax } from 'gsap';
 
 import $ from 'jquery-slim';
 
-const initForm = () => {
-    const [form] = query({ selector: '#form' });
+class Form {
+    constructor() {
+        this.form = null;
+        this.stepsWrappers = null;
+        this.steps = null;
+        this.formNav = null;
+        this.activeStep = null;
 
-    if (!form) return;
-
-    const stepsWrappers = query({ selector: '.form-steps', ctx: form });
-    const steps = query({ selector: '.form-step', ctx: form });
-    const nbSteps = steps.length;
-    const [formNav] = query({ selector: '#form-nav' });
-    let active,
-        activeIndex = 0,
-        btnIndex;
-
-    const setActive = () => {
-        [active] = query({ selector: '.active', ctx: form });
-        activeIndex = nodeIndex(active);
-    };
-
-    const moveForm = (max, dir, index) => {
+        this.stepsLength = null;
+        this.activeStepIndex = 0;
+    }
+    setActive() {
+        [this.activeStep] = query({ selector: '.active', ctx: this.form });
+        forEach(this.steps, (step, index) => {
+            if (step.classList.contains('active')) {
+                this.activeStepIndex = index;
+            }
+        });
+    }
+    followingIndex({ direction, index }) {
+        let followingIndex = index;
+        if (direction === 'next') {
+            followingIndex =
+                index !== undefined ? index : this.activeStepIndex + 1;
+        } else if (direction === 'prev') {
+            followingIndex =
+                index !== undefined ? index : this.activeStepIndex - 1;
+        }
+        return followingIndex;
+    }
+    moveForm(direction, index) {
+        let max = 0;
+        switch (direction) {
+            case 'prev':
+                max = 0;
+                break;
+            case 'next':
+                max = this.stepsLength - 1;
+                break;
+            default:
+                max = 0;
+                break;
+        }
         if (
-            TweenMax.isTweening(form) ||
-            steps[max].classList.contains('active')
+            TweenMax.isTweening(this.form) ||
+            this.steps[max].classList.contains('active')
         )
             return;
 
-        let newIndex = index;
+        let newIndex = this.followingIndex({ direction, index });
 
-        setActive();
-        active.classList.remove('active');
-
-        if (dir === 'next') {
-            newIndex = newIndex !== undefined ? newIndex : activeIndex + 1;
-            TweenMax.to(form, 0.3, { x: newIndex * -100 + '%' });
-            steps[newIndex].classList.add('active');
-        } else if (dir === 'prev') {
-            newIndex = newIndex !== undefined ? newIndex : activeIndex - 1;
-            TweenMax.to(form, 0.3, { x: newIndex * -100 + '%' });
-            steps[newIndex].classList.add('active');
+        if (this.steps[newIndex]) {
+            TweenMax.to(this.form, 0.3, { x: newIndex * -100 + '%' });
+            this.activeStep.classList.remove('active');
+            this.steps[newIndex].classList.add('active');
         }
 
-        setActive();
+        this.setActive();
 
-        if (index) {
-            const buttons = query({ selector: 'button', ctx: formNav });
+        if (!index) {
+            const buttons = query({ selector: 'button', ctx: this.formNav });
             forEach(buttons, button => {
                 button.classList.remove('active');
-                buttons[activeIndex].classList.add('active');
+                buttons[this.activeStepIndex].classList.add('active');
             });
         }
-    };
-
-    setActive();
-
-    forEach(stepsWrappers, (el, index) => {
-        const [formStep] = query({
-            selector: '.form-step',
-            ctx: stepsWrappers[index]
-        });
-        stepsWrappers[index].style.minWidth = formStep.length * 100 + '%';
-    });
-
-    const [formNext] = query({ selector: '#form-next' });
-    if (formNext) {
-        formNext.addEventListener(
-            'click',
-            () => {
-                moveForm(nbSteps - 1, 'next');
-            },
-            false
-        );
     }
+    setupArrowNavigation() {
+        const [formNext] = query({ selector: '#form-next' });
+        if (formNext) {
+            formNext.addEventListener(
+                'click',
+                () => {
+                    this.moveForm('next');
+                },
+                false
+            );
+        }
 
-    const [formPrev] = query({ selector: '#form-prev' });
-    if (formPrev) {
-        formPrev.addEventListener(
-            'click',
-            () => {
-                moveForm(0, 'prev');
-            },
-            false
-        );
+        const [formPrev] = query({ selector: '#form-prev' });
+        if (formPrev) {
+            formPrev.addEventListener(
+                'click',
+                () => {
+                    this.moveForm('prev');
+                },
+                false
+            );
+        }
     }
+    setupButtonNavigation() {
+        const buttonForms = query({ selector: 'button', ctx: this.formNav });
+        forEach(buttonForms, (buttonForm, btnIndex) => {
+            buttonForm.addEventListener(
+                'click',
+                () => {
+                    const buttons = query({
+                        selector: 'button',
+                        ctx: this.formNav
+                    });
+                    forEach(buttons, button => {
+                        button.classList.remove('active');
+                        button.blur();
+                    });
+                    buttonForm.classList.add('active');
 
-    const buttonForms = query({ selector: 'button', ctx: formNav });
-    forEach(buttonForms, buttonForm => {
-        buttonForm.addEventListener(
-            'click',
-            () => {
-                btnIndex = nodeIndex(buttonForm.parentElement);
-
-                const buttons = query({ selector: 'button', ctx: formNav });
-                forEach(buttons, button => {
-                    button.classList.remove('active');
-                    button.blur();
-                });
-                buttonForm.classList.add('active');
-
-                if (btnIndex > activeIndex) {
-                    moveForm(nbSteps - 1, 'next', btnIndex);
-                } else if (btnIndex < activeIndex) {
-                    moveForm(0, 'prev', btnIndex);
-                }
-            },
-            false
-        );
-    });
-
-    forEach(steps, step => {
-        step.addEventListener(
-            'click',
-            function() {
-                if (!$(this).hasClass('accordion-active'))
-                    $(this)
-                        .toggleClass('accordion-active')
-                        .siblings()
-                        .removeClass('accordion-active');
-            },
-            false
-        );
-    });
-
-    forEach(stepsWrappers, stepsWrapper => {
-        const [formStepTitle] = query({
-            selector: '.form-step-title',
-            ctx: stepsWrapper
+                    if (btnIndex > this.activeStepIndex) {
+                        this.moveForm('next', btnIndex);
+                    } else if (btnIndex < this.activeStepIndex) {
+                        this.moveForm('prev', btnIndex);
+                    }
+                },
+                false
+            );
         });
+    }
+    setupInternalStepActivation() {
+        forEach(this.steps, step => {
+            step.addEventListener(
+                'click',
+                function() {
+                    if (!$(this).hasClass('accordion-active'))
+                        $(this)
+                            .toggleClass('accordion-active')
+                            .siblings()
+                            .removeClass('accordion-active');
+                },
+                false
+            );
+        });
+    }
+    setupTitleClick() {
+        forEach(this.stepsWrappers, stepsWrapper => {
+            const [formStepTitle] = query({
+                selector: '.form-step-title',
+                ctx: stepsWrapper
+            });
 
-        formStepTitle.addEventListener(
-            'click',
-            function() {
-                if (!$(this).hasClass('open'))
-                    $(this)
-                        .parent()
-                        .addClass('open')
-                        .siblings()
-                        .removeClass('open');
-            },
-            false
-        );
-    });
-};
+            formStepTitle.addEventListener(
+                'click',
+                function() {
+                    if (!$(this).hasClass('open'))
+                        $(this)
+                            .parent()
+                            .addClass('open')
+                            .siblings()
+                            .removeClass('open');
+                },
+                false
+            );
+        });
+    }
+    setStepsSizes() {
+        forEach(this.stepsWrappers, (el, index) => {
+            const formStep = query({
+                selector: '.form-step',
+                ctx: this.stepsWrappers[index]
+            });
+            this.stepsWrappers[index].style.minWidth =
+                formStep.length * 100 + '%';
+        });
+    }
+    initialize() {
+        [this.form] = query({ selector: '#form' });
+        if (!this.form) return;
 
-export default initForm;
+        this.stepsWrappers = query({
+            selector: '.js-form-steps',
+            ctx: this.form
+        });
+        this.steps = query({ selector: '.js-form-step', ctx: this.form });
+        this.stepsLength = this.steps.length;
+        [this.formNav] = query({ selector: '#form-nav' });
+
+        this.setActive();
+
+        this.setStepsSizes();
+        this.setupArrowNavigation();
+        this.setupButtonNavigation();
+        this.setupInternalStepActivation();
+        this.setupTitleClick();
+    }
+}
+
+export default Form;

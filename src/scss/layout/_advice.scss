@@ -41,7 +41,7 @@
 }
 
 .advice {
-    padding: 40px 45px 35px 130px;
+    padding: 20px 45px 35px 130px;
     position: relative;
     font-size: 1.4rem;
     background: #fcf9eb url(../img/celine.svg) no-repeat 35px 30px;
@@ -69,6 +69,10 @@
     b {
         font-family: $roboto-cd-bold;
         font-size: 2rem;
+    }
+    .advice-title {
+        display: block;
+        margin-bottom: 1.25em;
     }
     .check {
         display: flex;

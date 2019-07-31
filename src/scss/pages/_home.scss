@@ -1,8 +1,8 @@
 /* Home specific style */
 
-.header-home-container{
+.header-home-container {
     position: relative;
-    .img{
+    .img {
         display: flex;
         border-left: 4px solid transparent;
         justify-content: flex-end;
@@ -10,61 +10,63 @@
         bottom: -5%;
         right: -100px;
         overflow: hidden;
-        &.on{
+        &.on {
             border-color: #fff;
         }
-        img{
+        img {
             max-width: 950px;
         }
     }
 }
 
-.header-home{
+.header-home {
     width: 39%;
     min-width: 450px;
     padding: 60px 0 120px;
     position: relative;
     z-index: 1;
+    h1 {
+        padding: 0;
+    }
 }
 
-
-@media (max-width: $desktop-big){
-    .header-home-container{
-        .img{
+@media (max-width: $desktop-big) {
+    .header-home-container {
+        .img {
             bottom: -10%;
-            img{
+            img {
                 max-width: 900px;
             }
         }
     }
 }
 
-@media (max-width: $desktop){
-    .header-home-container{
-        .img{
+@media (max-width: $desktop) {
+    .header-home-container {
+        .img {
             right: -20%;
-            img{
+            img {
                 max-width: 750px;
             }
         }
     }
 }
 
-@media (max-width: $tablet){
-    .header-home-container{
-        .img{
+@media (max-width: $tablet) {
+    .header-home-container {
+        .img {
             position: static;
             margin: 15px -50px 0;
-            img{
+            img {
                 max-width: 100%;
             }
-            + .img{
+            + .img {
                 display: none;
             }
         }
     }
 
-    .header-home{
+    .header-home {
         width: 100%;
         min-width: 0;
         padding-top: 30px;

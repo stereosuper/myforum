@@ -1,13 +1,12 @@
-import 'intersection-observer';
+import { query, forEach, superPolyfill } from '@stereorepo/sac';
 
 const io = function() {
     this.resized = true;
 
     this.init = () => {
-        const objectsToIO = [].slice.call(
-            document.querySelectorAll('[data-io]')
-        );
+        superPolyfill.initializeIntersectionObserver();
 
+        const objectsToIO = query({ selector: '[data-io]' });
         const observer = new IntersectionObserver(
             entries => {
                 entries.forEach(entry => {
@@ -26,7 +25,7 @@ const io = function() {
             }
         );
 
-        objectsToIO.forEach(obj => {
+        forEach(objectsToIO, obj => {
             if (!obj.hasAttribute('data-io-observed')) {
                 observer.observe(obj);
                 obj.setAttribute('data-io-observed', '');

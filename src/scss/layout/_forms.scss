@@ -1,39 +1,38 @@
 /* Forms */
 
-::-webkit-input-placeholder{
-	font-family: $roboto-it;
+::-webkit-input-placeholder {
+    font-family: $roboto-it;
     font-size: 0.88em;
     color: rgb(139, 139, 139);
 }
-::-moz-placeholder{
-	font-family: $roboto-it;
+::-moz-placeholder {
+    font-family: $roboto-it;
     font-size: 0.88em;
     color: rgb(139, 139, 139);
 }
-::-ms-input-placeholder{
-	font-family: $roboto-it;
+::-ms-input-placeholder {
+    font-family: $roboto-it;
     font-size: 0.88em;
     color: rgb(139, 139, 139);
 }
 
-
-.form-wrapper{
+.form-wrapper {
     display: inline-flex;
     width: 100%;
 }
 
-.form-steps{
+.form-steps {
     display: inline-flex;
     min-width: 100%;
 }
 
-.form-step{
+.form-step {
     position: relative;
     width: 100%;
     //min-width: 100%;
     padding: 0 0 60px;
     overflow: hidden;
-    > img{
+    > img {
         max-width: 50%;
         position: absolute;
         right: -$gutter/2;
@@ -41,7 +40,7 @@
     }
 }
 
-.form-container{
+.form-container {
     display: flex;
     width: 75%;
     position: relative;
@@ -52,30 +51,30 @@
     border-radius: 10px;
     background: #fff;
     box-shadow: 0 18px 36px rgba(#000, 0.13);
-    > div{
+    > div {
         width: 50%;
         padding: 35px 30px;
-        &:nth-of-type(1){
+        &:nth-of-type(1) {
             padding-left: 75px;
         }
-        &:nth-of-type(2){
+        &:nth-of-type(2) {
             padding-top: 72px;
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;
-            background: #F8F8F8;
+            background: #f8f8f8;
         }
     }
-    .btn-form{
-        margin: 25px 0 0 ;
+    .btn-form {
+        margin: 25px 0 0;
     }
 }
 
-.form-title{
+.form-title {
     position: relative;
     margin: 0 0 1em;
     font-size: 2.7rem;
     color: $txt;
-    > span{
+    > span {
         padding: 6px 2px;
         position: absolute;
         top: 0;
@@ -85,7 +84,7 @@
         font-size: 1.2rem;
         letter-spacing: -0.11em;
         color: #fff;
-        &:before{
+        &:before {
             content: '';
             width: 35px;
             height: 35px;
@@ -97,34 +96,34 @@
             transform-origin: 50% 50%;
             transform: rotate(-5deg);
         }
-        span{
+        span {
             font-size: 2rem;
         }
     }
 }
 
-.form-icon{
+.form-icon {
     display: inline-block;
     padding: 4px 8px 5px;
     background: $bleu-link;
     color: #fff;
-    > .icon{
+    > .icon {
         width: 36px;
         height: 15px;
     }
 }
 
-.form-subfield{
+.form-subfield {
     margin: 10px 0 0 18px;
 }
 
-.form-step-next{
+.form-step-next {
     display: flex;
     justify-content: flex-end;
     margin: 35px 0;
 }
 
-.form-step-title{
+.form-step-title {
     display: none;
     padding: 20px $gutter/2;
     margin: 0;
@@ -134,97 +133,97 @@
     color: #fff;
 }
 
-fieldset{
+fieldset {
     margin: 0 0 17px;
-    p{
+    p {
         margin: 0;
     }
 }
 
-legend{
+legend {
     font-family: $roboto-bold;
     margin: 0 0 2em;
-    > span{
+    > span {
         display: block;
         font-family: $roboto-it;
     }
 }
 
-label{
+label {
     display: inline-block;
     width: 180px;
     margin: 0 15px 0 0;
     vertical-align: middle;
     line-height: 1.5;
     letter-spacing: -0.02em;
-    &.medium{
+    &.medium {
         font-size: 1em;
     }
-    &.block{
+    &.block {
         display: block;
         margin: 0 0 6px 0;
     }
-    .required &{
+    .required & {
         font-family: $roboto-bold;
-        &:after{
+        &:after {
             content: '*';
             color: $theme-rouge-title;
         }
-        .form-disabled &{
+        .form-disabled & {
             font-family: $roboto;
-            &:after{
+            &:after {
                 display: none;
             }
         }
     }
-    .required.no-asterisk &{
-        &:after{
+    .required.no-asterisk & {
+        &:after {
             display: none;
         }
     }
-    .error &{
+    .error & {
         color: $error;
     }
 }
 
-label{
+label {
     cursor: pointer;
-    .form-disabled &{
+    .form-disabled & {
         cursor: auto;
     }
 }
 
-.big-legend{
+.big-legend {
     width: 100%;
     max-width: 650px;
     border-bottom: 1px dashed;
     margin-bottom: 20px;
     font-family: $roboto-cd-bold;
     font-size: 1.5em;
-    .cercle &{
+    .cercle & {
         margin: 20px 0 30px 0;
     }
 }
 
-.legend-next-fieldset{
+.legend-next-fieldset {
     /* float pour ff + safari qui sinon laisse le legend déborder au-dessus du fieldset */
     float: left;
-    .form-disabled &{
+    .form-disabled & {
         margin-bottom: 0;
-        + fieldset{
+        + fieldset {
             margin-bottom: 5px;
         }
     }
 }
 
-.label-select{
+.label-select {
     font-family: $roboto-bold;
-    .form-half &{
+    .form-half & {
         width: 34.92%;
         margin-right: 3.1%;
     }
-    &.small{
-        .form-half &{
+    &.small {
+        .form-half & {
             width: 8.26%;
             margin: 0;
             text-align: center;
@@ -232,11 +231,14 @@ label{
     }
 }
 
-input, textarea, select{
+input,
+textarea,
+select {
     width: 100%;
 }
 
-input, textarea{
+input,
+textarea {
     display: inline-block;
     padding: 10px;
     border: 1px solid #ebebeb;
@@ -246,113 +248,120 @@ input, textarea{
     color: inherit;
     box-shadow: 0 4px 10px rgba(135, 60, 21, 0.05);
     transition: $transition;
-    &:not([disabled]):hover{
+    &:not([disabled]):hover {
         border-color: mix(#fff, #ebebeb, 20%);
-        &:focus{
+        &:focus {
             border-color: $bleu-link;
         }
     }
-    &:focus{
+    &:focus {
         border-color: $bleu-link;
         outline: none;
     }
-    .error &{
+    .error & {
         border-color: $error;
     }
-  	&:-webkit-autofill{
-      	box-shadow: 0 0 0 1000px #fff inset;
-  	}
+    &:-webkit-autofill {
+        box-shadow: 0 0 0 1000px #fff inset;
+    }
 }
 
-input{
-    &.small{
+input {
+    &.small {
         max-width: 160px;
     }
-    &.x-small{
+    &.x-small {
         max-width: 110px;
     }
-    &.super-big{
+    &.super-big {
         max-width: 490px;
     }
-    &.med{
+    &.med {
         max-width: 180px;
     }
-	&[type=text], &[type=email], &[type=tel], &[type=password], &[type=number]{
-		vertical-align: middle;
-	}
-    &[type=text]{
+    &[type='text'],
+    &[type='email'],
+    &[type='tel'],
+    &[type='password'],
+    &[type='number'] {
+        vertical-align: middle;
+    }
+    &[type='text'] {
         max-width: 250px;
-        &.small{
+        &.small {
             padding-top: 7px;
             padding-bottom: 7px;
         }
-        &.med{
+        &.med {
             max-width: 230px;
         }
     }
-    &[type=tel]{
+    &[type='tel'] {
         max-width: 150px;
-        &.med{
+        &.med {
             max-width: 180px;
         }
     }
-    &[type=email], &.big{
+    &[type='email'],
+    &.big {
         max-width: 325px;
     }
-    &[type=number]{
+    &[type='number'] {
         max-width: 85px;
         -moz-appearance: textfield; /* to hide the persistent indicator on FF */
-        &.price{
+        &.price {
             max-width: 160px;
-            + b{
+            + b {
                 display: inline-block;
                 margin: 0 0 0 8px;
             }
         }
     }
-    &[type=password]{
+    &[type='password'] {
         max-width: 140px;
     }
-    &[type=radio], &[type=checkbox]{
+    &[type='radio'],
+    &[type='checkbox'] {
         width: 0;
         height: 0;
         position: relative;
         left: -99em;
         vertical-align: top;
-        &:checked{
-            + label{
-                &:after{
+        &:checked {
+            + label {
+                &:after {
                     opacity: 1;
                 }
             }
         }
-        &:hover{
+        &:hover {
             opacity: 0.8;
         }
-        &[disabled]{
+        &[disabled] {
             display: none;
-            + label{
+            + label {
                 display: none;
                 padding-left: 0;
                 font-family: $roboto-bold;
             }
-            &:checked{
-                + label{
+            &:checked {
+                + label {
                     display: inline-block;
                 }
             }
         }
-        + label{
+        + label {
             width: auto;
             position: relative;
             padding: 0 0 0 17px;
-            &:before, &:after{
+            &:before,
+            &:after {
                 content: '';
                 position: absolute;
                 bottom: -2px;
                 margin: 5px auto;
             }
-            &:before{
+            &:before {
                 width: 12px;
                 height: 12px;
                 border: 1px solid #e4e4e4;
@@ -362,7 +371,7 @@ input{
                 transition: $transition;
                 box-shadow: 0 4px 10px rgba(135, 60, 21, 0.05);
             }
-            &:after{
+            &:after {
                 width: 8px;
                 height: 8px;
                 top: 2px;
@@ -370,41 +379,42 @@ input{
                 background: $bleu-link;
                 opacity: 0;
             }
-            &:hover{
-                &:before{
+            &:hover {
+                &:before {
                     border-color: mix(#fff, #e4e4e4, 20%);
                 }
             }
         }
     }
-    &[type=radio]{
-        + label{
-            &:before, &:after{
+    &[type='radio'] {
+        + label {
+            &:before,
+            &:after {
                 border-radius: 50%;
             }
         }
     }
-    &[disabled]{
+    &[disabled] {
         border: 0;
         outline: 0 !important;
         font-size: 0.88em;
         font-family: $roboto-bold;
         /* pour safari qui affiche les input disabled en gris */
         -webkit-text-fill-color: $txt;
-        .error &{
+        .error & {
             color: $error;
             -webkit-text-fill-color: $error;
         }
     }
 }
 
-textarea{
+textarea {
     max-width: 370px;
     height: 75px;
     line-height: 1.5;
 }
 
-select{
+select {
     height: 42px;
     padding: 0 30px 0 12px;
     border: 1px solid #ebebeb;
@@ -418,28 +428,28 @@ select{
     background: #fff;
     outline: 1px solid #dadada;
     transition: border $transition, outline $transition;
-    &::-ms-expand{
+    &::-ms-expand {
         display: none;
     }
-    .lt-ie10 &{
+    .lt-ie10 & {
         padding-right: 0;
     }
-    &:focus{
+    &:focus {
         border-color: $bleu-link;
         outline: 1px solid $bleu-link;
         outline-offset: 0;
     }
-    .error &{
+    .error & {
         border-color: $error;
         outline: 1px solid $error;
     }
 }
-.select{
+.select {
     display: inline-block;
     width: 300px;
     max-width: 100%;
     position: relative;
-    &:after{
+    &:after {
         content: '';
         width: 0;
         height: 0;
@@ -452,36 +462,36 @@ select{
         margin: auto;
         right: 14px;
         pointer-events: none;
-        .lt-ie10 &{
+        .lt-ie10 & {
             display: none;
         }
     }
-    &.medium{
+    &.medium {
         width: 200px;
     }
-    &.small{
+    &.small {
         width: 130px;
-        .form-half &{
+        .form-half & {
             width: 26.86%;
         }
     }
-    .form-half &{
+    .form-half & {
         width: 61.9%;
     }
 }
 
-button{
+button {
     border: 0;
     transition: $transition;
-    &:focus{
+    &:focus {
         outline: 0;
     }
-    &.no-margin{
+    &.no-margin {
         margin-left: 0;
     }
 }
 
-.not-filled{
+.not-filled {
     display: block;
     margin: -28px 0 14px 205px;
     font-size: 0.88em;
@@ -489,42 +499,41 @@ button{
     color: #b6b8bb;
 }
 
-.info-form{
+.info-form {
     margin-top: 8px;
 }
 
 /* Newsletter */
 
-.form-newsletter{
-    div{
+.form-newsletter {
+    div {
         margin: 10px 0;
     }
-    input{
+    input {
         background: none;
         padding-top: 5px;
         padding-bottom: 6px;
         border-width: 2px;
         border-color: #c1c3c6;
         outline: 0 !important;
-        &:focus{
+        &:focus {
             border-color: $bleu-link;
         }
     }
 }
 
-.wrapper-input-btn{
+.wrapper-input-btn {
     display: flex;
     justify-content: space-between;
-    .btn-small{
+    .btn-small {
         padding: 9px 13px;
         margin: 0 0 0 10px;
     }
 }
 
-
 /* Form error */
 
-.p-error{
+.p-error {
     padding: 15px 30px 15px 70px;
     position: relative;
     font-family: $roboto-bold;
@@ -533,81 +542,83 @@ button{
     color: $error;
 }
 
-.p-valid, #footer .p-valid{
+.p-valid,
+#footer .p-valid {
     padding: 15px;
     position: relative;
     font-family: $roboto-bold;
     font-size: 0.88em;
     background: #f3f4e1;
     color: $valid;
-    &.small{
+    &.small {
         font-size: 0.85em;
         padding: 10px;
     }
 }
 
-
-@media (max-width: $desktop-big){
-    .form-step{
-        > img{
+@media (max-width: $desktop-big) {
+    .form-step {
+        > img {
             display: none;
         }
     }
 
-    .form-container{
+    .form-container {
         width: 95%;
         margin-left: auto;
         margin-right: auto;
     }
 }
 
-@media (max-width: $desktop){
-    .form-container{
+@media (max-width: $desktop) {
+    .form-container {
         display: block;
-        > div{
+        > div {
             width: 100%;
-            &:nth-of-type(2){
+            &:nth-of-type(2) {
                 padding-top: 40px;
             }
         }
     }
 }
 
-@media (max-width: $phone){
-    .form-btn, .form-nav{
+@media (max-width: $phone) {
+    .form-btn,
+    .form-nav {
         display: none;
     }
 
-    .form-wrapper{
+    .form-wrapper {
         display: block;
         padding: 62% 0 0;
         position: relative;
     }
 
-    .form-steps{
+    .form-steps {
         display: block;
         min-width: 0 !important;
     }
 
-    .form-container{
+    .form-container {
         width: 100%;
         margin: 0;
         background: none;
         box-shadow: none;
-        > div{
+        > div {
             padding: 0;
-            &:nth-of-type(1){
+            &:nth-of-type(1) {
                 padding-left: 0;
             }
-            &:nth-of-type(2){
+            &:nth-of-type(2) {
                 padding-bottom: 50px;
                 background: none;
             }
         }
     }
 
-    .form-title, .form-step-title{
-        &:after{
+    .form-title,
+    .form-step-title {
+        &:after {
             content: '›';
             float: right;
             font-size: 2.6rem;
@@ -615,53 +626,54 @@ button{
         }
     }
 
-    .form-step-title{
+    .form-step-title {
         display: block;
         cursor: pointer;
-        &:after{
-            .open &{
+        &:after {
+            .open & {
                 transform: rotate(90deg);
             }
         }
     }
 
-    .form-title{
+    .form-title {
         margin: 24px 0;
         font-size: 1.8rem;
         cursor: pointer;
-        &:after{
+        &:after {
             line-height: 1;
-            .active &{
+            .active & {
                 transform: rotate(90deg);
             }
         }
-        > span{
+        > span {
             position: static;
             color: $txt;
-            &:before{
+            &:before {
                 content: none;
             }
         }
     }
 
-    .form-text{
+    .form-text {
         padding: 5px 0 0;
     }
 
-    .form-text, .form-container > div:nth-of-type(2){
+    .form-text,
+    .form-container > div:nth-of-type(2) {
         display: none;
-        .accordion-active &{
+        .accordion-active & {
             display: block;
         }
     }
 
-    .form-step{
+    .form-step {
         display: none;
         padding: 0;
-        border-bottom: 2px solid rgba(#282C34, 0.1);
+        border-bottom: 2px solid rgba(#282c34, 0.1);
         position: static;
         background: #fff;
-        > img{
+        > img {
             max-width: 95%;
             top: 0;
             bottom: auto;
@@ -670,13 +682,13 @@ button{
             margin: auto;
             z-index: -1;
         }
-        &.accordion-active{
+        &.accordion-active {
             background: none;
-            > img{
+            > img {
                 display: block;
             }
         }
-        .open &{
+        .open & {
             display: block;
         }
     }
