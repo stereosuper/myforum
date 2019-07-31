@@ -13,6 +13,7 @@ class Form {
 
         this.stepsLength = null;
         this.activeStepIndex = 0;
+        this.followingIndex = 0;
     }
     setActive() {
         [this.activeStep] = query({ selector: '.active', ctx: this.form });
@@ -22,53 +23,42 @@ class Form {
             }
         });
     }
-    followingIndex({ direction, index }) {
-        let followingIndex = index;
+    setFollowingIndex({ direction, index }) {
         if (direction === 'next') {
-            followingIndex =
+            this.followingIndex =
                 index !== undefined ? index : this.activeStepIndex + 1;
         } else if (direction === 'prev') {
-            followingIndex =
+            this.followingIndex =
                 index !== undefined ? index : this.activeStepIndex - 1;
         }
-        return followingIndex;
     }
-    moveForm(direction, index) {
-        let max = 0;
-        switch (direction) {
-            case 'prev':
-                max = 0;
-                break;
-            case 'next':
-                max = this.stepsLength - 1;
-                break;
-            default:
-                max = 0;
-                break;
-        }
+    checkHasFollowing({ direction, index, callback }) {
+        this.setFollowingIndex({
+            direction,
+            index
+        });
         if (
-            TweenMax.isTweening(this.form) ||
-            this.steps[max].classList.contains('active')
-        )
-            return;
-
-        let newIndex = this.followingIndex({ direction, index });
-
-        if (this.steps[newIndex]) {
-            TweenMax.to(this.form, 0.3, { x: newIndex * -100 + '%' });
-            this.activeStep.classList.remove('active');
-            this.steps[newIndex].classList.add('active');
+            this.steps[this.followingIndex] &&
+            !TweenMax.isTweening(this.form)
+        ) {
+            callback();
         }
+    }
+    moveForm() {
+        TweenMax.to(this.form, 0.3, {
+            x: this.followingIndex * -100 + '%'
+        });
+        this.activeStep.classList.remove('active');
+        this.steps[this.followingIndex].classList.add('active');
 
         this.setActive();
-
-        if (!index) {
-            const buttons = query({ selector: 'button', ctx: this.formNav });
-            forEach(buttons, button => {
-                button.classList.remove('active');
-                buttons[this.activeStepIndex].classList.add('active');
-            });
-        }
+    }
+    activateButton() {
+        const buttons = query({ selector: 'button', ctx: this.formNav });
+        forEach(buttons, button => {
+            button.classList.remove('active');
+            buttons[this.activeStepIndex].classList.add('active');
+        });
     }
     setupArrowNavigation() {
         const [formNext] = query({ selector: '#form-next' });
@@ -76,7 +66,13 @@ class Form {
             formNext.addEventListener(
                 'click',
                 () => {
-                    this.moveForm('next');
+                    this.checkHasFollowing({
+                        direction: 'next',
+                        callback: () => {
+                            this.moveForm();
+                            this.activateButton();
+                        }
+                    });
                 },
                 false
             );
@@ -87,7 +83,13 @@ class Form {
             formPrev.addEventListener(
                 'click',
                 () => {
-                    this.moveForm('prev');
+                    this.checkHasFollowing({
+                        direction: 'prev',
+                        callback: () => {
+                            this.moveForm();
+                            this.activateButton();
+                        }
+                    });
                 },
                 false
             );
@@ -95,25 +97,35 @@ class Form {
     }
     setupButtonNavigation() {
         const buttonForms = query({ selector: 'button', ctx: this.formNav });
-        forEach(buttonForms, (buttonForm, btnIndex) => {
+        forEach(buttonForms, (buttonForm, index) => {
             buttonForm.addEventListener(
                 'click',
                 () => {
-                    const buttons = query({
-                        selector: 'button',
-                        ctx: this.formNav
-                    });
-                    forEach(buttons, button => {
-                        button.classList.remove('active');
-                        button.blur();
-                    });
-                    buttonForm.classList.add('active');
-
-                    if (btnIndex > this.activeStepIndex) {
-                        this.moveForm('next', btnIndex);
-                    } else if (btnIndex < this.activeStepIndex) {
-                        this.moveForm('prev', btnIndex);
+                    if (index === this.activeStepIndex) return;
+                    let direction = '';
+                    if (index > this.activeStepIndex) {
+                        direction = 'next';
+                    } else if (index < this.activeStepIndex) {
+                        direction = 'prev';
                     }
+
+                    this.checkHasFollowing({
+                        direction,
+                        index,
+                        callback: () => {
+                            const buttons = query({
+                                selector: 'button',
+                                ctx: this.formNav
+                            });
+                            forEach(buttons, button => {
+                                button.classList.remove('active');
+                                button.blur();
+                            });
+                            buttonForm.classList.add('active');
+
+                            this.moveForm();
+                        }
+                    });
                 },
                 false
             );
