@@ -21,7 +21,8 @@ const accordionHandler = () => {
         contentSelector: '.js-content',
         offsetY: 100,
         scrollDelay: 200,
-        noScroll: false
+        noScroll: false,
+        silent: true
     });
 
     accordions.initializeAccordions();

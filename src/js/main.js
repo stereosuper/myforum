@@ -1,45 +1,55 @@
 import '../scss/main.scss';
-import win from './Window.js';
+import { superLoad, query } from '@stereorepo/sac';
+
 import io from './io.js';
-import scroll from './Scroll.js';
-import fallback from './fallback.js';
-import $ from 'jquery-slim';
 
 import initForm from './form';
 import animHome from './animHome';
 import accordion from './accordion';
 
-const html = $('html');
-const body = $('body');
-
-const loadHandler = () => {
-    scroll.init();
-    win.noTransitionElts = $('.element-without-transition-on-resize');
-    win.init();
+const preloadHandler = () => {
     io.init();
-    fallback(body, html);
 
     initForm();
     animHome();
     accordion();
 
-    $('#burger').on('click', function() {
-        $('body').toggleClass('nav-header-open');
-    });
+    const [burger] = query({ selector: '#burger' });
+    if (burger) {
+        burger.addEventListener(
+            'click',
+            () => {
+                document.body.classList.toggle('nav-header-open');
+            },
+            false
+        );
+    }
 
-    const popin = $('#popin');
+    const [popin] = query({ selector: '#popin' });
+    if (popin) {
+        popin.addEventListener(
+            'click',
+            e => {
+                if (e.target.classList.contains('popin'))
+                    popin.classList.add('off');
+            },
+            false
+        );
+    }
 
-    popin
-        .on('click', function(e) {
-            if ($(e.target).hasClass('popin')) popin.addClass('off');
-        })
-        .on('click', '.btn-close', function() {
-            popin.addClass('off');
-        });
+    const [closeButton] = query({ selector: '.btn-close', ctx: popin });
+    if (closeButton) {
+        closeButton.addEventListener(
+            'click',
+            () => {
+                popin.classList.add('off');
+            },
+            false
+        );
+    }
 };
 
-if (document.readyState === 'complete') {
-    loadHandler();
-} else {
-    $(window).on('load', loadHandler);
-}
+superLoad.initializeLoadingShit({
+    preloadCallback: preloadHandler,
+    noTransElementsClass: '.element-without-transition-on-resize'
+});
