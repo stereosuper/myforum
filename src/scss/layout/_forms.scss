@@ -16,6 +16,10 @@
     color: rgb(139, 139, 139);
 }
 
+.form-image {
+    display: none;
+}
+
 .form-wrapper {
     display: inline-flex;
     width: 100%;
@@ -24,6 +28,13 @@
 .form-steps {
     display: inline-flex;
     min-width: 100%;
+    @extend %stereorepo-accordion;
+}
+
+.form-steps-content-wrapper,
+.form-steps-content {
+    display: flex;
+    width: 100%;
 }
 
 .form-step {
@@ -102,6 +113,10 @@
     }
 }
 
+.form-step-title {
+    display: none;
+}
+
 .form-icon {
     display: inline-block;
     padding: 4px 8px 5px;
@@ -123,7 +138,7 @@
     margin: 35px 0;
 }
 
-.form-step-title {
+.form-steps-title {
     display: none;
     padding: 20px $gutter/2;
     margin: 0;
@@ -583,22 +598,32 @@ button {
 }
 
 @media (max-width: $phone) {
+    .form-image {
+        display: block;
+    }
     .form-btn,
     .form-nav {
         display: none;
     }
-
     .form-wrapper {
         display: block;
-        padding: 62% 0 0;
         position: relative;
     }
-
     .form-steps {
         display: block;
         min-width: 0 !important;
+        &.activated {
+            .form-steps-title {
+                &::after {
+                    transform: rotate3d(0, 0, 1, 90deg);
+                }
+            }
+        }
     }
-
+    .form-steps-content-wrapper,
+    .form-steps-content {
+        display: block;
+    }
     .form-container {
         width: 100%;
         margin: 0;
@@ -615,8 +640,7 @@ button {
             }
         }
     }
-
-    .form-title,
+    .form-steps-title,
     .form-step-title {
         &:after {
             content: '›';
@@ -625,17 +649,10 @@ button {
             transform-origin: 50% 50%;
         }
     }
-
-    .form-step-title {
+    .form-steps-title {
         display: block;
         cursor: pointer;
-        &:after {
-            .open & {
-                transform: rotate(90deg);
-            }
-        }
     }
-
     .form-title {
         margin: 24px 0;
         font-size: 1.8rem;
@@ -654,25 +671,23 @@ button {
             }
         }
     }
-
     .form-text {
         padding: 5px 0 0;
     }
-
-    .form-text,
-    .form-container > div:nth-of-type(2) {
-        display: none;
-        .accordion-active & {
-            display: block;
-        }
-    }
-
     .form-step {
-        display: none;
         padding: 0;
         border-bottom: 2px solid rgba(#282c34, 0.1);
         position: static;
         background: #fff;
+        .form-step-title {
+            cursor: pointer;
+            padding: 1.55em 30px;
+            margin: 0;
+            font-family: $roboto-bold;
+        }
+        .form-title {
+            display: none;
+        }
         > img {
             max-width: 95%;
             top: 0;
@@ -682,14 +697,12 @@ button {
             margin: auto;
             z-index: -1;
         }
-        &.accordion-active {
-            background: none;
-            > img {
-                display: block;
+        &.activated {
+            .form-step-title {
+                &::after {
+                    transform: rotate3d(0, 0, 1, 90deg);
+                }
             }
-        }
-        .open & {
-            display: block;
         }
     }
 }

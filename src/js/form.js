@@ -14,9 +14,9 @@ class Form {
         this.followingIndex = 0;
     }
     setActive() {
-        [this.activeStep] = query({ selector: '.active', ctx: this.form });
+        [this.activeStep] = query({ selector: '.active-step', ctx: this.form });
         forEach(this.steps, (step, index) => {
-            if (step.classList.contains('active')) {
+            if (step.classList.contains('active-step')) {
                 this.activeStepIndex = index;
             }
         });
@@ -46,8 +46,8 @@ class Form {
         TweenMax.to(this.form, 0.3, {
             x: this.followingIndex * -100 + '%'
         });
-        this.activeStep.classList.remove('active');
-        this.steps[this.followingIndex].classList.add('active');
+        this.activeStep.classList.remove('active-step');
+        this.steps[this.followingIndex].classList.add('active-step');
 
         this.setActive();
     }
@@ -129,24 +129,22 @@ class Form {
             );
         });
     }
-    setupInternalStepActivation() {
-        forEach(this.steps, step => {
-            step.addEventListener(
-                'click',
-                function() {
-                    if (!step.classList.contains('accordion-active')) {
-                        forEach(this.steps, stepToDeactivate => {
-                            stepToDeactivate.classList.remove(
-                                'accordion-active'
-                            );
-                        });
-                        step.classList.add('accordion-active');
-                    }
-                },
-                false
-            );
-        });
-    }
+    // setupInternalStepActivation() {
+    //     forEach(this.steps, step => {
+    //         step.addEventListener(
+    //             'click',
+    //             function() {
+    //                 if (!step.classList.contains('active-step')) {
+    //                     forEach(this.steps, stepToDeactivate => {
+    //                         stepToDeactivate.classList.remove('active-step');
+    //                     });
+    //                     step.classList.add('active-step');
+    //                 }
+    //             },
+    //             false
+    //         );
+    //     });
+    // }
     setStepsSizes() {
         forEach(this.stepsWrappers, (el, index) => {
             const formStep = query({
@@ -174,7 +172,7 @@ class Form {
         this.setStepsSizes();
         this.setupArrowNavigation();
         this.setupButtonNavigation();
-        this.setupInternalStepActivation();
+        // this.setupInternalStepActivation();
     }
 }
 

@@ -14,7 +14,7 @@ const simulateClick = function(elem) {
 };
 
 const accordionHandler = () => {
-    const accordions = new Accordion({
+    const accordionsAccount = new Accordion({
         containerSelector: '.js-accordion',
         clickedSelector: '.js-accordion-title',
         contentWrapperSelector: '.js-content-wrapper',
@@ -25,12 +25,28 @@ const accordionHandler = () => {
         silent: true
     });
 
-    accordions.initializeAccordions();
+    accordionsAccount.initializeAccordions();
+
+    const accordionsForm = new Accordion({
+        containerSelector: '.js-form-accordion',
+        clickedSelector: '.js-form-accordion-title',
+        contentWrapperSelector: '.js-form-accordion-content-wrapper',
+        contentSelector: '.js-form-accordion-content',
+        offsetY: 100,
+        scrollDelay: 200,
+        noScroll: false
+        // silent: true
+    });
+
+    accordionsForm.initializeAccordions();
 
     // HACK: Testing accordion insides
     const [click1, click2] = query({ selector: '.js-accordion-title' });
+    const [click3, click4] = query({ selector: '.js-form-accordion-title' });
     // simulateClick(click1);
     // simulateClick(click2);
+    simulateClick(click3);
+    simulateClick(click4);
 };
 
 export default accordionHandler;
