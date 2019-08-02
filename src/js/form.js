@@ -1,4 +1,4 @@
-import { query, forEach } from '@stereorepo/sac';
+import { query, forEach, superWindow } from '@stereorepo/sac';
 import { TweenMax } from 'gsap';
 
 class Form {
@@ -7,11 +7,14 @@ class Form {
         this.stepsWrappers = null;
         this.steps = null;
         this.formNav = null;
+        this.buttonForms = null;
         this.activeStep = null;
 
-        this.stepsLength = null;
+        this.stepsLength = 0;
         this.activeStepIndex = 0;
         this.followingIndex = 0;
+
+        this.resizeHandler = this.resizeHandler.bind(this);
     }
     setActive() {
         [this.activeStep] = query({ selector: '.active-step', ctx: this.form });
@@ -44,7 +47,7 @@ class Form {
     }
     moveForm() {
         TweenMax.to(this.form, 0.3, {
-            x: this.followingIndex * -100 + '%'
+            x: `${this.followingIndex * -100}%`
         });
         this.activeStep.classList.remove('active-step');
         this.steps[this.followingIndex].classList.add('active-step');
@@ -94,8 +97,8 @@ class Form {
         }
     }
     setupButtonNavigation() {
-        const buttonForms = query({ selector: 'button', ctx: this.formNav });
-        forEach(buttonForms, (buttonForm, index) => {
+        this.buttonForms = query({ selector: 'button', ctx: this.formNav });
+        forEach(this.buttonForms, (buttonForm, index) => {
             buttonForm.addEventListener(
                 'click',
                 () => {
@@ -129,30 +132,15 @@ class Form {
             );
         });
     }
-    // setupInternalStepActivation() {
-    //     forEach(this.steps, step => {
-    //         step.addEventListener(
-    //             'click',
-    //             function() {
-    //                 if (!step.classList.contains('active-step')) {
-    //                     forEach(this.steps, stepToDeactivate => {
-    //                         stepToDeactivate.classList.remove('active-step');
-    //                     });
-    //                     step.classList.add('active-step');
-    //                 }
-    //             },
-    //             false
-    //         );
-    //     });
-    // }
     setStepsSizes() {
-        forEach(this.stepsWrappers, (el, index) => {
+        forEach(this.stepsWrappers, stepsWrapper => {
             const formStep = query({
                 selector: '.form-step',
-                ctx: this.stepsWrappers[index]
+                ctx: stepsWrapper
             });
-            this.stepsWrappers[index].style.minWidth =
-                formStep.length * 100 + '%';
+            TweenMax.set(stepsWrapper, {
+                minWidth: `${formStep.length * 100}%`
+            });
         });
     }
     initialize() {
@@ -172,7 +160,34 @@ class Form {
         this.setStepsSizes();
         this.setupArrowNavigation();
         this.setupButtonNavigation();
-        // this.setupInternalStepActivation();
+
+        superWindow.addResizeFunction(this.resizeHandler);
+    }
+    resizeHandler() {
+        forEach(this.stepsWrappers, stepsWrapper => {
+            const formStep = query({
+                selector: '.form-step',
+                ctx: stepsWrapper
+            });
+            if (superWindow.w > 580) {
+                TweenMax.set(stepsWrapper, {
+                    minWidth: `${formStep.length * 100}%`
+                });
+            } else {
+                TweenMax.set(stepsWrapper, {
+                    clearProps: 'all'
+                });
+                TweenMax.set(this.form, {
+                    clearProps: 'all'
+                });
+                forEach(this.buttonForms, button => {
+                    button.classList.remove('active');
+                    button.blur();
+                });
+                this.activeStepIndex = 0;
+                this.activateButton();
+            }
+        });
     }
 }
 

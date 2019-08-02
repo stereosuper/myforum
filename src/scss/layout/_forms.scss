@@ -680,10 +680,11 @@ button {
         position: static;
         background: #fff;
         .form-step-title {
-            cursor: pointer;
+            display: block;
             padding: 1.55em 30px;
             margin: 0;
             font-family: $roboto-bold;
+            cursor: pointer;
         }
         .form-title {
             display: none;
@@ -703,6 +704,16 @@ button {
                     transform: rotate3d(0, 0, 1, 90deg);
                 }
             }
+        }
+    }
+}
+
+@media (min-width: $phone) {
+    .form-steps {
+        .ph-content-wrapper {
+            max-height: none;
+            opacity: 1;
+            overflow: initial;
         }
     }
 }

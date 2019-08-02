@@ -1,4 +1,4 @@
-import { query } from '@stereorepo/sac';
+import { query, superWindow } from '@stereorepo/sac';
 import { Accordion } from '@stereorepo/accordion';
 
 // HACK: Simulating click
@@ -14,6 +14,9 @@ const simulateClick = function(elem) {
 };
 
 const accordionHandler = () => {
+    const state = {
+        accordionsFormInitiated: false
+    };
     const accordionsAccount = new Accordion({
         containerSelector: '.js-accordion',
         clickedSelector: '.js-accordion-title',
@@ -25,8 +28,6 @@ const accordionHandler = () => {
         silent: true
     });
 
-    accordionsAccount.initializeAccordions();
-
     const accordionsForm = new Accordion({
         containerSelector: '.js-form-accordion',
         clickedSelector: '.js-form-accordion-title',
@@ -34,19 +35,36 @@ const accordionHandler = () => {
         contentSelector: '.js-form-accordion-content',
         offsetY: 100,
         scrollDelay: 200,
-        noScroll: false
-        // silent: true
+        noScroll: false,
+        silent: true
     });
 
-    accordionsForm.initializeAccordions();
+    const accordionsInstanceHandler = accordions => {
+        if (superWindow.w <= 580 && !state.accordionsFormInitiated) {
+            state.accordionsFormInitiated = true;
+
+            accordions.initializeAccordions();
+        } else if (superWindow.w > 580) {
+            state.accordionsFormInitiated = false;
+
+            accordions.destroyAccordions();
+        }
+    };
+
+    accordionsAccount.initializeAccordions();
+    accordionsInstanceHandler(accordionsForm);
+
+    superWindow.addResizeEndFunction(() => {
+        accordionsInstanceHandler(accordionsForm);
+    });
 
     // HACK: Testing accordion insides
-    const [click1, click2] = query({ selector: '.js-accordion-title' });
-    const [click3, click4] = query({ selector: '.js-form-accordion-title' });
+    // const [click1, click2] = query({ selector: '.js-accordion-title' });
+    // const [click3, click4] = query({ selector: '.js-form-accordion-title' });
     // simulateClick(click1);
     // simulateClick(click2);
-    simulateClick(click3);
-    simulateClick(click4);
+    // simulateClick(click3);
+    // simulateClick(click4);
 };
 
 export default accordionHandler;
