@@ -1,4 +1,4 @@
-.form-btn{
+.form-btn {
     width: 30px;
     height: 70px;
     position: absolute;
@@ -6,7 +6,7 @@
     bottom: 80px;
     margin: auto;
     background: #fff;
-    &:after{
+    &:after {
         content: '';
         width: 0;
         height: 0;
@@ -17,37 +17,37 @@
         border-style: solid;
     }
 }
-.form-prev{
+.form-prev {
     left: 0;
-    &:after{
+    &:after {
         left: 10px;
         border-width: 9px 7px 9px 0;
         border-color: transparent #000 transparent transparent;
     }
 }
-.form-next{
+.form-next {
     right: 0;
-    &:after{
+    &:after {
         right: 10px;
         border-width: 9px 0 9px 7px;
         border-color: transparent transparent transparent #000;
     }
 }
 
-.form-nav{
+.form-nav {
     padding: 15px 0 0;
     position: absolute;
     left: 0;
     right: 0;
     bottom: 25px;
-    overflow-x: auto;
-    overflow-y: hidden;
+    // overflow-x: auto;
+    // overflow-y: hidden;
     box-shadow: 0 7px 25px rgba(#000, 0.03);
 }
 
-.form-nav-steps{
+.form-nav-steps {
     display: inline-flex;
-    min-width: 100%;
+    // min-width: 100%;
     padding: 0 0 0 $gutter;
     margin: 0;
     font-family: $roboto-cd;
@@ -55,49 +55,51 @@
     text-transform: uppercase;
     color: #fff;
     background: linear-gradient(to right, #c6333e 20%, #f18832 100%);
-    > li{
+    > li {
         padding: 0 0 20px;
         position: relative;
         margin: 0;
-        &:before, &:after{
+        &:before,
+        &:after {
             width: 4px;
             height: calc(50% + 6px);
             position: absolute;
             right: 15px;
             background: $gris-bg;
         }
-        &:before{
+        &:before {
             top: -5px;
             margin: 0;
             border-radius: 0;
             transform-origin: 0 100%;
             transform: rotate(-20deg);
         }
-        &:after{
+        &:after {
             content: '';
             bottom: -5px;
             transform-origin: 0 0;
             transform: rotate(20deg);
         }
-        &:last-child{
-            &:before, &:after{
+        &:last-child {
+            &:before,
+            &:after {
                 content: none;
             }
         }
     }
 }
 
-.step-title{
+.step-title {
     padding: 0 50px 0 20px;
     white-space: nowrap;
-    span{
+    span {
         padding: 0 7px;
         position: relative;
         z-index: 1;
         font-family: $roboto-cd-bold;
         letter-spacing: 0;
         color: $theme-btn;
-        &:before{
+        &:before {
             content: '';
             width: 25px;
             height: 25px;
@@ -111,27 +113,27 @@
     }
 }
 
-.form-nav-buttons{
+.form-nav-buttons {
     display: flex;
     margin: -10px 0 20px;
-    > li{
+    > li {
         width: 16px;
         margin: 0 45px 0 0;
-        &:before{
+        &:before {
             content: none;
         }
     }
-    button{
+    button {
         width: 8px;
         height: 8px;
         position: relative;
         border-radius: 50%;
         background: #fff;
         box-shadow: 0 3px 20px rgba(#000, 0.25), 0 3px 4px rgba(#000, 0.07);
-        &.active{
+        &.active {
             transform: scale(1.8);
         }
-        &:after{
+        &:after {
             content: '';
             border: 1px solid #fff;
             position: absolute;
@@ -142,9 +144,10 @@
             border-radius: 50%;
             transition: $transition;
         }
-        &:hover, &:focus{
+        &:hover,
+        &:focus {
             transform: scale(1.3);
-            &:after{
+            &:after {
                 transform: scale(0.85);
             }
         }

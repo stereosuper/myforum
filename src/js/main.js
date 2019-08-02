@@ -1,11 +1,11 @@
 import '../scss/main.scss';
 import { superLoad, query } from '@stereorepo/sac';
 
-import io from './io.js';
+import io from './components/io';
 
-import Form from './form';
-import animHome from './animHome';
-import accordion from './accordion';
+import Form from './components/form';
+import animHome from './components/animHome';
+import accordion from './components/accordion';
 
 const preloadHandler = () => {
     io.init();

@@ -1,5 +1,10 @@
 import { query, forEach, superWindow } from '@stereorepo/sac';
 import { TweenMax } from 'gsap';
+import { Draggable } from 'gsap/Draggable';
+import ThrowPropsPlugin from '../plugins/ThrowPropsPlugin';
+
+// NOTE: We need to use ThrowPropsPlugin in order to ensure that the plugin won't be tree-shaked
+const ensureThrowProps = ThrowPropsPlugin;
 
 class Form {
     constructor() {
@@ -96,6 +101,17 @@ class Form {
             );
         }
     }
+    draggableButtonNavigation() {
+        Draggable.create('.js-form-nav-steps', {
+            type: 'x',
+            edgeResistance: 0.9,
+            bounds: '#form-nav',
+            lockAxis: true,
+            throwProps: true,
+            throwResistance: 900,
+            maxDuration: 0.75
+        });
+    }
     setupButtonNavigation() {
         this.buttonForms = query({ selector: 'button', ctx: this.formNav });
         forEach(this.buttonForms, (buttonForm, index) => {
@@ -160,6 +176,7 @@ class Form {
         this.setStepsSizes();
         this.setupArrowNavigation();
         this.setupButtonNavigation();
+        this.draggableButtonNavigation();
 
         superWindow.addResizeFunction(this.resizeHandler);
     }
