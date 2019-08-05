@@ -22,10 +22,25 @@ class Form {
         this.resizeHandler = this.resizeHandler.bind(this);
     }
     setActive() {
+        this.dataStepIndex = this.form.dataset.section
+            ? parseInt(this.form.dataset.section, 10) - 1
+            : 0;
+        this.steps[0].classList.add('active-step');
+
         [this.activeStep] = query({ selector: '.active-step', ctx: this.form });
         forEach(this.steps, (step, index) => {
             if (step.classList.contains('active-step')) {
                 this.activeStepIndex = index;
+            }
+        });
+    }
+    initializeActive() {
+        this.checkHasFollowing({
+            direction: 'next',
+            index: this.dataStepIndex,
+            callback: () => {
+                this.moveForm();
+                this.activateButton();
             }
         });
     }
@@ -172,6 +187,7 @@ class Form {
         [this.formNav] = query({ selector: '#form-nav' });
 
         this.setActive();
+        this.initializeActive();
 
         this.setStepsSizes();
         this.setupArrowNavigation();
