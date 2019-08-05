@@ -39,16 +39,13 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 25px;
-    // overflow-x: auto;
-    // overflow-y: hidden;
+    bottom: 22px;
     box-shadow: 0 7px 25px rgba(#000, 0.03);
     z-index: 1;
 }
 
 .form-nav-steps {
     display: inline-flex;
-    // min-width: 100%;
     padding: 0 0 0 $gutter;
     margin: 0;
     font-family: $roboto-cd;
@@ -58,33 +55,69 @@
     background: linear-gradient(to right, #c6333e 20%, #f18832 100%);
     > li {
         padding: 0 0 20px;
-        position: relative;
         margin: 0;
-        &:before,
-        &:after {
-            width: 4px;
-            height: calc(50% + 6px);
+        position: relative;
+        &::before,
+        &::after {
+            content: none;
+        }
+        > .form-nav-arrow {
+            width: 19px;
+            height: 100%;
+            margin-right: 15px;
             position: absolute;
-            right: 15px;
-            background: $gris-bg;
-        }
-        &:before {
-            top: -5px;
-            margin: 0;
-            border-radius: 0;
-            transform-origin: 0 100%;
-            transform: rotate(-20deg);
-        }
-        &:after {
-            content: '';
-            bottom: -5px;
-            transform-origin: 0 0;
-            transform: rotate(20deg);
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            overflow: hidden;
+            &::before,
+            &::after {
+                content: '';
+                width: 4px;
+                height: calc(50% + 6px);
+                position: absolute;
+                right: 0;
+                background: $gris-bg;
+            }
+            &::before {
+                top: -5px;
+                margin: 0;
+                border-radius: 0;
+                transform-origin: 0 100%;
+                transform: rotate(-20deg);
+            }
+            &::after {
+                bottom: -5px;
+                transform-origin: 0 0;
+                transform: rotate(20deg);
+            }
         }
         &:last-child {
-            &:before,
-            &:after {
-                content: none;
+            margin-right: 50vw;
+            &::after {
+                content: '';
+                width: 50vw;
+                position: absolute;
+                top: 0;
+                right: -50vw;
+                bottom: 0;
+                background: $gris-bg;
+            }
+            > .form-nav-arrow {
+                margin-right: 0;
+                &::before,
+                &::after {
+                    width: 20px;
+                    height: 100%;
+                    left: 0;
+                    right: auto;
+                }
+                &::before {
+                    transform-origin: 0% 0%;
+                }
+                &::after {
+                    transform-origin: 0% 100%;
+                }
             }
         }
     }
