@@ -30,15 +30,17 @@ class Form {
         });
     }
     initializeActive() {
-        this.dataStepIndex = this.form.dataset.section
-            ? parseInt(this.form.dataset.section, 10) - 1
-            : 0;
-        if (!this.steps[this.dataStepIndex]) return;
-
-        this.steps[this.dataStepIndex].classList.add('active-step');
-        TweenMax.to(this.form, 0.3, {
-            x: `${this.dataStepIndex * -100}%`
-        });
+        if (superWindow.windowWidth > 580) {
+            this.dataStepIndex = this.form.dataset.section
+                ? parseInt(this.form.dataset.section, 10) - 1
+                : 0;
+            if (this.steps[this.dataStepIndex]) {
+                this.steps[this.dataStepIndex].classList.add('active-step');
+                TweenMax.to(this.form, 0.3, {
+                    x: `${this.dataStepIndex * -100}%`
+                });
+            }
+        }
 
         this.setActive();
 
@@ -201,7 +203,7 @@ class Form {
                 selector: '.form-step',
                 ctx: stepsWrapper
             });
-            if (superWindow.w > 580) {
+            if (superWindow.windowWidth > 580) {
                 TweenMax.set(stepsWrapper, {
                     minWidth: `${formStep.length * 100}%`
                 });

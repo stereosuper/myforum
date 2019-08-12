@@ -36,15 +36,16 @@ const accordionHandler = () => {
         offsetY: 100,
         scrollDelay: 200,
         noScroll: false,
-        silent: true
+        silent: false
     });
 
     const accordionsInstanceHandler = accordions => {
-        if (superWindow.w <= 580 && !state.accordionsFormInitiated) {
+        if (superWindow.windowWidth <= 580 && !state.accordionsFormInitiated) {
+            console.log(accordions);
             state.accordionsFormInitiated = true;
 
             accordions.initializeAccordions();
-        } else if (superWindow.w > 580) {
+        } else if (superWindow.windowWidth > 580) {
             state.accordionsFormInitiated = false;
 
             accordions.destroyAccordions();
