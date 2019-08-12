@@ -85,6 +85,19 @@
 
 .btn-form{
     padding: 10px 25px;
+    &.invert{
+        background: #fff;
+        color: #D63E2F;
+        &:after{
+            opacity: 1;
+        }
+        &:before{
+            background: $theme-btn;
+        }
+        &:hover, &:focus{
+            color: #fff;
+        }
+    }
 }
 
 .btn-close{
