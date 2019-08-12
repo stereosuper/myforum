@@ -56,6 +56,9 @@
     background: rgb(192, 47, 60);
     transform: translate 0.3s ease-in-out;
     transition: $transition;
+    &:after{
+        display: none;
+    }
     .nav-header-open & {
         transform: translateX(12px);
     }
