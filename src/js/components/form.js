@@ -22,11 +22,6 @@ class Form {
         this.resizeHandler = this.resizeHandler.bind(this);
     }
     setActive() {
-        this.dataStepIndex = this.form.dataset.section
-            ? parseInt(this.form.dataset.section, 10) - 1
-            : 0;
-        this.steps[0].classList.add('active-step');
-
         [this.activeStep] = query({ selector: '.active-step', ctx: this.form });
         forEach(this.steps, (step, index) => {
             if (step.classList.contains('active-step')) {
@@ -35,14 +30,19 @@ class Form {
         });
     }
     initializeActive() {
-        this.checkHasFollowing({
-            direction: 'next',
-            index: this.dataStepIndex,
-            callback: () => {
-                this.moveForm();
-                this.activateButton();
-            }
+        this.dataStepIndex = this.form.dataset.section
+            ? parseInt(this.form.dataset.section, 10) - 1
+            : 0;
+        if (!this.steps[this.dataStepIndex]) return;
+
+        this.steps[this.dataStepIndex].classList.add('active-step');
+        TweenMax.to(this.form, 0.3, {
+            x: `${this.dataStepIndex * -100}%`
         });
+
+        this.setActive();
+
+        this.activateButton();
     }
     setFollowingIndex({ direction, index }) {
         if (direction === 'next') {
@@ -186,7 +186,6 @@ class Form {
         this.stepsLength = this.steps.length;
         [this.formNav] = query({ selector: '#form-nav' });
 
-        this.setActive();
         this.initializeActive();
 
         this.setStepsSizes();
