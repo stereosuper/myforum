@@ -98,6 +98,11 @@
             color: #fff;
         }
     }
+    &[disabled]{
+        pointer-events: none;
+        background: #282C34;
+        opacity: 0.15;
+    }
 }
 
 .btn-close{
