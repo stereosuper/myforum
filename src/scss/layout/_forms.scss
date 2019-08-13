@@ -404,6 +404,7 @@ input {
             &:before,
             &:after {
                 content: '';
+                display: block;
                 position: absolute;
                 bottom: -2px;
                 margin: 5px auto;
