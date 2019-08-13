@@ -149,16 +149,16 @@
     display: none;
 }
 
-.form-icon {
-    display: inline-block;
-    padding: 4px 8px 5px;
-    background: $bleu-link;
-    color: #fff;
-    > .icon {
-        width: 36px;
-        height: 15px;
-    }
-}
+// .form-icon {
+//     display: inline-block;
+//     padding: 4px 8px 5px;
+//     background: $bleu-link;
+//     color: #fff;
+//     > .icon {
+//         width: 36px;
+//         height: 15px;
+//     }
+// }
 
 .form-subfield {
     margin: 10px 0 0 18px;
@@ -188,7 +188,9 @@ fieldset {
 }
 
 legend {
+    width: 100%;
     font-family: $roboto-bold;
+    font-size: 1.4rem;
     margin: 0 0 2em;
     > span {
         display: block;
@@ -201,8 +203,13 @@ label {
     width: 180px;
     margin: 0 15px 0 0;
     vertical-align: middle;
+    font-size: 1.4rem;
     line-height: 1.5;
     letter-spacing: -0.02em;
+    cursor: pointer;
+    .form-disabled & {
+        cursor: auto;
+    }
     &.medium {
         font-size: 1em;
     }
@@ -230,13 +237,6 @@ label {
     }
     .error & {
         color: $error;
-    }
-}
-
-label {
-    cursor: pointer;
-    .form-disabled & {
-        cursor: auto;
     }
 }
 
