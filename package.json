@@ -3,8 +3,8 @@
     "version": "0.0.0",
     "main": "index.js",
     "dependencies": {
-        "@stereorepo/accordion": "^1.6.3",
-        "@stereorepo/sac": "^1.6.3",
+        "@stereorepo/accordion": "^1.6.4",
+        "@stereorepo/sac": "^1.6.4",
         "gsap": "^2.1.3"
     },
     "devDependencies": {
