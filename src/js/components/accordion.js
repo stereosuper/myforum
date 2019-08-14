@@ -1,17 +1,17 @@
-import { query, superWindow } from '@stereorepo/sac';
+import { superWindow } from '@stereorepo/sac';
 import { Accordion } from '@stereorepo/accordion';
 
 // HACK: Simulating click
-const simulateClick = function(elem) {
-    // Create our event (with options)
-    const evt = new MouseEvent('click', {
-        bubbles: true,
-        cancelable: true,
-        view: window
-    });
-    // If cancelled, don't dispatch our event
-    const canceled = !elem.dispatchEvent(evt);
-};
+// const simulateClick = function(elem) {
+//     // Create our event (with options)
+//     const evt = new MouseEvent('click', {
+//         bubbles: true,
+//         cancelable: true,
+//         view: window
+//     });
+//     // If cancelled, don't dispatch our event
+//     // const canceled = !elem.dispatchEvent(evt);
+// };
 
 const accordionHandler = () => {
     const state = {
@@ -41,7 +41,7 @@ const accordionHandler = () => {
 
     const accordionsInstanceHandler = accordions => {
         if (superWindow.windowWidth <= 580 && !state.accordionsFormInitiated) {
-            console.log(accordions);
+            //console.log(accordions);
             state.accordionsFormInitiated = true;
 
             accordions.initializeAccordions();
