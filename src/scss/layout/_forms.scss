@@ -155,6 +155,9 @@
     }
     .link{
         float: right;
+        &.no-float{
+            float: none;
+        }
     }
 }
 
