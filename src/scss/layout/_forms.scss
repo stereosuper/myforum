@@ -51,9 +51,7 @@
         // bottom: -60px;
         top: 0;
         right: 0;
-        min-width: 100%;
-        min-height: 100%;
-        max-width: none;
+        width: 100%;
     }
     .container{
         max-width: 100%;
@@ -625,8 +623,6 @@ button {
         padding: 0 0 30px;
         > img{
             display: block;
-            min-width: 0;
-            min-height: 0;
             max-width: 100%;
         }
     }
@@ -641,17 +637,16 @@ button {
             width: 100%;
         }
         > div{
+            width: 66%;
             &:nth-child(1){
-                width: 66%;
                 background: #fff;
             }
             &:nth-child(2){
-                width: 100%;
                 box-shadow: none;
                 background: #f5f5f6;
                 padding-top: 20px;
                 padding-bottom: 0;
-                margin: 10px 0 0;
+                border-radius: 0;
             }
         }
         form{
@@ -666,8 +661,8 @@ button {
     .form-container {
         display: block;
         > div {
-            width: 100%;
             &:nth-of-type(2) {
+                width: 100%;
                 padding-top: 40px;
             }
         }
