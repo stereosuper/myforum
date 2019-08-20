@@ -39,6 +39,15 @@ class Form {
                 TweenMax.to(this.form, 0.3, {
                     x: `${this.dataStepIndex * -100}%`
                 });
+                const height =
+                    this.steps[this.dataStepIndex].querySelector(
+                        '.js-form-accordion-content-wrapper'
+                    ).clientHeight + 'px';
+
+                this.steps[this.dataStepIndex].closest(
+                    '.js-form-steps'
+                ).style.height = height;
+                this.form.style.height = height;
             }
         }
 
@@ -73,6 +82,17 @@ class Form {
         });
         this.activeStep.classList.remove('active-step');
         this.steps[this.followingIndex].classList.add('active-step');
+
+        const height =
+            this.steps[this.followingIndex].querySelector(
+                '.js-form-accordion-content-wrapper'
+            ).clientHeight + 'px';
+
+        this.steps[this.followingIndex].closest(
+            '.js-form-steps'
+        ).style.height = height;
+
+        this.form.style.height = height;
 
         this.setActive();
     }
