@@ -218,6 +218,12 @@
         &:nth-child(3) {
             a,
             button {
+                background: #DF5441;
+            }
+        }
+        &:nth-child(4) {
+            a,
+            button {
                 background: $theme-btn;
             }
         }
