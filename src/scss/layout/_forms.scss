@@ -30,6 +30,21 @@
     display: inline-flex;
     min-width: 100%;
     @extend %stereorepo-accordion;
+    &:nth-of-type(2), &:nth-of-type(2n+4){
+        .form-steps-title{
+            background: #D73F2D;
+        }
+    }
+    &:nth-of-type(3), &:nth-of-type(3n+4){
+        .form-steps-title{
+            background: #DF552F;
+        }
+    }
+    &:nth-of-type(4), &:nth-of-type(4n+4){
+        .form-steps-title{
+            background: #E76930;
+        }
+    }
 }
 
 .form-steps-content-wrapper,
