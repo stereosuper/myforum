@@ -14,9 +14,9 @@ import { Accordion } from '@stereorepo/accordion';
 // };
 
 const accordionHandler = () => {
-    const form = document.querySelector('.js-form-accordion');
+    const accordion = document.querySelector('.js-accordion');
 
-    if (!form) return;
+    if (!accordion) return;
 
     const state = {
         accordionsFormInitiated: false
