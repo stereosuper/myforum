@@ -55,6 +55,7 @@
     }
     .container{
         max-width: 100%;
+        min-height: 450px;
         padding-top: 40px;
         padding-bottom: 40px;
         margin: 0 0 0 2vw;
@@ -672,6 +673,9 @@ button {
         box-shadow: none;
         &.solo{
             width: 100%;
+            > div{
+                width: 66%;
+            }
         }
         > div{
             width: 66%;
@@ -798,7 +802,7 @@ button {
             cursor: pointer;
         }
         > img {
-            display: none; // pour que ça fonctionne avec le code de Nico
+            display: none; /*pour que ça fonctionne avec le code de Nico*/
             max-width: 95%;
             top: 0;
             bottom: auto;
