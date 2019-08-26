@@ -798,6 +798,7 @@ button {
             cursor: pointer;
         }
         > img {
+            display: none; // pour que ça fonctionne avec le code de Nico
             max-width: 95%;
             top: 0;
             bottom: auto;
