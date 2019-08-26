@@ -430,10 +430,63 @@
     }
 }
 
+.account-tab-form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 45px 40px 50px;
+    background: #B2232E;
+    ::-webkit-input-placeholder {
+        color: #fff;
+    }
+    ::-moz-placeholder {
+        color: #fff;
+    }
+    ::-ms-input-placeholder {
+        color: #fff;
+    }
+    p{
+        margin: 0;
+        font-size: 1.4rem;
+        color: #fff;
+    }
+    strong{
+        display: block;
+    }
+    form{
+        display: flex;
+        justify-content: space-between;
+    }
+    input{
+        width: 175px;
+        height: 30px;
+        padding: 5px 10px;
+        margin: 0 12px 0 0;
+        color: #fff;
+        &[type=submit]{
+            width: auto;
+            font-size: 1.3rem;
+            margin: 0;
+            border-color: #F18832;
+            outline: 1px solid #F18832;
+            font-family: $roboto-it;
+            background: #F18832;
+        }
+    }
+}
+
 
 @media (max-width: $desktop){
     .account-tab-footer{
         display: block;
+    }
+
+    .account-tab-form{
+        display: block;
+        form{
+            max-width: 400px;
+            margin: 20px 0 0;
+        }
     }
 }
 
@@ -513,6 +566,17 @@
         display: block;
         .img{
             margin: 0 0 20px;
+        }
+    }
+
+    .account-tab-form{
+        form{
+            display: block;
+        }
+        input{
+            display: block;
+            margin: 0 0 10px;
+            max-width: 100%;
         }
     }
 }
