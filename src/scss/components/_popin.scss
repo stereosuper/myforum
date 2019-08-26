@@ -40,6 +40,16 @@
     }
 }
 
+.popin-footer{
+    padding: 35px 50px 30px;
+    margin: 40px -50px -50px;
+    background: #FCF9EB;
+    p{
+        margin: 0;
+        border-bottom: 1px solid rgba(115, 146, 218, 0.3);
+    }
+}
+
 .popin-title{
     margin: 0;
     font-family: $roboto-cd-bold;
