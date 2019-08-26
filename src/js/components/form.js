@@ -41,7 +41,7 @@ class Form {
                 });
                 const height =
                     this.steps[this.dataStepIndex].querySelector(
-                        '.js-form-accordion-content-wrapper'
+                        '.js-form-accordion-content'
                     ).clientHeight + 'px';
 
                 this.steps[this.dataStepIndex].closest(
@@ -85,7 +85,7 @@ class Form {
 
         const height =
             this.steps[this.followingIndex].querySelector(
-                '.js-form-accordion-content-wrapper'
+                '.js-form-accordion-content'
             ).clientHeight + 'px';
 
         this.steps[this.followingIndex].closest(
@@ -208,7 +208,9 @@ class Form {
         this.stepsLength = this.steps.length;
         [this.formNav] = query({ selector: '#form-nav' });
 
-        this.initializeActive();
+        setTimeout(() => {
+            this.initializeActive();
+        }, 100);
 
         this.setStepsSizes();
         this.setupArrowNavigation();

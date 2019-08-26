@@ -10,8 +10,6 @@ import accordion from './components/accordion';
 const preloadHandler = () => {
     io.init();
 
-    const form = new Form();
-    form.initialize();
     animHome();
     accordion();
 
@@ -50,7 +48,13 @@ const preloadHandler = () => {
     }
 };
 
+const loadHandler = () => {
+    const form = new Form();
+    form.initialize();
+};
+
 superLoad.initializeLoadingShit({
     preloadCallback: preloadHandler,
+    loadCallback: loadHandler,
     noTransElementsClass: '.element-without-transition-on-resize'
 });
