@@ -423,7 +423,7 @@ input {
     &[type='checkbox'] {
         width: 0;
         height: 0;
-        position: relative;
+        position: absolute;
         left: -99em;
         vertical-align: top;
         &:checked {
