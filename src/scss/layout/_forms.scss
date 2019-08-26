@@ -757,17 +757,21 @@ button {
     }
     .form-steps-title,
     .form-step-title {
+        position: relative;
         &:after {
             content: '›';
-            float: right;
             font-size: 2.6rem;
             line-height: 1;
             transform-origin: 50% 50%;
+            position: absolute;
+            right: 30px;
+            top: 25px;
         }
     }
     .form-steps-title {
         display: block;
         cursor: pointer;
+        padding: 20px 45px 20px 30px;
     }
     .form-title {
         margin: 24px 0;
@@ -796,7 +800,7 @@ button {
         background: #fff;
         .form-step-title {
             display: block;
-            padding: 1.55em 30px;
+            padding: 1.55em 45px 1.55em 30px;
             margin: 0;
             font-family: $roboto-bold;
             cursor: pointer;
