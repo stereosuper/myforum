@@ -39,6 +39,9 @@ class Form {
                 TweenMax.to(this.form, 0.3, {
                     x: `${this.dataStepIndex * -100}%`
                 });
+                TweenMax.to(document.querySelector('.js-form-nav-steps'), 0.3, {
+                    x: `${this.dataStepIndex * -55}px`
+                });
                 const height =
                     this.steps[this.dataStepIndex].querySelector(
                         '.js-form-accordion-content'
@@ -82,6 +85,9 @@ class Form {
         });
         this.activeStep.classList.remove('active-step');
         this.steps[this.followingIndex].classList.add('active-step');
+        TweenMax.to(document.querySelector('.js-form-nav-steps'), 0.3, {
+            x: `${this.followingIndex * -55}px`
+        });
 
         const height =
             this.steps[this.followingIndex].querySelector(
