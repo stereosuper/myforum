@@ -95,17 +95,17 @@
     background-image: url(../img/jeanfrancois.svg);
 }
 
-.advice-content {
-    background: linear-gradient(
-        to bottom,
-        rgba($bleu-link, 0.2),
-        rgba($bleu-link, 0.2) 1px,
-        transparent 1px,
-        transparent 20px
-    );
-    background-size: 100% 21px;
-    background-position: 0 17px;
-}
+// .advice-content {
+//     background: linear-gradient(
+//         to bottom,
+//         rgba($bleu-link, 0.2),
+//         rgba($bleu-link, 0.2) 1px,
+//         transparent 1px,
+//         transparent 20px
+//     );
+//     background-size: 100% 21px;
+//     background-position: 0 17px;
+// }
 
 @media (max-width: $desktop) {
     .banner-advice {
