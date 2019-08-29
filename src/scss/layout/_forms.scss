@@ -70,7 +70,7 @@
     }
     .container{
         max-width: 100%;
-        min-height: 450px;
+        min-height: 600px;
         padding-top: 40px;
         padding-bottom: 40px;
         margin: 0 0 0 2vw;
@@ -671,12 +671,23 @@ button {
     }
 }
 
+@media (max-width: '1550px'){
+    .form-step{
+        .container{
+            min-height: 500px;
+        }
+    }
+}
+
 @media (max-width: $desktop-big) {
     .form-step{
         padding: 0 0 30px;
         > img{
             display: block;
             max-width: 100%;
+        }
+        .container{
+            min-height: 450px;
         }
     }
 
