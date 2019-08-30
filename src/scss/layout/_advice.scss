@@ -124,3 +124,16 @@
         margin: 50px 0 0;
     }
 }
+
+
+@media (max-width: $phone){
+    .advice{
+        padding-right: 30px;
+        padding-left: 55px;
+        background-image: none;
+    }
+
+    .advice-writer-picture{
+        display: none;
+    }
+}
