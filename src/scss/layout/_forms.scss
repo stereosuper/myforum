@@ -467,7 +467,7 @@ input {
         + label {
             width: auto;
             position: relative;
-            padding: 0 0 0 17px;
+            padding: 0 0 0 20px;
             &:before,
             &:after {
                 content: '';
@@ -481,7 +481,7 @@ input {
                 height: 12px;
                 border: 1px solid #e4e4e4;
                 top: 0;
-                left: -2px;
+                left: 0;
                 background: #fff;
                 transition: $transition;
                 box-shadow: 0 4px 10px rgba(135, 60, 21, 0.05);
@@ -490,7 +490,7 @@ input {
                 width: 8px;
                 height: 8px;
                 top: 2px;
-                left: 0;
+                left: 2px;
                 background: $bleu-link;
                 opacity: 0;
             }
