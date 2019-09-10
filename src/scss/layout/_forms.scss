@@ -90,19 +90,6 @@
     background: #fff;
     box-shadow: 0 18px 36px rgba(#000, 0.13);
     overflow: hidden;
-    &.has-advice{
-        width: 72%;
-        > div{
-            &:nth-of-type(1){
-                z-index: 3;
-                background: #fff;
-            }
-            &:nth-of-type(2){
-                z-index: 2;
-                box-shadow: 0 18px 36px rgba(#000, 0.13);
-            }
-        }
-    }
     &.solo{
         width: 40%;
         > div {
@@ -125,24 +112,6 @@
     }
     .btn-form {
         margin: 25px 0 0;
-    }
-    .advice{
-        max-width: 300px;
-        padding: 60px 40px 120px 35px;
-        background-image: none;
-        border-radius: 0 10px 10px 0;
-        &:before, &:after{
-            content: none;
-        }
-        .advice-title{
-            max-width: 40%;
-            line-height: 1.2;
-        }
-        img{
-            position: absolute;
-            right: 20px;
-            bottom: 0;
-        }
     }
 }
 
@@ -708,12 +677,6 @@ button {
             min-height: 500px;
         }
     }
-
-    .form-container{
-        &.has-advice{
-            width: 78%;
-        }
-    }
 }
 
 @media (max-width: $desktop-big) {
@@ -740,13 +703,6 @@ button {
                 width: 66%;
             }
         }
-        &.has-advice{
-            > div{
-                &:nth-child(2){
-                    box-shadow: none;
-                }
-            }
-        }
         > div{
             width: 66%;
             &:nth-child(1){
@@ -763,20 +719,6 @@ button {
         form{
             > div{
                 columns: 2;
-            }
-        }
-        .advice{
-            max-width: 100%;
-            margin: 30px 0 0;
-            padding-top: 40px;
-            &:before, &:after{
-                content: '';
-            }
-            &:after{
-                border-color: transparent #f5f5f6 transparent transparent;
-            }
-            .advice-title{
-                max-width: 100%;
             }
         }
     }
