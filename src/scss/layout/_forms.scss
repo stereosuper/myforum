@@ -172,6 +172,14 @@
             float: none;
         }
     }
+    h3{
+        padding: 0;
+        margin: 1.55em 0;
+        font-family: $roboto-bold;
+        font-size: 1.4rem;
+        line-height: 1.5;
+        color: $txt;
+    }
 }
 
 .form-step-title {

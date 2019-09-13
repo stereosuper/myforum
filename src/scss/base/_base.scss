@@ -277,5 +277,9 @@ a, button{
 }
 
 .above-title{
-    margin-bottom: 0;
+    display: block;
+    margin: 0 0 5px;
+    font-family: $roboto;
+    font-size: 1.7rem;
+    color: $txt;
 }
