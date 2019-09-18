@@ -42,10 +42,11 @@ class Form {
                 TweenMax.to(document.querySelector('.js-form-nav-steps'), 0.3, {
                     x: `${this.dataStepIndex * -55}px`
                 });
-                const height =
+                const height = `${
                     this.steps[this.dataStepIndex].querySelector(
                         '.js-form-accordion-content'
-                    ).clientHeight + 'px';
+                    ).clientHeight
+                }px`;
 
                 this.steps[this.dataStepIndex].closest(
                     '.js-form-steps'
@@ -214,11 +215,8 @@ class Form {
         this.stepsLength = this.steps.length;
         [this.formNav] = query({ selector: '#form-nav' });
 
-        setTimeout(() => {
-            this.initializeActive();
-        }, 100);
-
         this.setStepsSizes();
+        this.initializeActive();
         this.setupArrowNavigation();
         this.setupButtonNavigation();
         this.draggableButtonNavigation();
