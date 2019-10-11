@@ -125,15 +125,13 @@
     }
 }
 
-
-@media (max-width: $phone){
-    .advice{
+@media (max-width: $phone) {
+    .advice {
         padding-right: 30px;
         padding-left: 55px;
         background-image: none;
-    }
-
-    .advice-writer-picture{
-        display: none;
+        .advice-writer-picture {
+            display: none;
+        }
     }
 }
