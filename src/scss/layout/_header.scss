@@ -48,3 +48,15 @@
         }
     }
 }
+
+@media (max-width: 1280px) {
+    .nav-header {
+        display: block;
+        a,
+        button {
+            .icon-quizz {
+                display: none;
+            }
+        }
+    }
+}
