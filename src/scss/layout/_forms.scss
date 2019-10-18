@@ -16,6 +16,11 @@
     color: rgb(139, 139, 139);
 }
 
+.header-page-container {
+    padding-bottom: 90px;
+    position: relative;
+}
+
 .form-image {
     display: none;
 }
@@ -30,19 +35,22 @@
     display: inline-flex;
     min-width: 100%;
     @extend %stereorepo-accordion;
-    &:nth-of-type(2), &:nth-of-type(2n+4){
-        .form-steps-title{
-            background: #D73F2D;
+    &:nth-of-type(2),
+    &:nth-of-type(2n + 4) {
+        .form-steps-title {
+            background: #d73f2d;
         }
     }
-    &:nth-of-type(3), &:nth-of-type(3n+4){
-        .form-steps-title{
-            background: #DF552F;
+    &:nth-of-type(3),
+    &:nth-of-type(3n + 4) {
+        .form-steps-title {
+            background: #df552f;
         }
     }
-    &:nth-of-type(4), &:nth-of-type(4n+4){
-        .form-steps-title{
-            background: #E76930;
+    &:nth-of-type(4),
+    &:nth-of-type(4n + 4) {
+        .form-steps-title {
+            background: #e76930;
         }
     }
 }
@@ -68,7 +76,7 @@
         right: 0;
         width: 100%;
     }
-    .container{
+    .container {
         max-width: 100%;
         min-height: 600px;
         padding-top: 40px;
@@ -90,7 +98,7 @@
     background: #fff;
     box-shadow: 0 18px 36px rgba(#000, 0.13);
     overflow: hidden;
-    &.solo{
+    &.solo {
         width: 40%;
         > div {
             width: 100%;
@@ -123,41 +131,42 @@
     line-height: 1.2;
     font-family: $roboto-cd-bold-it;
     color: $txt;
-    &:before, &:after{
+    &:before,
+    &:after {
         display: inline-block;
         font-family: $roboto-cd-bold;
         font-size: 3rem;
         line-height: 0;
         vertical-align: bottom;
-        color: #C63642;
+        color: #c63642;
     }
-    &:before{
+    &:before {
         content: '“ ';
         margin: 0 10px 5px -21px;
     }
-    &:after{
+    &:after {
         content: ' ”';
         margin: 0 0 5px 5px;
     }
 }
-.form-title-cite{
+.form-title-cite {
     margin-top: 0;
     font-size: 1.4rem;
     font-family: $roboto-cd-it;
 }
 
-.form-text{
-    blockquote{
+.form-text {
+    blockquote {
         margin: 1em 35px;
         font-size: 1.4rem;
         text-align: center;
-        &:before{
+        &:before {
             display: none;
         }
-        p{
+        p {
             display: inline;
         }
-        cite{
+        cite {
             display: inline;
             text-transform: none;
             color: inherit;
@@ -166,13 +175,13 @@
             font-size: inherit;
         }
     }
-    .link{
+    .link {
         float: right;
-        &.no-float{
+        &.no-float {
             float: none;
         }
     }
-    h3{
+    h3 {
         padding: 0;
         margin: 1.55em 0;
         font-family: $roboto-bold;
@@ -197,7 +206,7 @@
 //     }
 // }
 
-.form-step-indic{
+.form-step-indic {
     font-family: $roboto-bold;
     color: #fff;
     position: absolute;
@@ -206,7 +215,7 @@
     bottom: 0;
     margin: 0;
     line-height: 38px;
-    background: linear-gradient(90deg, #C63642 1.2%, #F25B1A 83.25%), #C4C4C4;
+    background: linear-gradient(90deg, #c63642 1.2%, #f25b1a 83.25%), #c4c4c4;
     > .nb {
         display: inline-block;
         padding: 0 10px;
@@ -216,7 +225,7 @@
         font-family: $roboto-cd-bold;
         font-size: 1.2rem;
         letter-spacing: -0.11em;
-        color: #C63642;
+        color: #c63642;
         &:before {
             content: '';
             width: 51px;
@@ -679,44 +688,44 @@ button {
     }
 }
 
-@media (max-width: '1550px'){
-    .form-step{
-        .container{
+@media (max-width: '1550px') {
+    .form-step {
+        .container {
             min-height: 500px;
         }
     }
 }
 
 @media (max-width: $desktop-big) {
-    .form-step{
+    .form-step {
         padding: 0 0 30px;
-        > img{
+        > img {
             display: block;
             max-width: 100%;
         }
-        .container{
+        .container {
             min-height: 450px;
         }
     }
 
-    .form-container{
+    .form-container {
         display: block;
         width: 100%;
         max-width: none;
         background: none;
         box-shadow: none;
-        &.solo{
+        &.solo {
             width: 100%;
-            > div{
+            > div {
                 width: 66%;
             }
         }
-        > div{
+        > div {
             width: 66%;
-            &:nth-child(1){
+            &:nth-child(1) {
                 background: #fff;
             }
-            &:nth-child(2){
+            &:nth-child(2) {
                 box-shadow: none;
                 background: #f5f5f6;
                 padding-top: 20px;
@@ -724,8 +733,8 @@ button {
                 border-radius: 0;
             }
         }
-        form{
-            > div{
+        form {
+            > div {
                 columns: 2;
             }
         }
@@ -750,7 +759,7 @@ button {
     }
     .form-btn,
     .form-nav,
-    .form-step-indic{
+    .form-step-indic {
         display: none;
     }
     .form-wrapper {
@@ -777,8 +786,8 @@ button {
         margin: 0;
         background: none;
         box-shadow: none;
-        &.solo{
-            > div{
+        &.solo {
+            > div {
                 width: 100%;
             }
         }
@@ -819,7 +828,7 @@ button {
         &:after {
             margin: 0 0 5px 10px;
         }
-        &:before{
+        &:before {
             margin: 0 10px 6px 0;
         }
         > span {
@@ -855,7 +864,7 @@ button {
             margin: auto;
             z-index: -1;
         }
-        .container{
+        .container {
             overflow: hidden;
             padding-top: 0;
             padding-bottom: 20px;
@@ -870,7 +879,7 @@ button {
     }
 }
 
-@media (min-width: $phone){
+@media (min-width: $phone) {
     .form-steps {
         .ph-content-wrapper {
             max-height: none;
