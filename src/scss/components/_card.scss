@@ -1,11 +1,11 @@
-.card{
+.card {
     max-width: 900px;
     padding: 30px 45px 35px 65px;
-    border: 1px solid #E4E4E4;
+    border: 1px solid #e4e4e4;
     position: relative;
     margin: 0;
     background: #fff;
-    &:before{
+    &:before {
         content: '';
         width: 80px;
         height: 80px;
@@ -13,49 +13,54 @@
         position: absolute;
         top: -20px;
         left: -40px;
-        background: linear-gradient(0deg, rgba(#000, 0.68) 0%, rgba(#000, 0.0001) 100%), #E8532A;
+        background: linear-gradient(
+                0deg,
+                rgba(#000, 0.68) 0%,
+                rgba(#000, 0.0001) 100%
+            ),
+            #e8532a;
         background-blend-mode: overlay, normal;
         opacity: 0.9;
     }
-    &.padding-big{
+    &.padding-big {
         padding-top: 45px;
         padding-bottom: 75px;
     }
-    + .card{
+    + .card {
         margin-top: 50px;
     }
-    .icon{
+    .icon {
         position: absolute;
         z-index: 3;
         color: #fff;
     }
-    .icon-people{
+    .icon-people {
         width: 49px;
         height: 45px;
         top: 0;
         left: -25px;
     }
-    .icon-quote{
+    .icon-quote {
         width: 25px;
         height: 20px;
         top: 8px;
         left: -13px;
     }
-    .logo{
-        position: absolute;
-        top: 20px;
-        right: 25px;
+    .logo {
+        max-width: 50%;
+        float: right;
+        margin: -20px -20px 20px 20px;
     }
-    h3{
+    h3 {
         padding: 10px 0 5px;
         color: $txt;
     }
-    p{
+    p {
         font-size: 1.4rem;
     }
 }
 
-.card-title{
+.card-title {
     display: block;
     margin: 0 0 5px;
     text-transform: uppercase;
@@ -64,4 +69,14 @@
     letter-spacing: 1.2px;
     font-style: normal;
     color: $orange;
+}
+
+@media (max-width: $phone) {
+    .card {
+        .logo {
+            max-width: 100%;
+            float: none;
+            margin: 0 0 20px;
+        }
+    }
 }
