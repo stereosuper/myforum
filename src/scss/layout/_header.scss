@@ -46,6 +46,13 @@
             width: 24px;
             height: 21px;
         }
+        &:hover,
+        &:focus {
+            color: #fff;
+            .icon {
+                transform: scale(1.1);
+            }
+        }
     }
 }
 
