@@ -20,7 +20,7 @@ const config = (env, options) => {
                     test: /\.js$/,
                     enforce: 'pre',
                     loader: 'eslint-loader',
-                    exclude: /(node_modules)/,
+                    include: [/node_modules\/@stereorepo/, path.resolve(__dirname, 'src', 'js')],
                     options: {
                         sourceMap: devMode
                     }
