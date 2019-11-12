@@ -29,8 +29,7 @@ const preloadHandler = () => {
         popin.addEventListener(
             'click',
             e => {
-                if (e.target.classList.contains('popin'))
-                    popin.classList.add('off');
+                if (e.target.classList.contains('popin')) popin.classList.add('off');
             },
             false
         );

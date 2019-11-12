@@ -12,8 +12,7 @@ const io = function() {
                 entries.forEach(entry => {
                     if (entry.intersectionRatio > 0.15) {
                         this[`${entry.target.dataset.io}In`](entry.target);
-                        if (entry.target.hasAttribute('data-io-single'))
-                            observer.unobserve(entry.target);
+                        if (entry.target.hasAttribute('data-io-single')) observer.unobserve(entry.target);
                     } else if (entry.intersectionRatio < 0.15) {
                         this[`${entry.target.dataset.io}Out`](entry.target);
                     }

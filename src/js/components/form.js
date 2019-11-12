@@ -31,9 +31,7 @@ class Form {
     }
     initializeActive() {
         if (superWindow.windowWidth > 580) {
-            this.dataStepIndex = this.form.dataset.section
-                ? parseInt(this.form.dataset.section, 10) - 1
-                : 0;
+            this.dataStepIndex = this.form.dataset.section ? parseInt(this.form.dataset.section, 10) - 1 : 0;
             if (this.steps[this.dataStepIndex]) {
                 this.steps[this.dataStepIndex].classList.add('active-step');
                 TweenMax.to(this.form, 0.3, {
@@ -43,14 +41,10 @@ class Form {
                     x: `${this.dataStepIndex * -55}px`
                 });
                 const height = `${
-                    this.steps[this.dataStepIndex].querySelector(
-                        '.js-form-accordion-content'
-                    ).clientHeight
+                    this.steps[this.dataStepIndex].querySelector('.js-form-accordion-content').clientHeight
                 }px`;
 
-                this.steps[this.dataStepIndex].closest(
-                    '.js-form-steps'
-                ).style.height = height;
+                this.steps[this.dataStepIndex].closest('.js-form-steps').style.height = height;
                 this.form.style.height = height;
             }
         }
@@ -61,11 +55,9 @@ class Form {
     }
     setFollowingIndex({ direction, index }) {
         if (direction === 'next') {
-            this.followingIndex =
-                index !== undefined ? index : this.activeStepIndex + 1;
+            this.followingIndex = index !== undefined ? index : this.activeStepIndex + 1;
         } else if (direction === 'prev') {
-            this.followingIndex =
-                index !== undefined ? index : this.activeStepIndex - 1;
+            this.followingIndex = index !== undefined ? index : this.activeStepIndex - 1;
         }
     }
     checkHasFollowing({ direction, index, callback }) {
@@ -73,10 +65,7 @@ class Form {
             direction,
             index
         });
-        if (
-            this.steps[this.followingIndex] &&
-            !TweenMax.isTweening(this.form)
-        ) {
+        if (this.steps[this.followingIndex] && !TweenMax.isTweening(this.form)) {
             callback();
         }
     }
@@ -90,14 +79,9 @@ class Form {
             x: `${this.followingIndex * -55}px`
         });
 
-        const height =
-            this.steps[this.followingIndex].querySelector(
-                '.js-form-accordion-content'
-            ).clientHeight + 'px';
+        const height = this.steps[this.followingIndex].querySelector('.js-form-accordion-content').clientHeight + 'px';
 
-        this.steps[this.followingIndex].closest(
-            '.js-form-steps'
-        ).style.height = height;
+        this.steps[this.followingIndex].closest('.js-form-steps').style.height = height;
 
         this.form.style.height = height;
 
