@@ -1,10 +1,10 @@
-import { query, forEach, superPolyfill } from '@stereorepo/sac';
+import { query, forEach, ioPolyfill } from '@stereorepo/sac';
 
 const io = function() {
     this.resized = true;
 
     this.init = () => {
-        superPolyfill.initializeIntersectionObserver();
+        ioPolyfill();
 
         const objectsToIO = query({ selector: '[data-io]' });
         const observer = new IntersectionObserver(

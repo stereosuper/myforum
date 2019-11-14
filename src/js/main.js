@@ -1,5 +1,6 @@
 import '../scss/main.scss';
-import { superLoad, query } from '@stereorepo/sac';
+import '@babel/polyfill';
+import { useSacVanilla, useSuperLoad, useSuperWindow, ie11Polyfills, query } from '@stereorepo/sac';
 
 import io from './components/io';
 
@@ -8,6 +9,7 @@ import animHome from './components/animHome';
 import accordion from './components/accordion';
 
 const preloadHandler = () => {
+    ie11Polyfills();
     io.init();
 
     animHome();
@@ -52,7 +54,12 @@ const loadHandler = () => {
     form.initialize();
 };
 
-superLoad.initializeLoadingShit({
+// Init superComponents
+useSacVanilla();
+useSuperLoad();
+useSuperWindow();
+
+window.$stereorepo.superLoad.initializeLoadingShit({
     preloadCallback: preloadHandler,
     loadCallback: loadHandler,
     noTransElementsClass: '.element-without-transition-on-resize'

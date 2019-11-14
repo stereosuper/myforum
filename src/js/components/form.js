@@ -1,10 +1,12 @@
-import { query, forEach, superWindow } from '@stereorepo/sac';
+import { query, forEach } from '@stereorepo/sac';
 import { TweenMax } from 'gsap';
 import { Draggable } from 'gsap/Draggable';
 import ThrowPropsPlugin from '../plugins/ThrowPropsPlugin';
 
 // NOTE: We need to use ThrowPropsPlugin in order to ensure that the plugin won't be tree-shaked
+/* eslint-disable */
 const ensureThrowProps = ThrowPropsPlugin;
+/* eslint-enable */
 
 class Form {
     constructor() {
@@ -30,7 +32,7 @@ class Form {
         });
     }
     initializeActive() {
-        if (superWindow.windowWidth > 580) {
+        if (window.$stereorepo.superWindow.windowWidth > 580) {
             this.dataStepIndex = this.form.dataset.section ? parseInt(this.form.dataset.section, 10) - 1 : 0;
             if (this.steps[this.dataStepIndex]) {
                 this.steps[this.dataStepIndex].classList.add('active-step');
@@ -205,7 +207,7 @@ class Form {
         this.setupButtonNavigation();
         this.draggableButtonNavigation();
 
-        superWindow.addResizeFunction(this.resizeHandler);
+        window.$stereorepo.superWindow.addResizeFunction(this.resizeHandler);
     }
     resizeHandler() {
         forEach(this.stepsWrappers, stepsWrapper => {
@@ -213,7 +215,7 @@ class Form {
                 selector: '.form-step',
                 ctx: stepsWrapper
             });
-            if (superWindow.windowWidth > 580) {
+            if (window.$stereorepo.superWindow.windowWidth > 580) {
                 TweenMax.set(stepsWrapper, {
                     minWidth: `${formStep.length * 100}%`
                 });

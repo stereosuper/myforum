@@ -1,4 +1,3 @@
-import { superWindow } from '@stereorepo/sac';
 import { Accordion } from '@stereorepo/accordion';
 
 // HACK: Simulating click
@@ -44,12 +43,12 @@ const accordionHandler = () => {
     });
 
     const accordionsInstanceHandler = accordions => {
-        if (superWindow.windowWidth <= 580 && !state.accordionsFormInitiated) {
+        if (window.$stereorepo.superWindow.windowWidth <= 580 && !state.accordionsFormInitiated) {
             //console.log(accordions);
             state.accordionsFormInitiated = true;
 
             accordions.initializeAccordions();
-        } else if (superWindow.windowWidth > 580) {
+        } else if (window.$stereorepo.superWindow.windowWidth > 580) {
             state.accordionsFormInitiated = false;
 
             accordions.destroyAccordions();
@@ -59,7 +58,7 @@ const accordionHandler = () => {
     accordionsAccount.initializeAccordions();
     accordionsInstanceHandler(accordionsForm);
 
-    superWindow.addResizeEndFunction(() => {
+    window.$stereorepo.superWindow.addResizeEndFunction(() => {
         accordionsInstanceHandler(accordionsForm);
     });
 

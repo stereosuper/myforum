@@ -1,4 +1,4 @@
-import { query, isDisplayed, superWindow } from '@stereorepo/sac';
+import { query, isDisplayed } from '@stereorepo/sac';
 
 const animHome = () => {
     const [imgHome] = query({ selector: '#img-home' });
@@ -30,7 +30,7 @@ const animHome = () => {
         false
     );
 
-    superWindow.addResizeEndFunction(() => {
+    window.$stereorepo.superWindow.addResizeEndFunction(() => {
         imgHome.style.width = '100%';
         imgHomeBoundings = imgHome.getBoundingClientRect();
         imgX = imgHomeBoundings.left;
