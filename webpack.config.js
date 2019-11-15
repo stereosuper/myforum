@@ -90,8 +90,10 @@ let config = (env, options) => {
         entry: './src/js/main.js',
         output: {
             path: path.resolve(__dirname, 'dest'),
-            filename: 'main.js',
-            publicPath: '/'
+            filename: 'js/[name].js',
+            publicPath: '/',
+            sourceMapFilename: 'js/[file].map?[contenthash]',
+            chunkFilename: 'js/[name].js'
         },
         devtool: devMode ? 'source-map' : '',
         module: {
