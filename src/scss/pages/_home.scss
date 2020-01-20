@@ -5,7 +5,8 @@
     .img {
         display: flex;
         border-left: 4px solid transparent;
-        justify-content: flex-end;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
         position: absolute;
         bottom: -5%;
         right: -100px;
