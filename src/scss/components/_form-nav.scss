@@ -35,6 +35,7 @@
 }
 
 .form-nav {
+    display: flex;
     padding: 15px 0 0;
     position: absolute;
     left: 0;
@@ -45,6 +46,7 @@
 }
 
 .form-nav-steps {
+    flex: 1 0 auto;
     display: inline-flex;
     padding: 0 0 0 $gutter;
     margin: 0;
@@ -198,11 +200,7 @@
         &:focus {
             > .point {
                 transform: scale(1.3);
-                background: linear-gradient(
-                    90deg,
-                    rgba(#c63642, 0.5) 1.2%,
-                    rgba(#f25b1a, 0.5) 83.25%
-                );
+                background: linear-gradient(90deg, rgba(#c63642, 0.5) 1.2%, rgba(#f25b1a, 0.5) 83.25%);
                 &::after {
                     border-color: #f25b1a;
                 }
